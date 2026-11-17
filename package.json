@@ -1,0 +1,13 @@
+{
+  "name": "deadshows-archive",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "A reproducible Grateful Dead recording archive and static explorer",
+  "scripts": {
+    "build": "python3 scripts/build.py",
+    "test": "python3 -m unittest discover -s tests -v && node --test tests/analytics.test.mjs",
+    "dev": "python3 scripts/serve.py",
+    "check:release": "python3 scripts/check_release.py"
+  }
+}

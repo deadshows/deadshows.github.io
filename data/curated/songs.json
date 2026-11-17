@@ -1,0 +1,2235 @@
+{
+  "note": "Conservative title aliases only. Compound tracks and unidentified titles are retained as unresolved evidence, never split into invented performances.",
+  "songs": [
+    {
+      "id": "dark-star",
+      "title": "Dark Star",
+      "aliases": [
+        "Dark Star"
+      ]
+    },
+    {
+      "id": "playing-in-the-band",
+      "title": "Playing in the Band",
+      "aliases": [
+        "Playing In The Band",
+        "Playin' In The Band",
+        "Playin In The Band",
+        "Playing In The Band (Reprise)",
+        "Playing In The Band Reprise",
+        "Playin' In The Band Reprise",
+        "Playin' Reprise"
+      ]
+    },
+    {
+      "id": "the-other-one",
+      "title": "The Other One",
+      "aliases": [
+        "The Other One",
+        "Other One"
+      ]
+    },
+    {
+      "id": "scarlet-begonias",
+      "title": "Scarlet Begonias",
+      "aliases": [
+        "Scarlet Begonias"
+      ]
+    },
+    {
+      "id": "fire-on-the-mountain",
+      "title": "Fire on the Mountain",
+      "aliases": [
+        "Fire On The Mountain"
+      ]
+    },
+    {
+      "id": "china-cat-sunflower",
+      "title": "China Cat Sunflower",
+      "aliases": [
+        "China Cat Sunflower"
+      ]
+    },
+    {
+      "id": "i-know-you-rider",
+      "title": "I Know You Rider",
+      "aliases": [
+        "I Know You Rider"
+      ]
+    },
+    {
+      "id": "saint-stephen",
+      "title": "St. Stephen",
+      "aliases": [
+        "St. Stephen",
+        "Saint Stephen",
+        "St Stephen"
+      ]
+    },
+    {
+      "id": "not-fade-away",
+      "title": "Not Fade Away",
+      "aliases": [
+        "Not Fade Away"
+      ]
+    },
+    {
+      "id": "going-down-the-road-feeling-bad",
+      "title": "Goin’ Down the Road Feeling Bad",
+      "aliases": [
+        "Goin' Down The Road Feeling Bad",
+        "Going Down The Road Feeling Bad",
+        "Goin' Down The Road Feelin' Bad",
+        "Goin Down The Road Feeling Bad",
+        "GDTRFB"
+      ]
+    },
+    {
+      "id": "sugar-magnolia",
+      "title": "Sugar Magnolia",
+      "aliases": [
+        "Sugar Magnolia"
+      ]
+    },
+    {
+      "id": "sunshine-daydream",
+      "title": "Sunshine Daydream",
+      "aliases": [
+        "Sunshine Daydream"
+      ]
+    },
+    {
+      "id": "eyes-of-the-world",
+      "title": "Eyes of the World",
+      "aliases": [
+        "Eyes Of The World"
+      ]
+    },
+    {
+      "id": "help-on-the-way",
+      "title": "Help on the Way",
+      "aliases": [
+        "Help On The Way"
+      ]
+    },
+    {
+      "id": "slipknot",
+      "title": "Slipknot!",
+      "aliases": [
+        "Slipknot!",
+        "Slipknot"
+      ]
+    },
+    {
+      "id": "franklins-tower",
+      "title": "Franklin’s Tower",
+      "aliases": [
+        "Franklin's Tower",
+        "Franklins Tower"
+      ]
+    },
+    {
+      "id": "drums",
+      "title": "Drums",
+      "kind": "improvisation",
+      "aliases": [
+        "Drums",
+        "Drum Solo",
+        "Drumz"
+      ]
+    },
+    {
+      "id": "space",
+      "title": "Space",
+      "kind": "improvisation",
+      "aliases": [
+        "Space",
+        "Space (PITB Theme)"
+      ]
+    },
+    {
+      "id": "jam",
+      "title": "Jam",
+      "kind": "improvisation",
+      "aliases": [
+        "Jam"
+      ]
+    },
+    {
+      "id": "morning-dew",
+      "title": "Morning Dew",
+      "aliases": [
+        "Morning Dew"
+      ]
+    },
+    {
+      "id": "bird-song",
+      "title": "Bird Song",
+      "aliases": [
+        "Bird Song",
+        "Birdsong"
+      ]
+    },
+    {
+      "id": "uncle-johns-band",
+      "title": "Uncle John’s Band",
+      "aliases": [
+        "Uncle John's Band",
+        "Uncle Johns Band"
+      ]
+    },
+    {
+      "id": "truckin",
+      "title": "Truckin’",
+      "aliases": [
+        "Truckin'",
+        "Truckin"
+      ]
+    },
+    {
+      "id": "hes-gone",
+      "title": "He’s Gone",
+      "aliases": [
+        "He's Gone",
+        "Hes Gone"
+      ]
+    },
+    {
+      "id": "brown-eyed-women",
+      "title": "Brown-Eyed Women",
+      "aliases": [
+        "Brown Eyed Women",
+        "Brown-Eyed Women"
+      ]
+    },
+    {
+      "id": "peggy-o",
+      "title": "Peggy-O",
+      "aliases": [
+        "Peggy-O",
+        "Peggy O",
+        "Peggy-o",
+        "Fennario (Pretty Peggy-O)"
+      ]
+    },
+    {
+      "id": "me-and-my-uncle",
+      "title": "Me and My Uncle",
+      "aliases": [
+        "Me And My Uncle",
+        "Me & My Uncle"
+      ]
+    },
+    {
+      "id": "one-more-saturday-night",
+      "title": "One More Saturday Night",
+      "aliases": [
+        "One More Saturday Night",
+        "Saturday Night"
+      ]
+    },
+    {
+      "id": "tennessee-jed",
+      "title": "Tennessee Jed",
+      "aliases": [
+        "Tennessee Jed",
+        "Tenessee Jed"
+      ]
+    },
+    {
+      "id": "jack-straw",
+      "title": "Jack Straw",
+      "aliases": [
+        "Jack Straw"
+      ]
+    },
+    {
+      "id": "bertha",
+      "title": "Bertha",
+      "aliases": [
+        "Bertha"
+      ]
+    },
+    {
+      "id": "deal",
+      "title": "Deal",
+      "aliases": [
+        "Deal"
+      ]
+    },
+    {
+      "id": "ripple",
+      "title": "Ripple",
+      "aliases": [
+        "Ripple"
+      ]
+    },
+    {
+      "id": "terrapin-station",
+      "title": "Terrapin Station",
+      "aliases": [
+        "Terrapin Station",
+        "Terrapin"
+      ]
+    },
+    {
+      "id": "estimated-prophet",
+      "title": "Estimated Prophet",
+      "aliases": [
+        "Estimated Prophet",
+        "Esimated Prophet"
+      ]
+    },
+    {
+      "id": "looks-like-rain",
+      "title": "Looks Like Rain",
+      "aliases": [
+        "Looks Like Rain"
+      ]
+    },
+    {
+      "id": "broke-down-palace",
+      "title": "Brokedown Palace",
+      "aliases": [
+        "Brokedown Palace",
+        "Broke Down Palace"
+      ]
+    },
+    {
+      "id": "alabama-getaway",
+      "title": "Alabama Getaway",
+      "kind": "song",
+      "aliases": [
+        "Alabama Getaway"
+      ]
+    },
+    {
+      "id": "all-along-the-watchtower",
+      "title": "All Along the Watchtower",
+      "kind": "song",
+      "aliases": [
+        "All Along the Watchtower"
+      ]
+    },
+    {
+      "id": "alligator",
+      "title": "Alligator",
+      "kind": "song",
+      "aliases": [
+        "Alligator"
+      ]
+    },
+    {
+      "id": "althea",
+      "title": "Althea",
+      "kind": "song",
+      "aliases": [
+        "Althea"
+      ]
+    },
+    {
+      "id": "and-we-bid-you-goodnight",
+      "title": "And We Bid You Goodnight",
+      "kind": "song",
+      "aliases": [
+        "And We Bid You Goodnight",
+        "And We Bid You Good Night",
+        "We Bid You Good Night"
+      ]
+    },
+    {
+      "id": "around-and-around",
+      "title": "Around and Around",
+      "kind": "song",
+      "aliases": [
+        "Around and Around",
+        "Around & Around",
+        "Around And Around [tape flip patched]"
+      ]
+    },
+    {
+      "id": "attics-of-my-life",
+      "title": "Attics of My Life",
+      "kind": "song",
+      "aliases": [
+        "Attics of My Life"
+      ]
+    },
+    {
+      "id": "baba-oriley",
+      "title": "Baba O’Riley",
+      "kind": "song",
+      "aliases": [
+        "Baba O’Riley"
+      ]
+    },
+    {
+      "id": "beat-it-on-down-the-line",
+      "title": "Beat It on Down the Line",
+      "kind": "song",
+      "aliases": [
+        "Beat It on Down the Line",
+        "Beat it One Down The Line"
+      ]
+    },
+    {
+      "id": "big-boss-man",
+      "title": "Big Boss Man",
+      "kind": "song",
+      "aliases": [
+        "Big Boss Man"
+      ]
+    },
+    {
+      "id": "big-railroad-blues",
+      "title": "Big Railroad Blues",
+      "kind": "song",
+      "aliases": [
+        "Big Railroad Blues",
+        "Big RR Blues"
+      ]
+    },
+    {
+      "id": "big-river",
+      "title": "Big River",
+      "kind": "song",
+      "aliases": [
+        "Big River"
+      ]
+    },
+    {
+      "id": "black-muddy-river",
+      "title": "Black Muddy River",
+      "kind": "song",
+      "aliases": [
+        "Black Muddy River"
+      ]
+    },
+    {
+      "id": "black-peter",
+      "title": "Black Peter",
+      "kind": "song",
+      "aliases": [
+        "Black Peter"
+      ]
+    },
+    {
+      "id": "black-throated-wind",
+      "title": "Black-Throated Wind",
+      "kind": "song",
+      "aliases": [
+        "Black-Throated Wind"
+      ]
+    },
+    {
+      "id": "blow-away",
+      "title": "Blow Away",
+      "kind": "song",
+      "aliases": [
+        "Blow Away"
+      ]
+    },
+    {
+      "id": "born-cross-eyed",
+      "title": "Born Cross-Eyed",
+      "kind": "song",
+      "aliases": [
+        "Born Cross-Eyed"
+      ]
+    },
+    {
+      "id": "box-of-rain",
+      "title": "Box of Rain",
+      "kind": "song",
+      "aliases": [
+        "Box of Rain"
+      ]
+    },
+    {
+      "id": "broken-arrow",
+      "title": "Broken Arrow",
+      "kind": "song",
+      "aliases": [
+        "Broken Arrow"
+      ]
+    },
+    {
+      "id": "built-to-last",
+      "title": "Built to Last",
+      "kind": "song",
+      "aliases": [
+        "Built to Last"
+      ]
+    },
+    {
+      "id": "candyman",
+      "title": "Candyman",
+      "kind": "song",
+      "aliases": [
+        "Candyman"
+      ]
+    },
+    {
+      "id": "casey-jones",
+      "title": "Casey Jones",
+      "kind": "song",
+      "aliases": [
+        "Casey Jones"
+      ]
+    },
+    {
+      "id": "cassidy",
+      "title": "Cassidy",
+      "kind": "song",
+      "aliases": [
+        "Cassidy"
+      ]
+    },
+    {
+      "id": "caution-do-not-stop-on-tracks",
+      "title": "Caution (Do Not Stop on Tracks)",
+      "kind": "song",
+      "aliases": [
+        "Caution (Do Not Stop on Tracks)",
+        "Caution",
+        "Caution (Do Not Step on Tracks)"
+      ]
+    },
+    {
+      "id": "chinatown-shuffle",
+      "title": "Chinatown Shuffle",
+      "kind": "song",
+      "aliases": [
+        "Chinatown Shuffle"
+      ]
+    },
+    {
+      "id": "china-doll",
+      "title": "China Doll",
+      "kind": "song",
+      "aliases": [
+        "China Doll"
+      ]
+    },
+    {
+      "id": "cold-rain-and-snow",
+      "title": "Cold Rain and Snow",
+      "kind": "song",
+      "aliases": [
+        "Cold Rain and Snow",
+        "Cold Rain & Snow"
+      ]
+    },
+    {
+      "id": "cold-jordan",
+      "title": "Cold Jordan",
+      "kind": "song",
+      "aliases": [
+        "Cold Jordan",
+        "Cold Jordon"
+      ]
+    },
+    {
+      "id": "comes-a-time",
+      "title": "Comes a Time",
+      "kind": "song",
+      "aliases": [
+        "Comes a Time",
+        "Come A Time"
+      ]
+    },
+    {
+      "id": "corrina",
+      "title": "Corrina",
+      "kind": "song",
+      "aliases": [
+        "Corrina"
+      ]
+    },
+    {
+      "id": "cosmic-charlie",
+      "title": "Cosmic Charlie",
+      "kind": "song",
+      "aliases": [
+        "Cosmic Charlie"
+      ]
+    },
+    {
+      "id": "crazy-fingers",
+      "title": "Crazy Fingers",
+      "kind": "song",
+      "aliases": [
+        "Crazy Fingers"
+      ]
+    },
+    {
+      "id": "cream-puff-war",
+      "title": "Cream Puff War",
+      "kind": "song",
+      "aliases": [
+        "Cream Puff War"
+      ]
+    },
+    {
+      "id": "cryptical-envelopment",
+      "title": "Cryptical Envelopment",
+      "kind": "song",
+      "aliases": [
+        "Cryptical Envelopment",
+        "Cryptical Envelopement"
+      ]
+    },
+    {
+      "id": "cumberland-blues",
+      "title": "Cumberland Blues",
+      "kind": "song",
+      "aliases": [
+        "Cumberland Blues"
+      ]
+    },
+    {
+      "id": "dancing-in-the-street",
+      "title": "Dancing in the Street",
+      "kind": "song",
+      "aliases": [
+        "Dancing in the Street",
+        "Dancin’ In The Street",
+        "Dancin’ in the Streets",
+        "Dancing In The Streets"
+      ]
+    },
+    {
+      "id": "day-job",
+      "title": "Day Job",
+      "kind": "song",
+      "aliases": [
+        "Day Job",
+        "Keep Your Day Job"
+      ]
+    },
+    {
+      "id": "days-between",
+      "title": "Days Between",
+      "kind": "song",
+      "aliases": [
+        "Days Between"
+      ]
+    },
+    {
+      "id": "dear-mr-fantasy",
+      "title": "Dear Mr. Fantasy",
+      "kind": "song",
+      "aliases": [
+        "Dear Mr. Fantasy"
+      ]
+    },
+    {
+      "id": "death-dont-have-no-mercy",
+      "title": "Death Don’t Have No Mercy",
+      "kind": "song",
+      "aliases": [
+        "Death Don’t Have No Mercy"
+      ]
+    },
+    {
+      "id": "deep-elem-blues",
+      "title": "Deep Elem Blues",
+      "kind": "song",
+      "aliases": [
+        "Deep Elem Blues"
+      ]
+    },
+    {
+      "id": "desolation-row",
+      "title": "Desolation Row",
+      "kind": "song",
+      "aliases": [
+        "Desolation Row"
+      ]
+    },
+    {
+      "id": "dire-wolf",
+      "title": "Dire Wolf",
+      "kind": "song",
+      "aliases": [
+        "Dire Wolf"
+      ]
+    },
+    {
+      "id": "doin-that-rag",
+      "title": "Doin’ That Rag",
+      "kind": "song",
+      "aliases": [
+        "Doin’ That Rag"
+      ]
+    },
+    {
+      "id": "dont-ease-me-in",
+      "title": "Don’t Ease Me In",
+      "kind": "song",
+      "aliases": [
+        "Don’t Ease Me In"
+      ]
+    },
+    {
+      "id": "duprees-diamond-blues",
+      "title": "Dupree’s Diamond Blues",
+      "kind": "song",
+      "aliases": [
+        "Dupree’s Diamond Blues",
+        "Duprees Diamond Blues"
+      ]
+    },
+    {
+      "id": "early-morning-rain",
+      "title": "Early Morning Rain",
+      "kind": "song",
+      "aliases": [
+        "Early Morning Rain"
+      ]
+    },
+    {
+      "id": "easy-answers",
+      "title": "Easy Answers",
+      "kind": "song",
+      "aliases": [
+        "Easy Answers"
+      ]
+    },
+    {
+      "id": "el-paso",
+      "title": "El Paso",
+      "kind": "song",
+      "aliases": [
+        "El Paso"
+      ]
+    },
+    {
+      "id": "far-from-me",
+      "title": "Far From Me",
+      "kind": "song",
+      "aliases": [
+        "Far From Me"
+      ]
+    },
+    {
+      "id": "feedback",
+      "title": "Feedback",
+      "kind": "improvisation",
+      "aliases": [
+        "Feedback"
+      ]
+    },
+    {
+      "id": "feel-like-a-stranger",
+      "title": "Feel Like a Stranger",
+      "kind": "song",
+      "aliases": [
+        "Feel Like a Stranger"
+      ]
+    },
+    {
+      "id": "foolish-heart",
+      "title": "Foolish Heart",
+      "kind": "song",
+      "aliases": [
+        "Foolish Heart"
+      ]
+    },
+    {
+      "id": "friend-of-the-devil",
+      "title": "Friend of the Devil",
+      "kind": "song",
+      "aliases": [
+        "Friend of the Devil"
+      ]
+    },
+    {
+      "id": "from-the-heart-of-me",
+      "title": "From the Heart of Me",
+      "kind": "song",
+      "aliases": [
+        "From the Heart of Me"
+      ]
+    },
+    {
+      "id": "gimme-some-lovin",
+      "title": "Gimme Some Lovin’",
+      "kind": "song",
+      "aliases": [
+        "Gimme Some Lovin’"
+      ]
+    },
+    {
+      "id": "good-lovin",
+      "title": "Good Lovin’",
+      "kind": "song",
+      "aliases": [
+        "Good Lovin’",
+        "Gool Lovin'"
+      ]
+    },
+    {
+      "id": "good-morning-little-schoolgirl",
+      "title": "Good Morning Little Schoolgirl",
+      "kind": "song",
+      "aliases": [
+        "Good Morning Little Schoolgirl",
+        "Good Morning Little School Girl"
+      ]
+    },
+    {
+      "id": "greatest-story-ever-told",
+      "title": "Greatest Story Ever Told",
+      "kind": "song",
+      "aliases": [
+        "Greatest Story Ever Told"
+      ]
+    },
+    {
+      "id": "hard-to-handle",
+      "title": "Hard to Handle",
+      "kind": "song",
+      "aliases": [
+        "Hard to Handle"
+      ]
+    },
+    {
+      "id": "he-was-a-friend-of-mine",
+      "title": "He Was a Friend of Mine",
+      "kind": "song",
+      "aliases": [
+        "He Was a Friend of Mine"
+      ]
+    },
+    {
+      "id": "heaven-help-the-fool",
+      "title": "Heaven Help the Fool",
+      "kind": "song",
+      "aliases": [
+        "Heaven Help the Fool"
+      ]
+    },
+    {
+      "id": "hell-in-a-bucket",
+      "title": "Hell in a Bucket",
+      "kind": "song",
+      "aliases": [
+        "Hell in a Bucket"
+      ]
+    },
+    {
+      "id": "here-comes-sunshine",
+      "title": "Here Comes Sunshine",
+      "kind": "song",
+      "aliases": [
+        "Here Comes Sunshine"
+      ]
+    },
+    {
+      "id": "hey-jude",
+      "title": "Hey Jude",
+      "kind": "song",
+      "aliases": [
+        "Hey Jude"
+      ]
+    },
+    {
+      "id": "high-time",
+      "title": "High Time",
+      "kind": "song",
+      "aliases": [
+        "High Time"
+      ]
+    },
+    {
+      "id": "i-cant-get-no-satisfaction",
+      "title": "I Can’t Get No Satisfaction",
+      "kind": "song",
+      "aliases": [
+        "I Can’t Get No Satisfaction",
+        "Satisfaction"
+      ]
+    },
+    {
+      "id": "i-fought-the-law",
+      "title": "I Fought the Law",
+      "kind": "song",
+      "aliases": [
+        "I Fought the Law"
+      ]
+    },
+    {
+      "id": "i-need-a-miracle",
+      "title": "I Need a Miracle",
+      "kind": "song",
+      "aliases": [
+        "I Need a Miracle"
+      ]
+    },
+    {
+      "id": "i-second-that-emotion",
+      "title": "I Second That Emotion",
+      "kind": "song",
+      "aliases": [
+        "I Second That Emotion"
+      ]
+    },
+    {
+      "id": "i-will-take-you-home",
+      "title": "I Will Take You Home",
+      "kind": "song",
+      "aliases": [
+        "I Will Take You Home"
+      ]
+    },
+    {
+      "id": "ive-been-all-around-this-world",
+      "title": "I’ve Been All Around This World",
+      "kind": "song",
+      "aliases": [
+        "I’ve Been All Around This World"
+      ]
+    },
+    {
+      "id": "if-the-shoe-fits",
+      "title": "If the Shoe Fits",
+      "kind": "song",
+      "aliases": [
+        "If the Shoe Fits"
+      ]
+    },
+    {
+      "id": "iko-iko",
+      "title": "Iko Iko",
+      "kind": "song",
+      "aliases": [
+        "Iko Iko"
+      ]
+    },
+    {
+      "id": "in-the-midnight-hour",
+      "title": "In the Midnight Hour",
+      "kind": "song",
+      "aliases": [
+        "In the Midnight Hour",
+        "Midnight Hour"
+      ]
+    },
+    {
+      "id": "in-the-pines",
+      "title": "In the Pines",
+      "kind": "song",
+      "aliases": [
+        "In the Pines"
+      ]
+    },
+    {
+      "id": "it-hurts-me-too",
+      "title": "It Hurts Me Too",
+      "kind": "song",
+      "aliases": [
+        "It Hurts Me Too",
+        "Hurts Me Too"
+      ]
+    },
+    {
+      "id": "it-must-have-been-the-roses",
+      "title": "It Must Have Been the Roses",
+      "kind": "song",
+      "aliases": [
+        "It Must Have Been the Roses"
+      ]
+    },
+    {
+      "id": "its-a-sin",
+      "title": "It’s a Sin",
+      "kind": "song",
+      "aliases": [
+        "It’s a Sin"
+      ]
+    },
+    {
+      "id": "its-all-over-now",
+      "title": "It’s All Over Now",
+      "kind": "song",
+      "aliases": [
+        "It’s All Over Now",
+        "All Over Now"
+      ]
+    },
+    {
+      "id": "its-all-over-now-baby-blue",
+      "title": "It’s All Over Now, Baby Blue",
+      "kind": "song",
+      "aliases": [
+        "It’s All Over Now, Baby Blue"
+      ]
+    },
+    {
+      "id": "its-a-mans-world",
+      "title": "It’s a Man’s World",
+      "kind": "song",
+      "aliases": [
+        "It’s a Man’s World",
+        "It's A Man's, Man's, Man's World"
+      ]
+    },
+    {
+      "id": "jack-a-roe",
+      "title": "Jack-A-Roe",
+      "kind": "song",
+      "aliases": [
+        "Jack-A-Roe"
+      ]
+    },
+    {
+      "id": "johnny-b-goode",
+      "title": "Johnny B. Goode",
+      "kind": "song",
+      "aliases": [
+        "Johnny B. Goode"
+      ]
+    },
+    {
+      "id": "just-a-little-light",
+      "title": "Just a Little Light",
+      "kind": "song",
+      "aliases": [
+        "Just a Little Light"
+      ]
+    },
+    {
+      "id": "keep-on-growing",
+      "title": "Keep on Growing",
+      "kind": "song",
+      "aliases": [
+        "Keep on Growing"
+      ]
+    },
+    {
+      "id": "knockin-on-heavens-door",
+      "title": "Knockin’ on Heaven’s Door",
+      "kind": "song",
+      "aliases": [
+        "Knockin’ on Heaven’s Door",
+        "Knocking on Heavens door"
+      ]
+    },
+    {
+      "id": "la-bamba",
+      "title": "La Bamba",
+      "kind": "song",
+      "aliases": [
+        "La Bamba"
+      ]
+    },
+    {
+      "id": "lazy-lightning",
+      "title": "Lazy Lightning",
+      "kind": "song",
+      "aliases": [
+        "Lazy Lightning",
+        "Lazy Lightnin’"
+      ]
+    },
+    {
+      "id": "lazy-river-road",
+      "title": "Lazy River Road",
+      "kind": "song",
+      "aliases": [
+        "Lazy River Road"
+      ]
+    },
+    {
+      "id": "let-it-grow",
+      "title": "Let It Grow",
+      "kind": "song",
+      "aliases": [
+        "Let It Grow"
+      ]
+    },
+    {
+      "id": "let-it-rock",
+      "title": "Let It Rock",
+      "kind": "song",
+      "aliases": [
+        "Let It Rock"
+      ]
+    },
+    {
+      "id": "let-the-good-times-roll",
+      "title": "Let the Good Times Roll",
+      "kind": "song",
+      "aliases": [
+        "Let the Good Times Roll"
+      ]
+    },
+    {
+      "id": "liberty",
+      "title": "Liberty",
+      "kind": "song",
+      "aliases": [
+        "Liberty"
+      ]
+    },
+    {
+      "id": "little-red-rooster",
+      "title": "Little Red Rooster",
+      "kind": "song",
+      "aliases": [
+        "Little Red Rooster"
+      ]
+    },
+    {
+      "id": "little-sadie",
+      "title": "Little Sadie",
+      "kind": "song",
+      "aliases": [
+        "Little Sadie"
+      ]
+    },
+    {
+      "id": "loose-lucy",
+      "title": "Loose Lucy",
+      "kind": "song",
+      "aliases": [
+        "Loose Lucy"
+      ]
+    },
+    {
+      "id": "loser",
+      "title": "Loser",
+      "kind": "song",
+      "aliases": [
+        "Loser"
+      ]
+    },
+    {
+      "id": "lost-sailor",
+      "title": "Lost Sailor",
+      "kind": "song",
+      "aliases": [
+        "Lost Sailor"
+      ]
+    },
+    {
+      "id": "maggies-farm",
+      "title": "Maggie’s Farm",
+      "kind": "song",
+      "aliases": [
+        "Maggie’s Farm"
+      ]
+    },
+    {
+      "id": "mama-tried",
+      "title": "Mama Tried",
+      "kind": "song",
+      "aliases": [
+        "Mama Tried"
+      ]
+    },
+    {
+      "id": "man-smart-woman-smarter",
+      "title": "Man Smart, Woman Smarter",
+      "kind": "song",
+      "aliases": [
+        "Man Smart, Woman Smarter",
+        "Man Smart Woman Smarter",
+        "Woman Are Smarter",
+        "Women are Smarter",
+        "Man Smart, Women Smarter"
+      ]
+    },
+    {
+      "id": "matilda-matilda",
+      "title": "Matilda, Matilda",
+      "kind": "song",
+      "aliases": [
+        "Matilda, Matilda"
+      ]
+    },
+    {
+      "id": "me-and-bobby-mcgee",
+      "title": "Me and Bobby McGee",
+      "kind": "song",
+      "aliases": [
+        "Me and Bobby McGee",
+        "Me & Bobby McGee"
+      ]
+    },
+    {
+      "id": "mexicali-blues",
+      "title": "Mexicali Blues",
+      "kind": "song",
+      "aliases": [
+        "Mexicali Blues"
+      ]
+    },
+    {
+      "id": "might-as-well",
+      "title": "Might as Well",
+      "kind": "song",
+      "aliases": [
+        "Might as Well"
+      ]
+    },
+    {
+      "id": "mindbender",
+      "title": "Mindbender",
+      "kind": "song",
+      "aliases": [
+        "Mindbender"
+      ]
+    },
+    {
+      "id": "mississippi-half-step-uptown-toodeloo",
+      "title": "Mississippi Half-Step Uptown Toodeloo",
+      "kind": "song",
+      "aliases": [
+        "Mississippi Half-Step Uptown Toodeloo",
+        "Mississippi Half Step Uptown Toodeloo",
+        "Mississippi Half-Step",
+        "Mississippi Half-Step Uptown Toodleloo"
+      ]
+    },
+    {
+      "id": "monkey-and-the-engineer",
+      "title": "Monkey and the Engineer",
+      "kind": "song",
+      "aliases": [
+        "Monkey and the Engineer",
+        "Monkey & The Engineer"
+      ]
+    },
+    {
+      "id": "mountains-of-the-moon",
+      "title": "Mountains of the Moon",
+      "kind": "song",
+      "aliases": [
+        "Mountains of the Moon"
+      ]
+    },
+    {
+      "id": "mr-charlie",
+      "title": "Mr. Charlie",
+      "kind": "song",
+      "aliases": [
+        "Mr. Charlie",
+        "Mister Charlie"
+      ]
+    },
+    {
+      "id": "my-brother-esau",
+      "title": "My Brother Esau",
+      "kind": "song",
+      "aliases": [
+        "My Brother Esau",
+        "Brother Esau",
+        "My Brother Essau"
+      ]
+    },
+    {
+      "id": "never-trust-a-woman",
+      "title": "Never Trust a Woman",
+      "kind": "song",
+      "aliases": [
+        "Never Trust a Woman"
+      ]
+    },
+    {
+      "id": "new-minglewood-blues",
+      "title": "New Minglewood Blues",
+      "kind": "song",
+      "aliases": [
+        "New Minglewood Blues",
+        "Minglewood Blues"
+      ]
+    },
+    {
+      "id": "new-potato-caboose",
+      "title": "New Potato Caboose",
+      "kind": "song",
+      "aliases": [
+        "New Potato Caboose"
+      ]
+    },
+    {
+      "id": "new-speedway-boogie",
+      "title": "New Speedway Boogie",
+      "kind": "song",
+      "aliases": [
+        "New Speedway Boogie"
+      ]
+    },
+    {
+      "id": "next-time-you-see-me",
+      "title": "Next Time You See Me",
+      "kind": "song",
+      "aliases": [
+        "Next Time You See Me"
+      ]
+    },
+    {
+      "id": "nobodys-fault-but-mine",
+      "title": "Nobody’s Fault but Mine",
+      "kind": "song",
+      "aliases": [
+        "Nobody’s Fault but Mine"
+      ]
+    },
+    {
+      "id": "oh-babe-it-aint-no-lie",
+      "title": "Oh Babe It Ain’t No Lie",
+      "kind": "song",
+      "aliases": [
+        "Oh Babe It Ain’t No Lie"
+      ]
+    },
+    {
+      "id": "on-the-road-again",
+      "title": "On the Road Again",
+      "kind": "song",
+      "aliases": [
+        "On the Road Again"
+      ]
+    },
+    {
+      "id": "passenger",
+      "title": "Passenger",
+      "kind": "song",
+      "aliases": [
+        "Passenger"
+      ]
+    },
+    {
+      "id": "picasso-moon",
+      "title": "Picasso Moon",
+      "kind": "song",
+      "aliases": [
+        "Picasso Moon"
+      ]
+    },
+    {
+      "id": "promised-land",
+      "title": "Promised Land",
+      "kind": "song",
+      "aliases": [
+        "Promised Land",
+        "The Promised Land"
+      ]
+    },
+    {
+      "id": "queen-jane-approximately",
+      "title": "Queen Jane Approximately",
+      "kind": "song",
+      "aliases": [
+        "Queen Jane Approximately"
+      ]
+    },
+    {
+      "id": "ramble-on-rose",
+      "title": "Ramble on Rose",
+      "kind": "song",
+      "aliases": [
+        "Ramble on Rose",
+        "Ramblin’ Rose"
+      ]
+    },
+    {
+      "id": "revolution",
+      "title": "Revolution",
+      "kind": "song",
+      "aliases": [
+        "Revolution"
+      ]
+    },
+    {
+      "id": "row-jimmy",
+      "title": "Row Jimmy",
+      "kind": "song",
+      "aliases": [
+        "Row Jimmy",
+        "Row Jimmy [tape flip patched]"
+      ]
+    },
+    {
+      "id": "sage-and-spirit",
+      "title": "Sage and Spirit",
+      "kind": "song",
+      "aliases": [
+        "Sage and Spirit"
+      ]
+    },
+    {
+      "id": "saint-of-circumstance",
+      "title": "Saint of Circumstance",
+      "kind": "song",
+      "aliases": [
+        "Saint of Circumstance"
+      ]
+    },
+    {
+      "id": "samba-in-the-rain",
+      "title": "Samba in the Rain",
+      "kind": "song",
+      "aliases": [
+        "Samba in the Rain"
+      ]
+    },
+    {
+      "id": "samson-and-delilah",
+      "title": "Samson and Delilah",
+      "kind": "song",
+      "aliases": [
+        "Samson and Delilah",
+        "Samson & Delilah",
+        "Sampson And Delilah"
+      ]
+    },
+    {
+      "id": "seastones",
+      "title": "Seastones",
+      "kind": "improvisation",
+      "aliases": [
+        "Seastones"
+      ]
+    },
+    {
+      "id": "shakedown-street",
+      "title": "Shakedown Street",
+      "kind": "song",
+      "aliases": [
+        "Shakedown Street"
+      ]
+    },
+    {
+      "id": "she-belongs-to-me",
+      "title": "She Belongs to Me",
+      "kind": "song",
+      "aliases": [
+        "She Belongs to Me"
+      ]
+    },
+    {
+      "id": "ship-of-fools",
+      "title": "Ship of Fools",
+      "kind": "song",
+      "aliases": [
+        "Ship of Fools"
+      ]
+    },
+    {
+      "id": "sing-me-back-home",
+      "title": "Sing Me Back Home",
+      "kind": "song",
+      "aliases": [
+        "Sing Me Back Home"
+      ]
+    },
+    {
+      "id": "sittin-on-top-of-the-world",
+      "title": "Sittin’ on Top of the World",
+      "kind": "song",
+      "aliases": [
+        "Sittin’ on Top of the World",
+        "Sitting on Top of the World"
+      ]
+    },
+    {
+      "id": "smokestack-lightning",
+      "title": "Smokestack Lightning",
+      "kind": "song",
+      "aliases": [
+        "Smokestack Lightning"
+      ]
+    },
+    {
+      "id": "so-many-roads",
+      "title": "So Many Roads",
+      "kind": "song",
+      "aliases": [
+        "So Many Roads"
+      ]
+    },
+    {
+      "id": "spanish-jam",
+      "title": "Spanish Jam",
+      "kind": "improvisation",
+      "aliases": [
+        "Spanish Jam"
+      ]
+    },
+    {
+      "id": "spoonful",
+      "title": "Spoonful",
+      "kind": "song",
+      "aliases": [
+        "Spoonful"
+      ]
+    },
+    {
+      "id": "stagger-lee",
+      "title": "Stagger Lee",
+      "kind": "song",
+      "aliases": [
+        "Stagger Lee"
+      ]
+    },
+    {
+      "id": "standing-on-the-corner",
+      "title": "Standing on the Corner",
+      "kind": "song",
+      "aliases": [
+        "Standing on the Corner"
+      ]
+    },
+    {
+      "id": "standing-on-the-moon",
+      "title": "Standing on the Moon",
+      "kind": "song",
+      "aliases": [
+        "Standing on the Moon"
+      ]
+    },
+    {
+      "id": "stealin",
+      "title": "Stealin’",
+      "kind": "song",
+      "aliases": [
+        "Stealin’"
+      ]
+    },
+    {
+      "id": "stella-blue",
+      "title": "Stella Blue",
+      "kind": "song",
+      "aliases": [
+        "Stella Blue"
+      ]
+    },
+    {
+      "id": "stuck-inside-of-mobile-with-the-memphis-blues-again",
+      "title": "Stuck Inside of Mobile with the Memphis Blues Again",
+      "kind": "song",
+      "aliases": [
+        "Stuck Inside of Mobile with the Memphis Blues Again",
+        "Memphis Blues"
+      ]
+    },
+    {
+      "id": "sugaree",
+      "title": "Sugaree",
+      "kind": "song",
+      "aliases": [
+        "Sugaree"
+      ]
+    },
+    {
+      "id": "sunrise",
+      "title": "Sunrise",
+      "kind": "song",
+      "aliases": [
+        "Sunrise"
+      ]
+    },
+    {
+      "id": "supplication",
+      "title": "Supplication",
+      "kind": "song",
+      "aliases": [
+        "Supplication",
+        "Supplictaion"
+      ]
+    },
+    {
+      "id": "take-a-step-back",
+      "title": "Take a Step Back",
+      "kind": "song",
+      "aliases": [
+        "Take a Step Back"
+      ]
+    },
+    {
+      "id": "thats-it-for-the-other-one",
+      "title": "That’s It for the Other One",
+      "kind": "song",
+      "aliases": [
+        "That’s It for the Other One"
+      ]
+    },
+    {
+      "id": "the-eleven",
+      "title": "The Eleven",
+      "kind": "song",
+      "aliases": [
+        "The Eleven"
+      ]
+    },
+    {
+      "id": "the-last-time",
+      "title": "The Last Time",
+      "kind": "song",
+      "aliases": [
+        "The Last Time"
+      ]
+    },
+    {
+      "id": "the-music-never-stopped",
+      "title": "The Music Never Stopped",
+      "kind": "song",
+      "aliases": [
+        "The Music Never Stopped",
+        "The Music Never Stops"
+      ]
+    },
+    {
+      "id": "the-race-is-on",
+      "title": "The Race Is On",
+      "kind": "song",
+      "aliases": [
+        "The Race Is On"
+      ]
+    },
+    {
+      "id": "the-same-thing",
+      "title": "The Same Thing",
+      "kind": "song",
+      "aliases": [
+        "The Same Thing",
+        "Same Thing"
+      ]
+    },
+    {
+      "id": "the-stranger-two-souls-in-communion",
+      "title": "The Stranger (Two Souls in Communion)",
+      "kind": "song",
+      "aliases": [
+        "The Stranger (Two Souls in Communion)",
+        "Two Souls in Communion"
+      ]
+    },
+    {
+      "id": "the-weight",
+      "title": "The Weight",
+      "kind": "song",
+      "aliases": [
+        "The Weight"
+      ]
+    },
+    {
+      "id": "the-wheel",
+      "title": "The Wheel",
+      "kind": "song",
+      "aliases": [
+        "The Wheel"
+      ]
+    },
+    {
+      "id": "they-love-each-other",
+      "title": "They Love Each Other",
+      "kind": "song",
+      "aliases": [
+        "They Love Each Other",
+        "The Love Each Other"
+      ]
+    },
+    {
+      "id": "throwing-stones",
+      "title": "Throwing Stones",
+      "kind": "song",
+      "aliases": [
+        "Throwing Stones",
+        "Throwin’ Stones"
+      ]
+    },
+    {
+      "id": "to-lay-me-down",
+      "title": "To Lay Me Down",
+      "kind": "song",
+      "aliases": [
+        "To Lay Me Down"
+      ]
+    },
+    {
+      "id": "tomorrow-never-knows",
+      "title": "Tomorrow Never Knows",
+      "kind": "song",
+      "aliases": [
+        "Tomorrow Never Knows"
+      ]
+    },
+    {
+      "id": "touch-of-grey",
+      "title": "Touch of Grey",
+      "kind": "song",
+      "aliases": [
+        "Touch of Grey",
+        "Touch of Gray"
+      ]
+    },
+    {
+      "id": "turn-on-your-lovelight",
+      "title": "Turn On Your Lovelight",
+      "kind": "song",
+      "aliases": [
+        "Turn On Your Lovelight",
+        "Turn On Your Love Light",
+        "Lovelight"
+      ]
+    },
+    {
+      "id": "u-s-blues",
+      "title": "U.S. Blues",
+      "kind": "song",
+      "aliases": [
+        "U.S. Blues"
+      ]
+    },
+    {
+      "id": "unbroken-chain",
+      "title": "Unbroken Chain",
+      "kind": "song",
+      "aliases": [
+        "Unbroken Chain"
+      ]
+    },
+    {
+      "id": "victim-or-the-crime",
+      "title": "Victim or the Crime",
+      "kind": "song",
+      "aliases": [
+        "Victim or the Crime"
+      ]
+    },
+    {
+      "id": "viola-lee-blues",
+      "title": "Viola Lee Blues",
+      "kind": "song",
+      "aliases": [
+        "Viola Lee Blues"
+      ]
+    },
+    {
+      "id": "walkin-blues",
+      "title": "Walkin’ Blues",
+      "kind": "song",
+      "aliases": [
+        "Walkin’ Blues",
+        "Walking Blues"
+      ]
+    },
+    {
+      "id": "wang-dang-doodle",
+      "title": "Wang Dang Doodle",
+      "kind": "song",
+      "aliases": [
+        "Wang Dang Doodle"
+      ]
+    },
+    {
+      "id": "wave-that-flag",
+      "title": "Wave That Flag",
+      "kind": "song",
+      "aliases": [
+        "Wave That Flag"
+      ]
+    },
+    {
+      "id": "wave-to-the-wind",
+      "title": "Wave to the Wind",
+      "kind": "song",
+      "aliases": [
+        "Wave to the Wind"
+      ]
+    },
+    {
+      "id": "way-to-go-home",
+      "title": "Way to Go Home",
+      "kind": "song",
+      "aliases": [
+        "Way to Go Home",
+        "Long Way to Go Home"
+      ]
+    },
+    {
+      "id": "we-can-run",
+      "title": "We Can Run",
+      "kind": "song",
+      "aliases": [
+        "We Can Run"
+      ]
+    },
+    {
+      "id": "weather-report-suite",
+      "title": "Weather Report Suite",
+      "kind": "song",
+      "aliases": [
+        "Weather Report Suite"
+      ]
+    },
+    {
+      "id": "weather-report-suite-prelude",
+      "title": "Weather Report Suite Prelude",
+      "kind": "song",
+      "aliases": [
+        "Weather Report Suite Prelude"
+      ]
+    },
+    {
+      "id": "weather-report-suite-part-one",
+      "title": "Weather Report Suite Part One",
+      "kind": "song",
+      "aliases": [
+        "Weather Report Suite Part One",
+        "Weather Report Suite Part #1"
+      ]
+    },
+    {
+      "id": "werewolves-of-london",
+      "title": "Werewolves of London",
+      "kind": "song",
+      "aliases": [
+        "Werewolves of London"
+      ]
+    },
+    {
+      "id": "west-l-a-fadeaway",
+      "title": "West L.A. Fadeaway",
+      "kind": "song",
+      "aliases": [
+        "West L.A. Fadeaway"
+      ]
+    },
+    {
+      "id": "wharf-rat",
+      "title": "Wharf Rat",
+      "kind": "song",
+      "aliases": [
+        "Wharf Rat"
+      ]
+    },
+    {
+      "id": "when-i-paint-my-masterpiece",
+      "title": "When I Paint My Masterpiece",
+      "kind": "song",
+      "aliases": [
+        "When I Paint My Masterpiece"
+      ]
+    },
+    {
+      "id": "when-push-comes-to-shove",
+      "title": "When Push Comes to Shove",
+      "kind": "song",
+      "aliases": [
+        "When Push Comes to Shove"
+      ]
+    },
+    {
+      "id": "you-dont-have-to-ask",
+      "title": "You Don’t Have to Ask",
+      "kind": "song",
+      "aliases": [
+        "You Don’t Have to Ask"
+      ]
+    },
+    {
+      "id": "you-win-again",
+      "title": "You Win Again",
+      "kind": "song",
+      "aliases": [
+        "You Win Again"
+      ]
+    },
+    {
+      "id": "easy-wind",
+      "title": "Easy Wind",
+      "kind": "song",
+      "aliases": [
+        "Easy Wind"
+      ],
+      "sources": [
+        "https://www.dead.net/workingmans-dead-50-easy-wind"
+      ]
+    },
+    {
+      "id": "im-a-king-bee",
+      "title": "I’m a King Bee",
+      "kind": "song",
+      "aliases": [
+        "I'm a King Bee",
+        "King Bee"
+      ],
+      "sources": [
+        "https://www.dead.net/song/im-king-bee"
+      ]
+    },
+    {
+      "id": "c-c-rider",
+      "title": "C. C. Rider",
+      "kind": "song",
+      "aliases": [
+        "C.C. Rider",
+        "C C Rider",
+        "See See Rider"
+      ],
+      "sources": [
+        "https://www.dead.net/song/c-c-rider"
+      ]
+    },
+    {
+      "id": "cardboard-cowboy",
+      "title": "Cardboard Cowboy",
+      "kind": "song",
+      "aliases": [
+        "Cardboard Cowboy"
+      ],
+      "sources": [
+        "https://gratefuldeadstudies.org/song-titles/"
+      ]
+    },
+    {
+      "id": "clementine",
+      "title": "Clementine",
+      "kind": "song",
+      "aliases": [
+        "Clementine"
+      ],
+      "sources": [
+        "https://gratefuldeadstudies.org/song-titles/"
+      ]
+    },
+    {
+      "id": "dark-hollow",
+      "title": "Dark Hollow",
+      "kind": "song",
+      "aliases": [
+        "Dark Hollow"
+      ],
+      "sources": [
+        "https://www.dead.net/song/dark-hollow"
+      ]
+    },
+    {
+      "id": "katie-mae",
+      "title": "Katie Mae",
+      "kind": "song",
+      "aliases": [
+        "Katie Mae"
+      ],
+      "sources": [
+        "https://www.dead.net/song/katie-mae"
+      ]
+    },
+    {
+      "id": "masons-children",
+      "title": "Mason’s Children",
+      "kind": "song",
+      "aliases": [
+        "Mason’s Children"
+      ],
+      "sources": [
+        "https://www.dead.net/song/masons-children"
+      ]
+    },
+    {
+      "id": "wake-up-little-susie",
+      "title": "Wake Up Little Susie",
+      "kind": "song",
+      "aliases": [
+        "Wake Up Little Susie"
+      ],
+      "sources": [
+        "https://www.dead.net/song/wake-little-susie"
+      ]
+    },
+    {
+      "id": "silver-threads-and-golden-needles",
+      "title": "Silver Threads and Golden Needles",
+      "kind": "song",
+      "aliases": [
+        "Silver Threads and Golden Needles"
+      ],
+      "sources": [
+        "https://www.dead.net/song/silver-threads-and-golden-needles"
+      ]
+    },
+    {
+      "id": "swing-low-sweet-chariot",
+      "title": "Swing Low Sweet Chariot",
+      "kind": "song",
+      "aliases": [
+        "Swing Low Sweet Chariot"
+      ],
+      "sources": [
+        "https://www.dead.net/song/swing-low-sweet-chariot"
+      ]
+    },
+    {
+      "id": "rosalie-mcfall",
+      "title": "Rosalie McFall",
+      "kind": "song",
+      "aliases": [
+        "Rosalie McFall"
+      ],
+      "sources": [
+        "https://www.dead.net/show/september-25-1980"
+      ]
+    },
+    {
+      "id": "hey-little-one",
+      "title": "Hey Little One",
+      "kind": "song",
+      "aliases": [
+        "Hey Little One"
+      ],
+      "sources": [
+        "https://www.dead.net/song/hey-little-one"
+      ]
+    },
+    {
+      "id": "run-rudolph-run",
+      "title": "Run, Rudolph, Run",
+      "kind": "song",
+      "aliases": [
+        "Run, Rudolph, Run"
+      ],
+      "sources": [
+        "https://www.dead.net/song/run-rudolph-run"
+      ]
+    },
+    {
+      "id": "easy-to-love-you",
+      "title": "Easy to Love You",
+      "kind": "song",
+      "aliases": [
+        "Easy to Love You"
+      ],
+      "sources": [
+        "https://gratefuldeadstudies.org/song-titles/"
+      ]
+    },
+    {
+      "id": "dont-need-love",
+      "title": "Don’t Need Love",
+      "kind": "song",
+      "aliases": [
+        "Don’t Need Love"
+      ],
+      "sources": [
+        "https://gratefuldeadstudies.org/song-titles/"
+      ]
+    },
+    {
+      "id": "if-i-had-the-world-to-give",
+      "title": "If I Had the World to Give",
+      "kind": "song",
+      "aliases": [
+        "If I Had the World to Give"
+      ],
+      "sources": [
+        "https://gratefuldeadstudies.org/song-titles/"
+      ]
+    },
+    {
+      "id": "let-me-sing-your-blues-away",
+      "title": "Let Me Sing Your Blues Away",
+      "kind": "song",
+      "aliases": [
+        "Let Me Sing Your Blues Away"
+      ],
+      "sources": [
+        "https://gratefuldeadstudies.org/song-titles/"
+      ]
+    },
+    {
+      "id": "money-money",
+      "title": "Money, Money",
+      "kind": "song",
+      "aliases": [
+        "Money, Money"
+      ],
+      "sources": [
+        "https://gratefuldeadstudies.org/song-titles/"
+      ]
+    },
+    {
+      "id": "eternity",
+      "title": "Eternity",
+      "kind": "song",
+      "aliases": [
+        "Eternity"
+      ],
+      "sources": [
+        "https://gratefuldeadstudies.org/song-titles/"
+      ]
+    },
+    {
+      "id": "blues-for-allah",
+      "title": "Blues for Allah",
+      "kind": "song",
+      "aliases": [
+        "Blues for Allah"
+      ],
+      "sources": [
+        "https://gratefuldeadstudies.org/song-titles/"
+      ]
+    },
+    {
+      "id": "lady-with-a-fan",
+      "title": "Lady with a Fan",
+      "kind": "song",
+      "aliases": [
+        "Lady with a Fan"
+      ],
+      "sources": [
+        "https://gratefuldeadstudies.org/song-titles/"
+      ]
+    },
+    {
+      "id": "believe-it-or-not",
+      "title": "Believe It or Not",
+      "kind": "song",
+      "aliases": [
+        "Believe It or Not"
+      ],
+      "sources": [
+        "https://gratefuldeadstudies.org/song-titles/"
+      ]
+    },
+    {
+      "id": "operator",
+      "title": "Operator",
+      "kind": "song",
+      "aliases": [
+        "Operator"
+      ],
+      "sources": [
+        "https://gratefuldeadstudies.org/song-titles/"
+      ]
+    },
+    {
+      "id": "rosemary",
+      "title": "Rosemary",
+      "kind": "song",
+      "aliases": [
+        "Rosemary"
+      ],
+      "sources": [
+        "https://gratefuldeadstudies.org/song-titles/"
+      ]
+    },
+    {
+      "id": "mission-in-the-rain",
+      "title": "Mission in the Rain",
+      "kind": "song",
+      "aliases": [
+        "Mission in the Rain"
+      ],
+      "sources": [
+        "https://gratefuldeadstudies.org/song-titles/"
+      ]
+    },
+    {
+      "id": "you-aint-woman-enough",
+      "title": "You Ain’t Woman Enough",
+      "kind": "song",
+      "aliases": [
+        "You Ain’t Woman Enough"
+      ],
+      "sources": [
+        "https://www.dead.net/song/you-aint-woman-enough"
+      ]
+    },
+    {
+      "id": "tomorrow-is-forever",
+      "title": "Tomorrow Is Forever",
+      "kind": "song",
+      "aliases": [
+        "Tomorrow Is Forever"
+      ],
+      "sources": [
+        "https://www.dead.net/song/tomorrow-forever"
+      ]
+    },
+    {
+      "id": "the-mighty-quinn",
+      "title": "The Mighty Quinn (Quinn the Eskimo)",
+      "kind": "song",
+      "aliases": [
+        "The Mighty Quinn",
+        "The Mighty Quinn (Quinn The Eskimo)",
+        "Quinn The Eskimo"
+      ],
+      "sources": [
+        "https://www.dead.net/song/mighty-quinn-quinn-eskimo"
+      ]
+    },
+    {
+      "id": "hey-pocky-way",
+      "title": "Hey Pocky Way",
+      "kind": "song",
+      "aliases": [
+        "Hey Pocky Way"
+      ],
+      "sources": [
+        "https://www.dead.net/song/hey-pocky-way"
+      ]
+    },
+    {
+      "id": "rain",
+      "title": "Rain",
+      "kind": "song",
+      "aliases": [
+        "Rain"
+      ],
+      "sources": [
+        "https://www.dead.net/song/rain"
+      ]
+    },
+    {
+      "id": "tons-of-steel",
+      "title": "Tons of Steel",
+      "kind": "song",
+      "aliases": [
+        "Tons of Steel"
+      ],
+      "sources": [
+        "https://www.dead.net/song/tons-steel"
+      ]
+    },
+    {
+      "id": "gloria",
+      "title": "Gloria",
+      "kind": "song",
+      "aliases": [
+        "Gloria"
+      ],
+      "sources": [
+        "https://www.dead.net/song/gloria"
+      ]
+    },
+    {
+      "id": "that-would-be-something",
+      "title": "That Would Be Something",
+      "kind": "song",
+      "aliases": [
+        "That Would Be Something"
+      ],
+      "sources": [
+        "https://www.dead.net/song/would-be-something"
+      ]
+    },
+    {
+      "id": "just-like-tom-thumbs-blues",
+      "title": "Just Like Tom Thumb’s Blues",
+      "kind": "song",
+      "aliases": [
+        "Just Like Tom Thumb’s Blues"
+      ],
+      "sources": [
+        "https://www.bobdylan.com/songs/just-tom-thumbs-blues/"
+      ]
+    }
+  ]
+}

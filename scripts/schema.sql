@@ -1,0 +1,16 @@
+PRAGMA foreign_keys = ON;
+CREATE TABLE sources(id TEXT PRIMARY KEY, name TEXT NOT NULL, url TEXT NOT NULL, retrieved_at TEXT, note TEXT);
+CREATE TABLE shows(id TEXT PRIMARY KEY, date TEXT NOT NULL, venue TEXT, location TEXT, status TEXT NOT NULL, completeness TEXT NOT NULL, warnings TEXT NOT NULL);
+CREATE TABLE recordings(id TEXT PRIMARY KEY, show_id TEXT REFERENCES shows(id), source_id TEXT REFERENCES sources(id), url TEXT NOT NULL, retrieved_at TEXT NOT NULL, metadata_enriched INTEGER NOT NULL);
+CREATE TABLE rating_snapshots(recording_id TEXT REFERENCES recordings(id), retrieved_at TEXT NOT NULL, average REAL, review_count INTEGER NOT NULL CHECK(review_count >= 0), adjusted REAL, PRIMARY KEY(recording_id,retrieved_at));
+CREATE TABLE songs(id TEXT PRIMARY KEY, title TEXT NOT NULL, kind TEXT NOT NULL, status TEXT NOT NULL);
+CREATE TABLE song_aliases(label TEXT PRIMARY KEY, song_id TEXT NOT NULL REFERENCES songs(id));
+CREATE TABLE track_evidence(recording_id TEXT REFERENCES recordings(id), position INTEGER, title TEXT, song_id TEXT REFERENCES songs(id), status TEXT NOT NULL, PRIMARY KEY(recording_id,position));
+CREATE TABLE setlist_entries(show_id TEXT REFERENCES shows(id), set_label TEXT, position INTEGER, song_id TEXT REFERENCES songs(id), original_title TEXT, segue INTEGER, source_url TEXT NOT NULL, PRIMARY KEY(show_id,position));
+CREATE TABLE members(id TEXT PRIMARY KEY, name TEXT NOT NULL, instruments TEXT NOT NULL, note TEXT);
+CREATE TABLE member_intervals(member_id TEXT REFERENCES members(id), start TEXT NOT NULL, end TEXT NOT NULL, precision TEXT NOT NULL, note TEXT, source_url TEXT NOT NULL, PRIMARY KEY(member_id,start));
+CREATE TABLE eras(id TEXT PRIMARY KEY, title TEXT NOT NULL, start TEXT NOT NULL, end TEXT NOT NULL, description TEXT NOT NULL, sources TEXT NOT NULL);
+CREATE TABLE historical_events(id TEXT PRIMARY KEY, date TEXT NOT NULL, precision TEXT NOT NULL, title TEXT NOT NULL, description TEXT NOT NULL, source_url TEXT NOT NULL);
+CREATE INDEX recordings_show ON recordings(show_id);
+CREATE INDEX track_song ON track_evidence(song_id);
+CREATE INDEX shows_date ON shows(date);

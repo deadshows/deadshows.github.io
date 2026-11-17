@@ -1,0 +1,465 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-11-13",
+  "methodology": "Editorial era filters may overlap. All bounds are inclusive. Day-precision concert dates follow titled source dates, not timezone-shifted CMS metadata. Month/year bounds support navigation and must not be interpreted as exact membership dates. Personnel windows indicate association with the performing ensemble, not confirmed attendance. Nonperforming lyricists and sporadic guests are outside this initial filter catalog.",
+  "eras": [
+    {
+      "id": "acid-tests",
+      "title": "Acid Tests & beginnings",
+      "start": "1965-01-01",
+      "end": "1966-12-31",
+      "color": "#bb7154",
+      "description": "An exploratory lens on the Warlocks-to-Grateful Dead transition and the Acid Test years. Calendar-year boundaries are editorial.",
+      "sources": [
+        "https://www.dead.net/features/year/1965",
+        "https://www.dead.net/biography"
+      ]
+    },
+    {
+      "id": "psychedelic",
+      "title": "Psychedelic expansion",
+      "start": "1967-01-01",
+      "end": "1969-12-31",
+      "color": "#a78bc2",
+      "description": "An editorial window onto an expanding ensemble and extended improvisation. It overlaps personnel changes rather than defining a fixed lineup.",
+      "sources": [
+        "https://www.dead.net/biography"
+      ]
+    },
+    {
+      "id": "roots",
+      "title": "Acoustic & electric roots",
+      "start": "1970-01-01",
+      "end": "1971-12-31",
+      "color": "#c49c51",
+      "description": "An editorial window around Workingman’s Dead, American Beauty, and the acoustic/electric repertoire.",
+      "sources": [
+        "https://www.dead.net/features/year/1970"
+      ]
+    },
+    {
+      "id": "europe-72",
+      "title": "Europe ’72",
+      "start": "1972-04-07",
+      "end": "1972-05-26",
+      "color": "#779682",
+      "description": "The European tour, bounded by its opening and final concerts.",
+      "sources": [
+        "https://www.rhino.com/article/the-grateful-dead-celebrate-50-years-of-europe-72"
+      ]
+    },
+    {
+      "id": "wall-of-sound",
+      "title": "Wall of Sound",
+      "start": "1974-03-23",
+      "end": "1974-10-20",
+      "color": "#d88457",
+      "description": "The 1974 touring system, from the Cow Palace sound test to the Winterland farewell run. Earlier prototypes are outside this filter.",
+      "sources": [
+        "https://www.dead.net/features/year/1974",
+        "https://jerrygarcia.com/show/1974-10-20-winterland-arena-san-francisco-ca-usa/"
+      ]
+    },
+    {
+      "id": "hiatus",
+      "title": "Touring hiatus",
+      "start": "1974-10-21",
+      "end": "1976-06-02",
+      "color": "#8a9ab1",
+      "description": "The break from regular touring. The band continued recording and played several concerts in 1975; this is not a period without performances.",
+      "sources": [
+        "https://www.dead.net/features/year/1975",
+        "https://www.dead.net/features/year/1976",
+        "https://jerrygarcia.com/show/1974-10-20-winterland-arena-san-francisco-ca-usa/"
+      ]
+    },
+    {
+      "id": "return",
+      "title": "Return to the road",
+      "start": "1976-06-03",
+      "end": "1979-02-17",
+      "color": "#c59b68",
+      "description": "The post-hiatus period through Keith and Donna’s last concert. The label describes this project’s chosen date window.",
+      "sources": [
+        "https://www.dead.net/features/year/1976",
+        "https://www.dead.net/show/february-17-1979"
+      ]
+    },
+    {
+      "id": "brent",
+      "title": "Brent years",
+      "start": "1979-04-22",
+      "end": "1990-07-23",
+      "color": "#76a8ad",
+      "description": "A lineup lens spanning Brent Mydland’s first and final concerts with the band.",
+      "sources": [
+        "https://www.dead.net/features/year/1979",
+        "https://mickeyhart.net/news/throwback-thursday-honoring-brent-today-6181/"
+      ]
+    },
+    {
+      "id": "vince",
+      "title": "Vince years",
+      "start": "1990-09-07",
+      "end": "1995-07-09",
+      "color": "#a799bf",
+      "description": "The final keyboard era, with Vince Welnick and recurring guest Bruce Hornsby during part of the period.",
+      "sources": [
+        "https://www.dead.net/show/september-7-1990",
+        "https://www.dead.net/band/vince-welnick",
+        "https://www.dead.net/show/july-9-1995"
+      ]
+    }
+  ],
+  "members": [
+    {
+      "id": "jerry",
+      "name": "Jerry Garcia",
+      "instruments": "Lead guitar, vocals",
+      "intervals": [
+        {
+          "start": "1965-01-01",
+          "end": "1995-07-09",
+          "precision": "year",
+          "source": "https://www.dead.net/biography",
+          "note": "Founding lineup, 1965–1995. January 1 is a year-level filter bound, not a first-performance date; July 9 is the final concert boundary."
+        }
+      ],
+      "note": "Membership windows are contextual; they do not confirm presence at every show."
+    },
+    {
+      "id": "bob",
+      "name": "Bob Weir",
+      "instruments": "Rhythm guitar, vocals",
+      "intervals": [
+        {
+          "start": "1965-01-01",
+          "end": "1995-07-09",
+          "precision": "year",
+          "source": "https://www.dead.net/biography",
+          "note": "Founding lineup, 1965–1995. January 1 is a year-level filter bound, not a first-performance date; July 9 is the final concert boundary."
+        }
+      ],
+      "note": "Membership windows are contextual; they do not confirm presence at every show."
+    },
+    {
+      "id": "phil",
+      "name": "Phil Lesh",
+      "instruments": "Bass, vocals",
+      "intervals": [
+        {
+          "start": "1965-01-01",
+          "end": "1995-07-09",
+          "precision": "year",
+          "source": "https://www.dead.net/biography",
+          "note": "Founding lineup, 1965–1995. January 1 is a year-level filter bound, not a first-performance date; July 9 is the final concert boundary."
+        }
+      ],
+      "note": "Membership windows are contextual; they do not confirm presence at every show."
+    },
+    {
+      "id": "bill",
+      "name": "Bill Kreutzmann",
+      "instruments": "Drums, percussion",
+      "intervals": [
+        {
+          "start": "1965-01-01",
+          "end": "1995-07-09",
+          "precision": "year",
+          "source": "https://www.dead.net/biography",
+          "note": "Founding lineup, 1965–1995. January 1 is a year-level filter bound, not a first-performance date; July 9 is the final concert boundary."
+        }
+      ],
+      "note": "Membership windows are contextual; they do not confirm presence at every show."
+    },
+    {
+      "id": "pigpen",
+      "name": "Ron “Pigpen” McKernan",
+      "instruments": "Organ, harmonica, percussion, vocals",
+      "intervals": [
+        {
+          "start": "1965-01-01",
+          "end": "1972-06-17",
+          "precision": "year",
+          "source": "https://www.dead.net/show/june-17-1972",
+          "note": "Founding member; final concert June 17, 1972. Start is year-level. Health-related absences within this span are not yet enumerated."
+        }
+      ],
+      "note": "Performance-era window ends at his last concert, rather than his death in 1973. Individual absences require show-level evidence."
+    },
+    {
+      "id": "mickey",
+      "name": "Mickey Hart",
+      "instruments": "Drums, percussion",
+      "intervals": [
+        {
+          "start": "1967-09-01",
+          "end": "1971-02-28",
+          "precision": "month",
+          "source": "https://www.dead.net/band/mickey-hart",
+          "note": "Joined September 1967; left the road February 1971. Month bounds are approximate; sources disagree on the first concert day. Departure source: https://www.dead.net/features/year/1971"
+        },
+        {
+          "start": "1974-10-20",
+          "end": "1995-07-09",
+          "precision": "day",
+          "source": "https://jerrygarcia.com/show/1974-10-20-winterland-arena-san-francisco-ca-usa/",
+          "note": "Returned at the October 20, 1974 Winterland concert; participation can vary within a show."
+        }
+      ],
+      "note": "Membership windows are contextual; they do not confirm presence at every show."
+    },
+    {
+      "id": "tom",
+      "name": "Tom Constanten",
+      "instruments": "Keyboards",
+      "intervals": [
+        {
+          "start": "1968-11-01",
+          "end": "1970-01-31",
+          "precision": "month",
+          "source": "https://www.dead.net/band/tom-constanten",
+          "note": "Official biography specifies November 1968 through January 1970; bounds do not assert exact first and last concerts."
+        }
+      ],
+      "note": "Touring membership window. Earlier studio work and occasional guest appearances are outside this filter."
+    },
+    {
+      "id": "keith",
+      "name": "Keith Godchaux",
+      "instruments": "Piano, keyboards",
+      "intervals": [
+        {
+          "start": "1971-10-19",
+          "end": "1979-02-17",
+          "precision": "day",
+          "source": "https://www.dead.net/show/october-19-1971",
+          "note": "First concert October 19, 1971; last February 17, 1979 (https://www.dead.net/show/february-17-1979). Rehearsals and joining the organization preceded his first concert."
+        }
+      ],
+      "note": "Membership windows are contextual; they do not confirm presence at every show."
+    },
+    {
+      "id": "donna",
+      "name": "Donna Jean Godchaux",
+      "instruments": "Vocals",
+      "intervals": [
+        {
+          "start": "1972-03-25",
+          "end": "1979-02-17",
+          "precision": "day",
+          "source": "https://www.dead.net/europe-72-prelude",
+          "note": "Regular performing era begins March 25, 1972; last concert February 17, 1979 (https://www.dead.net/show/february-17-1979)."
+        }
+      ],
+      "note": "Sang briefly on December 31, 1971 before regular participation. Maternity and other absences are not yet enumerated; window membership does not establish attendance."
+    },
+    {
+      "id": "brent",
+      "name": "Brent Mydland",
+      "instruments": "Keyboards, vocals",
+      "intervals": [
+        {
+          "start": "1979-04-22",
+          "end": "1990-07-23",
+          "precision": "day",
+          "source": "https://www.dead.net/features/year/1979",
+          "note": "First show April 22, 1979. Final concert July 23, 1990: https://mickeyhart.net/news/throwback-thursday-honoring-brent-today-6181/"
+        }
+      ],
+      "note": "Membership windows are contextual; they do not confirm presence at every show."
+    },
+    {
+      "id": "vince",
+      "name": "Vince Welnick",
+      "instruments": "Keyboards, vocals",
+      "intervals": [
+        {
+          "start": "1990-09-07",
+          "end": "1995-07-09",
+          "precision": "day",
+          "source": "https://www.dead.net/show/september-7-1990",
+          "note": "First concert September 7, 1990; window ends with the band’s final concert."
+        }
+      ],
+      "note": "Membership windows are contextual; they do not confirm presence at every show."
+    },
+    {
+      "id": "bruce",
+      "name": "Bruce Hornsby",
+      "instruments": "Piano, accordion, vocals",
+      "intervals": [
+        {
+          "start": "1990-09-15",
+          "end": "1992-03-31",
+          "precision": "month",
+          "source": "https://krannertcenter.com/sites/krannertcenter.com/files/2024-03-07_brhym_web.pdf",
+          "note": "Recurring touring participation from September 1990 to March 1992. September 15 start: https://www.dead.net/show/september-15-1990"
+        }
+      ],
+      "note": "Recurring guest / part-time touring player, not present at every concert. Earlier and later guest appearances are outside this window. Show-level confirmation is still needed."
+    }
+  ],
+  "events": [
+    {
+      "id": "name",
+      "date": "1965-12-01",
+      "precision": "month",
+      "title": "The Grateful Dead name",
+      "description": "The band began appearing under its new name at the December 1965 Acid Tests. Date shown is a month-level marker.",
+      "source": "https://www.dead.net/biography"
+    },
+    {
+      "id": "mickey-joins",
+      "date": "1967-09-01",
+      "precision": "month",
+      "title": "A second drummer",
+      "description": "Mickey Hart joined in September 1967. The month marker avoids conflicting first-show dates.",
+      "source": "https://www.dead.net/band/mickey-hart"
+    },
+    {
+      "id": "tc-joins",
+      "date": "1968-11-01",
+      "precision": "month",
+      "title": "Tom Constanten joins the touring band",
+      "description": "Constanten’s keyboard work became part of the touring ensemble in November.",
+      "source": "https://www.dead.net/band/tom-constanten"
+    },
+    {
+      "id": "roots-records",
+      "date": "1970-01-01",
+      "precision": "year",
+      "title": "Workingman’s Dead & American Beauty",
+      "description": "The two 1970 studio albums form a useful landmark for exploring the roots-oriented repertoire. This marker represents the year, not either release day.",
+      "source": "https://www.dead.net/features/year/1970"
+    },
+    {
+      "id": "mickey-break",
+      "date": "1971-02-01",
+      "precision": "month",
+      "title": "Mickey steps away",
+      "description": "Hart left the road in February; Bill Kreutzmann continued on drums. The date is a month-level marker.",
+      "source": "https://www.dead.net/features/year/1971"
+    },
+    {
+      "id": "keith-debut",
+      "date": "1971-10-19",
+      "precision": "day",
+      "title": "Keith’s first concert",
+      "description": "Northrop Auditorium introduced Keith Godchaux onstage. The official show notes also identify first performances of Jack Straw and Tennessee Jed.",
+      "source": "https://www.dead.net/show/october-19-1971"
+    },
+    {
+      "id": "donna-regular",
+      "date": "1972-03-25",
+      "precision": "day",
+      "title": "Donna joins the regular stage lineup",
+      "description": "Donna Jean’s regular participation began before Europe ’72, following a brief New Year’s Eve appearance.",
+      "source": "https://www.dead.net/europe-72-prelude"
+    },
+    {
+      "id": "europe72",
+      "date": "1972-04-07",
+      "precision": "day",
+      "title": "Europe ’72 begins",
+      "description": "The European tour ran from April 7 through May 26.",
+      "source": "https://www.rhino.com/article/the-grateful-dead-celebrate-50-years-of-europe-72"
+    },
+    {
+      "id": "pigpen-last",
+      "date": "1972-06-17",
+      "precision": "day",
+      "title": "Pigpen’s final concert; Stella Blue debuts",
+      "description": "The Hollywood Bowl show notes identify Pigpen’s last appearance and the first Stella Blue.",
+      "source": "https://www.dead.net/show/june-17-1972"
+    },
+    {
+      "id": "wall-test",
+      "date": "1974-03-23",
+      "precision": "day",
+      "title": "Wall of Sound test; Scarlet Begonias debuts",
+      "description": "The Cow Palace show is documented as the Wall’s sound test and the first performances of Scarlet Begonias and Cassidy.",
+      "source": "https://www.dead.net/show/march-23-1974"
+    },
+    {
+      "id": "hiatus-start",
+      "date": "1974-10-20",
+      "precision": "day",
+      "title": "Winterland farewell & Mickey’s return",
+      "description": "The final Winterland farewell concert preceded the touring hiatus and brought Mickey Hart back onstage.",
+      "source": "https://jerrygarcia.com/show/1974-10-20-winterland-arena-san-francisco-ca-usa/"
+    },
+    {
+      "id": "hiatus-shows",
+      "date": "1975-01-01",
+      "precision": "year",
+      "title": "A quieter year, not a silent one",
+      "description": "The band worked on Blues for Allah and played several public concerts during the touring hiatus. This marker represents the year.",
+      "source": "https://www.dead.net/features/year/1975"
+    },
+    {
+      "id": "tour-return",
+      "date": "1976-06-03",
+      "precision": "day",
+      "title": "Touring resumes",
+      "description": "The band returned to the road at Portland’s Paramount Theatre.",
+      "source": "https://www.dead.net/features/year/1976"
+    },
+    {
+      "id": "fire-debut",
+      "date": "1977-03-18",
+      "precision": "day",
+      "title": "Fire on the Mountain debuts",
+      "description": "The Winterland show notes identify the first Fire on the Mountain.",
+      "source": "https://www.dead.net/show/march-18-1977"
+    },
+    {
+      "id": "godchaux-last",
+      "date": "1979-02-17",
+      "precision": "day",
+      "title": "Keith & Donna’s last concert",
+      "description": "The Oakland benefit show closed their performing tenure with the band.",
+      "source": "https://www.dead.net/show/february-17-1979"
+    },
+    {
+      "id": "brent-debut",
+      "date": "1979-04-22",
+      "precision": "day",
+      "title": "Brent’s first concert",
+      "description": "Brent Mydland made his concert debut after Keith and Donna’s departure.",
+      "source": "https://www.dead.net/features/year/1979"
+    },
+    {
+      "id": "brent-last",
+      "date": "1990-07-23",
+      "precision": "day",
+      "title": "Brent’s final concert",
+      "description": "Mydland’s final concert took place at the World Music Theatre in Tinley Park.",
+      "source": "https://mickeyhart.net/news/throwback-thursday-honoring-brent-today-6181/"
+    },
+    {
+      "id": "vince-debut",
+      "date": "1990-09-07",
+      "precision": "day",
+      "title": "Vince’s first concert",
+      "description": "Vince Welnick debuted at Richfield Coliseum.",
+      "source": "https://www.dead.net/show/september-7-1990"
+    },
+    {
+      "id": "bruce-recurring",
+      "date": "1990-09-15",
+      "precision": "day",
+      "title": "Bruce begins his recurring touring role",
+      "description": "Hornsby joined the fall touring lineup alongside Vince; this does not mark his first guest appearance with the band.",
+      "source": "https://www.dead.net/show/september-15-1990"
+    },
+    {
+      "id": "final-show",
+      "date": "1995-07-09",
+      "precision": "day",
+      "title": "The final Grateful Dead concert",
+      "description": "The band’s final concert took place at Soldier Field, Chicago.",
+      "source": "https://www.dead.net/features/year/1995"
+    }
+  ]
+}

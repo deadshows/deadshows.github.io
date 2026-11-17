@@ -1,0 +1,28 @@
+.DS_Store
+__pycache__/
+*.pyc
+node_modules/
+dist/
+.dist-build/
+.dist-previous/
+data/archive.sqlite*
+data/raw/archive/search/
+public/data/
+
+# Local preservation copies; excluded from source publication.
+data/design/backups/
+data/design/private-stealie/
+
+# Working evidence and design previews stay local.
+data/raw/
+data/processing/
+data/coverage.json
+docs/*-preview.png
+docs/*-preview.jpg
+data/design/local-only/
+
+# Internal documentation stays local.
+docs/BRANDING.md
+docs/1977-processing.md
+docs/all-dates-processing.md
+docs/DATA_MODEL.md

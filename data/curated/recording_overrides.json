@@ -1,0 +1,81 @@
+{
+  "gd67-04-xx.prefm.vernon.9261.sbeok.shnf": {
+    "exclude_from_song_evidence": true,
+    "reason": "A radio conversation interspersed with commercial records by multiple artists, not a Grateful Dead concert tracklist. April day is uncertain.",
+    "source": "https://archive.org/details/gd67-04-xx.prefm.vernon.9261.sbeok.shnf"
+  },
+  "gd1970-05-02.138227.sbd.miller.flac1648": {
+    "exclude_positions": [
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26
+    ],
+    "reason": "This item includes an intervening NRPS set. Positions 14–26 are preserved as non-GD evidence, excluded from GD song observations. The source description identifies NRPS and the GD sets.",
+    "source": "https://archive.org/details/gd1970-05-02.138227.sbd.miller.flac1648"
+  },
+  "gd75-03-21.sbd.backus.14288.sbeok.shnf": {
+    "exclude_from_song_evidence": true,
+    "reason": "Rehearsal/studio material, kept in the recording inventory but excluded from concert song observations.",
+    "source": "https://archive.org/details/gd75-03-21.sbd.backus.14288.sbeok.shnf"
+  },
+  "gd1975-07-23.140800.sbd.bershaw.flac1644": {
+    "exclude_from_song_evidence": true,
+    "reason": "Studio material, kept in the recording inventory but excluded from concert song observations.",
+    "source": "https://archive.org/details/gd1975-07-23.140800.sbd.bershaw.flac1644"
+  },
+  "gd1977-00-00.125546.tuning.murphy.flac": {
+    "exclude_from_song_evidence": true,
+    "reason": "A year-wide compilation of between-song tuning, not a January 1 concert. The source description identifies a chronologically sequenced audio supercut of 1977 tuning. Retained in the inventory but excluded from concert song observations.",
+    "source": "https://archive.org/details/gd1977-00-00.125546.tuning.murphy.flac"
+  },
+  "gd77-02-17.sbd.outtakes.16745.sbeok.shnf": {
+    "exclude_from_song_evidence": true,
+    "reason": "Arista studio / Terrapin Station outtakes, not a concert tracklist. Retained in the inventory but excluded from concert song observations.",
+    "source": "https://archive.org/details/gd77-02-17.sbd.outtakes.16745.sbeok.shnf"
+  },
+  "gd77-02-20.sbd.moreno.9470.sbeok.shnf": {
+    "exclude_from_song_evidence": true,
+    "reason": "Terrapin Station studio outtakes, as identified in the source title and venue. Retained in the inventory but excluded from concert song observations.",
+    "source": "https://archive.org/details/gd77-02-20.sbd.moreno.9470.sbeok.shnf"
+  },
+  "gd1977-03-01.150848.sbd.flac16": {
+    "exclude_from_song_evidence": true,
+    "reason": "A seamless compilation of Scarlet–Fire jams from the spring 1977 tour, not a March 1 concert. The source description explicitly identifies a multi-date edited mix. Retained in the inventory but excluded from concert song observations.",
+    "source": "https://archive.org/details/gd1977-03-01.150848.sbd.flac16"
+  },
+  "gd77-11-04.sbd.unknown.2595.sbeok.shnf": {
+    "exclude_positions": [
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ],
+    "reason": "The source text file identifies disc 3 tracks 6–11 (positions 22–27) as filler from the December 12, 1973 Omni soundcheck. Excluded from November 4, 1977 song observations; original track evidence is retained.",
+    "source": "https://archive.org/download/gd77-11-04.sbd.unknown.2595.sbeok.shnf/gd1977-11-04.2595.txt"
+  },
+  "gd77-09-03.sbd.unk.276.sbefixed.shnf": {
+    "exclude_positions": [
+      1,
+      2,
+      17
+    ],
+    "reason": "Source notes warn that the opening introduction and Promised Land are apparently from April 27, 1977, rather than September 3. They are excluded conservatively from this date’s observations. Radio Talk (position 17) is also not a song performance. A separately imported audience recording supplies the representative date tracklist.",
+    "source": "https://archive.org/details/gd77-09-03.sbd.unk.276.sbefixed.shnf"
+  },
+  "gd1977-10-07.170389.sbd.miller.flac1644": {
+    "reason": "Partial second-set recording: files begin with Ramble On Rose and omit the first set and the opening of set two. The source notes say the first set is still unavailable. Imported track evidence must not be treated as a complete show setlist.",
+    "source": "https://archive.org/details/gd1977-10-07.170389.sbd.miller.flac1644"
+  }
+}
