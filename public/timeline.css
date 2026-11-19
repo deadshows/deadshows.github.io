@@ -123,7 +123,7 @@
 }
 /* Show-date bins keep individual recordings reachable inside the rolling year. */
 .timeline-panel .activity-chart.show-timeline { min-width: max(100%, var(--show-width)); gap: 0; }
-.show-month { display: flex; position: relative; flex: var(--dates) 0 calc(var(--dates) * 16px); min-width: 54px; gap: 2px; padding: 0 4px; border-right: 1px solid #183d2b18; }
+.show-month { display: flex; position: relative; flex: var(--dates) 0 calc(var(--dates) * 16px); min-width: 54px; gap: 2px; padding: 0 4px; border-right: 0; }
 .show-month:last-child { border-right: 0; }
 .show-month-label { position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%); font: 8px/1.2 'Courier New', monospace; white-space: nowrap; color: var(--muted); }
 .timeline-panel .show-bin { flex: 1; min-width: 12px; min-height: 100%; border-bottom: 0; }
@@ -167,18 +167,17 @@
 .album-heading>span { font-size:12px;color:var(--muted); }
 .album-section>.small-note { margin:5px 0; }
 .album-chronology { position:relative;height:100%; }
-.album-year { position:absolute;inset-block:0;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:7px; }
-.album-year:has(.album-card):before { content:"";position:absolute;inset:0;background:#29352e04;border-inline:1px dashed #29352e18;pointer-events:none; }
-.album-year.album-linked:before { background:#9b492f10;border-color:var(--red); }
+.album-chronology::before { content:"";position:absolute;top:14px;left:0;right:0;border-top:1px solid var(--line); }
+.album-year { position:absolute;inset-block:0;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:0; }
 .album-year:has(.album-card:hover),.album-year:has(.album-card:focus-visible) { z-index:6; }
 .album-card { position:relative;display:block;flex:none;width:28px;height:28px;padding:0;border:0;background:none;cursor:pointer;pointer-events:auto; }
-.album-tile { display:block;position:relative;width:100%;height:100%;background:hsl(var(--tile-hue) 24% 86%);border:1px solid var(--ink);overflow:hidden;color:var(--ink);transition:transform .16s; }
+.album-tile { display:block;position:relative;width:100%;height:100%;background:hsl(var(--tile-hue) 24% 86%);border:1px solid var(--ink);overflow:hidden;color:var(--ink);transform-origin:center top;transition:transform .18s; }
 .album-tile i { position:absolute;width:28px;height:28px;top:7px;right:-6px;border:5px double currentColor;border-radius:50%;opacity:.3; }
 .album-tile b { position:absolute;bottom:2px;left:3px;font:10px var(--display); }
-.album-tooltip { display:none;position:absolute;top:calc(100% + 10px);left:-8px;width:max-content;max-width:210px;padding:8px 10px;background:var(--ink);color:var(--paper);font:14px var(--solid-display);text-align:left;pointer-events:none;box-shadow:2px 2px 0 #0002; }
+.album-tooltip { display:none;position:absolute;top:calc(100% + 80px);left:-35px;width:max-content;max-width:210px;padding:8px 10px;background:var(--ink);color:var(--paper);font:14px var(--solid-display);text-align:left;pointer-events:none;box-shadow:2px 2px 0 #0002; }
 .album-tooltip small { display:block;font:12px var(--sans);margin-top:4px; }
 .album-card:hover,.album-card:focus-visible { z-index:5; }
-.album-card:hover .album-tile,.album-card:focus-visible .album-tile { transform:scale(1.45); }
+.album-card:hover .album-tile,.album-card:focus-visible .album-tile { transform:scale(3.5); }
 .album-card:hover .album-tooltip,.album-card:focus-visible .album-tooltip { display:block; }
 .album-card[aria-expanded=true] .album-tile { outline:2px solid var(--red);outline-offset:3px; }
 .album-detail { width:min(680px,calc(100vw - 32px));max-height:85dvh;overflow-y:auto;border:1px solid var(--ink);background:#faf8ed;padding:24px; }
@@ -193,7 +192,7 @@
 .album-tracks strong { display:block;font-weight:600;margin-bottom:5px; }
 @media(max-width:700px) { .album-tracks { grid-template-columns:1fr; } .album-detail { padding:15px; } }
 
-.album-overlay-controls { display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 18px;margin:12px 0;font-size:12px; }
+.album-overlay-controls { display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 18px;margin:8px 0 0;font-size:12px; }
 .album-overlay-controls label { display:flex;align-items:center;gap:7px;font-weight:bold; }
 .album-overlay-controls input { accent-color:var(--red); }
 .album-overlay-controls>span { color:var(--muted); }
@@ -202,3 +201,5 @@
 .timeline-plot:has(.show-timeline) .album-section { bottom:42px; }
 .album-linked .month-observed,.show-month.album-linked .bar-fill { background:var(--red)!important; }
 .album-tile { box-shadow:0 0 0 3px #f1f0dc; }
+
+.timeline-panel .activity-chart { background:none; }
