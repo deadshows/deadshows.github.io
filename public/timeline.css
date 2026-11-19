@@ -160,7 +160,7 @@
 .timeline-content:has(.show-timeline) { min-width:100%; }
 @media (prefers-reduced-motion:reduce) { .album-tile { transition:none; } }
 .timeline-axis { height:205px; }
-.album-section { position:absolute;inset:0 0 27px;margin:0;padding:0;pointer-events:none; }
+.album-section { position:relative;height:110px;margin:8px 0 0;padding:0;pointer-events:none; }
 .album-section[hidden] { display:none; }
 .album-heading { display:flex;align-items:baseline;gap:14px;flex-wrap:wrap; }
 .album-heading h3 { font:18px var(--solid-display);margin:0; }
@@ -171,10 +171,10 @@
 .album-year { position:absolute;inset-block:0;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:0; }
 .album-year:has(.album-card:hover),.album-year:has(.album-card:focus-visible) { z-index:6; }
 .album-card { position:relative;display:block;flex:none;width:28px;height:28px;padding:0;border:0;background:none;cursor:pointer;pointer-events:auto; }
-.album-tile { display:block;position:relative;width:100%;height:100%;background:hsl(var(--tile-hue) 24% 86%);border:1px solid var(--ink);overflow:hidden;color:var(--ink);transform-origin:center top;transition:transform .18s; }
+.album-tile { display:block;position:relative;width:100%;height:100%;background:hsl(var(--tile-hue) 24% 86%);border:1px solid var(--ink);overflow:hidden;color:var(--ink);transform-origin:center bottom;transition:transform .18s; }
 .album-tile i { position:absolute;width:28px;height:28px;top:7px;right:-6px;border:5px double currentColor;border-radius:50%;opacity:.3; }
 .album-tile b { position:absolute;bottom:2px;left:3px;font:10px var(--display); }
-.album-tooltip { display:none;position:absolute;top:calc(100% + 80px);left:-35px;width:max-content;max-width:210px;padding:8px 10px;background:var(--ink);color:var(--paper);font:14px var(--solid-display);text-align:left;pointer-events:none;box-shadow:2px 2px 0 #0002; }
+.album-tooltip { display:none;position:absolute;bottom:calc(100% + 80px);left:-35px;width:max-content;max-width:210px;padding:8px 10px;background:var(--ink);color:var(--paper);font:14px var(--solid-display);text-align:left;pointer-events:none;box-shadow:2px 2px 0 #0002; }
 .album-tooltip small { display:block;font:12px var(--sans);margin-top:4px; }
 .album-card:hover,.album-card:focus-visible { z-index:5; }
 .album-card:hover .album-tile,.album-card:focus-visible .album-tile { transform:scale(3.5); }
@@ -196,10 +196,10 @@
 .album-overlay-controls label { display:flex;align-items:center;gap:7px;font-weight:bold; }
 .album-overlay-controls input { accent-color:var(--red); }
 .album-overlay-controls>span { color:var(--muted); }
-.timeline-content:has(#albums:not([hidden])) .activity-chart { height:315px;padding-top:110px; }
-.timeline-plot:has(#albums:not([hidden])) .timeline-axis { height:315px;padding-top:110px; }
-.timeline-plot:has(.show-timeline) .album-section { bottom:42px; }
+.timeline-plot:has(.show-timeline) .timeline-axis { height:230px; }
 .album-linked .month-observed,.show-month.album-linked .bar-fill { background:var(--red)!important; }
 .album-tile { box-shadow:0 0 0 3px #f1f0dc; }
 
 .timeline-panel .activity-chart { background:none; }
+
+.timeline-content:has(#albums:not([hidden])) .activity-chart { border-bottom:0; }
