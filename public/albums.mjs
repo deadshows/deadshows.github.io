@@ -24,6 +24,7 @@ export function renderAlbums(data,state,onExplore) {
   const groups=new Map();
   for(const [i,bin] of bins.entries()) {
     const year=monthly?Number((state.windowStart||`${state.from}-01`).slice(0,4))+Math.floor((Number((state.windowStart||`${state.from}-01`).slice(5))-1+i)/12):Number(bin.dataset.bin);
+    bin.dataset.albumYear=year;
     const rect=bin.getBoundingClientRect(), left=rect.left-chartRect.left;
     if(!groups.has(year))groups.set(year,{left,right:left+rect.width});
     else groups.get(year).right=left+rect.width;
@@ -32,11 +33,24 @@ export function renderAlbums(data,state,onExplore) {
   rail.style.width=chartRect.width+'px';
   rail.innerHTML=[...groups].map(([year,pos])=>{
     const albums=(data.albums||[]).filter(a=>a.year===year);
-    return `<div class="album-year ${year<state.from||year>state.to?'outside-album-range':''}" style="left:${pos.left}px;width:${pos.right-pos.left}px">${albums.map((a,i)=>`<button type="button" class="album-card" data-album="${a.id}" aria-label="${esc(a.title)}, ${year}, ${esc(a.artist)}; open tracklist" aria-expanded="${selected===a.id}" aria-controls="album-detail"><span class="album-tile" style="--tile-hue:${(year*13+i*63)%360}" aria-hidden="true"><i></i><b>${a.artist==='Grateful Dead'?'GD':a.artist==='Bob Weir'?'BW':'JG'}</b></span><span class="album-tooltip">${esc(a.title)}<small>${year} · ${esc(a.artist)}</small></span></button>`).join('')}</div>`;
+    return `<div class="album-year ${year<state.from||year>state.to?'outside-album-range':''}" data-album-year="${year}" style="left:${pos.left}px;width:${pos.right-pos.left}px">${albums.map((a,i)=>`<button type="button" class="album-card" data-album="${a.id}" aria-label="${esc(a.title)}, ${year}, ${esc(a.artist)}; open tracklist" aria-expanded="${selected===a.id}" aria-controls="album-detail"><span class="album-tile" style="--tile-hue:${(year*13+i*63)%360}" aria-hidden="true"><i></i><b>${a.artist==='Grateful Dead'?'GD':a.artist==='Bob Weir'?'BW':'JG'}</b></span><span class="album-tooltip">${esc(a.title)}<small>${year} · ${esc(a.artist)}</small></span></button>`).join('')}</div>`;
   }).join('');
   if(!rail.querySelector('[data-album]'))rail.innerHTML='<p class="small-note">No selected album releases in these years.</p>';
   if(!bound){
     bound=true;
+    const content=document.querySelector('.timeline-content');
+    const highlight=event=>{
+      const year=event.target.closest('[data-album-year]')?.dataset.albumYear;
+      content.querySelectorAll('[data-album-year]').forEach(node=>node.classList.toggle('album-linked',!!year&&node.dataset.albumYear===year));
+    };
+    for(const event of ['pointerover','focusin'])content.addEventListener(event,highlight);
+    const clear=()=>content.querySelectorAll('.album-linked').forEach(node=>node.classList.remove('album-linked'));
+    content.addEventListener('pointerleave',clear);
+    content.addEventListener('focusout',event=>{if(!content.contains(event.relatedTarget))clear();});
+    document.getElementById('toggle-albums').addEventListener('change',event=>{
+      document.getElementById('albums').hidden=!event.target.checked;
+      clear();
+    });
     const closeAlbum=()=>{const id=selected;selected='';document.querySelector(`[data-album="${id}"]`)?.setAttribute('aria-expanded','false');};
     document.getElementById('album-detail').addEventListener('close',closeAlbum);
     document.addEventListener('click',event=>{

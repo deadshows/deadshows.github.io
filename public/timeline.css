@@ -156,22 +156,26 @@
 .frequency-timeline .month-coverage { display: none; }
 .unknown-month::after { content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:repeating-linear-gradient(135deg,#82917e 0 1px,transparent 1px 3px); }
 .density-year:hover .month-observed,.density-year:focus-visible .month-observed { background: var(--red); }
-.timeline-content { min-width:1050px; }
+.timeline-content { position:relative;min-width:1050px; }
 .timeline-content:has(.show-timeline) { min-width:100%; }
 @media (prefers-reduced-motion:reduce) { .album-tile { transition:none; } }
 .timeline-axis { height:205px; }
-.album-section { margin:14px 0 0; border-top:1px solid var(--line); padding-top:12px; }
+.album-section { position:absolute;inset:0 0 27px;margin:0;padding:0;pointer-events:none; }
+.album-section[hidden] { display:none; }
 .album-heading { display:flex;align-items:baseline;gap:14px;flex-wrap:wrap; }
 .album-heading h3 { font:18px var(--solid-display);margin:0; }
 .album-heading>span { font-size:12px;color:var(--muted); }
 .album-section>.small-note { margin:5px 0; }
-.album-chronology { position:relative;height:160px; }
-.album-year { position:absolute;top:28px;display:flex;flex-direction:column;align-items:center;gap:10px;border-left:1px solid var(--line);min-height:112px; }
-.album-card { position:relative;display:block;flex:none;width:28px;height:28px;padding:0;border:0;background:none;cursor:pointer; }
+.album-chronology { position:relative;height:100%; }
+.album-year { position:absolute;inset-block:0;display:flex;flex-direction:column;align-items:center;gap:7px;padding-top:7px; }
+.album-year:has(.album-card):before { content:"";position:absolute;inset:0;background:#29352e04;border-inline:1px dashed #29352e18;pointer-events:none; }
+.album-year.album-linked:before { background:#9b492f10;border-color:var(--red); }
+.album-year:has(.album-card:hover),.album-year:has(.album-card:focus-visible) { z-index:6; }
+.album-card { position:relative;display:block;flex:none;width:28px;height:28px;padding:0;border:0;background:none;cursor:pointer;pointer-events:auto; }
 .album-tile { display:block;position:relative;width:100%;height:100%;background:hsl(var(--tile-hue) 24% 86%);border:1px solid var(--ink);overflow:hidden;color:var(--ink);transition:transform .16s; }
 .album-tile i { position:absolute;width:28px;height:28px;top:7px;right:-6px;border:5px double currentColor;border-radius:50%;opacity:.3; }
 .album-tile b { position:absolute;bottom:2px;left:3px;font:10px var(--display); }
-.album-tooltip { display:none;position:absolute;bottom:calc(100% + 12px);left:-8px;width:max-content;max-width:210px;padding:8px 10px;background:var(--ink);color:var(--paper);font:14px var(--solid-display);text-align:left;pointer-events:none;box-shadow:2px 2px 0 #0002; }
+.album-tooltip { display:none;position:absolute;top:calc(100% + 10px);left:-8px;width:max-content;max-width:210px;padding:8px 10px;background:var(--ink);color:var(--paper);font:14px var(--solid-display);text-align:left;pointer-events:none;box-shadow:2px 2px 0 #0002; }
 .album-tooltip small { display:block;font:12px var(--sans);margin-top:4px; }
 .album-card:hover,.album-card:focus-visible { z-index:5; }
 .album-card:hover .album-tile,.album-card:focus-visible .album-tile { transform:scale(1.45); }
@@ -188,3 +192,13 @@
 .album-tracks small,.album-tracks a span { display:block;font:12px/1.5 var(--sans);color:var(--muted);text-decoration:none; }
 .album-tracks strong { display:block;font-weight:600;margin-bottom:5px; }
 @media(max-width:700px) { .album-tracks { grid-template-columns:1fr; } .album-detail { padding:15px; } }
+
+.album-overlay-controls { display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 18px;margin:12px 0;font-size:12px; }
+.album-overlay-controls label { display:flex;align-items:center;gap:7px;font-weight:bold; }
+.album-overlay-controls input { accent-color:var(--red); }
+.album-overlay-controls>span { color:var(--muted); }
+.timeline-content:has(#albums:not([hidden])) .activity-chart { height:315px;padding-top:110px; }
+.timeline-plot:has(#albums:not([hidden])) .timeline-axis { height:315px;padding-top:110px; }
+.timeline-plot:has(.show-timeline) .album-section { bottom:42px; }
+.album-linked .month-observed,.show-month.album-linked .bar-fill { background:var(--red)!important; }
+.album-tile { box-shadow:0 0 0 3px #f1f0dc; }
