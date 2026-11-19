@@ -1030,6 +1030,71 @@
           ]
         }
       ]
+    },
+    {
+      "id": "built-to-last",
+      "title": "Built to Last",
+      "artist": "Grateful Dead",
+      "year": 1989,
+      "kind": "studio",
+      "wikipedia": "https://en.wikipedia.org/wiki/Built_to_Last",
+      "edition": "Original CD track sequence; release year only. The LP used a different order and omitted “We Can Run”.",
+      "tracks": [
+        {
+          "title": "Foolish Heart",
+          "song_ids": [
+            "foolish-heart"
+          ]
+        },
+        {
+          "title": "Just a Little Light",
+          "song_ids": [
+            "just-a-little-light"
+          ]
+        },
+        {
+          "title": "Built to Last",
+          "song_ids": [
+            "built-to-last"
+          ]
+        },
+        {
+          "title": "Blow Away",
+          "song_ids": [
+            "blow-away"
+          ]
+        },
+        {
+          "title": "Victim or the Crime",
+          "song_ids": [
+            "victim-or-the-crime"
+          ]
+        },
+        {
+          "title": "We Can Run",
+          "song_ids": [
+            "we-can-run"
+          ]
+        },
+        {
+          "title": "Standing on the Moon",
+          "song_ids": [
+            "standing-on-the-moon"
+          ]
+        },
+        {
+          "title": "Picasso Moon",
+          "song_ids": [
+            "picasso-moon"
+          ]
+        },
+        {
+          "title": "I Will Take You Home",
+          "song_ids": [
+            "i-will-take-you-home"
+          ]
+        }
+      ]
     }
   ]
 }

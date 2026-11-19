@@ -22,4 +22,4 @@ Bungee Shade and Archivo Black are distributed with their SIL Open Font License 
 
 This is an independent fan project, unaffiliated with the Grateful Dead or Internet Archive.
 
-Album release years and original LP track sequences are factual annotations sourced from each album’s linked Wikipedia article. Album tiles are original geometric designs, not reproductions of album covers. Relisten links use its published HTTPS universal-link routes; opening the installed iOS app depends on the device’s settings.
+Album release years and release-edition track sequences are factual annotations sourced from each album’s linked Wikipedia article. Album tiles are original geometric designs, not reproductions of album covers. Relisten links use its published HTTPS universal-link routes; opening the installed iOS app depends on the device’s settings.

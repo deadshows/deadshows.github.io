@@ -204,6 +204,15 @@ class ArchiveIntegrationTests(unittest.TestCase):
         self.assertEqual(len(albums['reckoning']['tracks']),16)
         self.assertEqual(len(albums['dead-set']['tracks']),15)
 
+    def test_chronology_ends_with_built_to_last_and_its_full_cd_tracklist(self):
+        album=self.catalog['albums'][-1]
+        self.assertEqual((album['id'],album['year'],album['kind']),('built-to-last',1989,'studio'))
+        self.assertIn('Original CD',album['edition'])
+        self.assertEqual([t['song_ids'] for t in album['tracks']], [
+            ['foolish-heart'],['just-a-little-light'],['built-to-last'],['blow-away'],
+            ['victim-or-the-crime'],['we-can-run'],['standing-on-the-moon'],
+            ['picasso-moon'],['i-will-take-you-home']])
+
     def test_release_does_not_publish_raw_archive_records(self):
         snapshot = json.loads((ROOT / 'data/release/archive.json').read_text())
         item_fields = {'identifier', 'date', 'venue', 'coverage', 'avg_rating',
