@@ -319,7 +319,11 @@ def package(catalog):
     # Content revisions refresh module and data URLs after an offline rebuild.
     # A new tab can otherwise reuse yesterday's heuristically cached catalog.
     revision = hashlib.sha256(b''.join((PUBLIC / name).read_bytes() for name in ['app.js', 'analytics.mjs', 'albums.mjs', 'point-cloud.mjs', 'assets/rose-graph.json', 'data/catalog.json'])).hexdigest()[:12]
-    (dist / 'index.html').write_text((PUBLIC / 'index.html').read_text().replace('src="app.js"', f'src="app.js?v={revision}"').replace('src="point-cloud.mjs"', f'src="point-cloud.mjs?v={revision}"'))
+    index_html = (PUBLIC / 'index.html').read_text().replace('src="app.js"', f'src="app.js?v={revision}"').replace('src="point-cloud.mjs"', f'src="point-cloud.mjs?v={revision}"')
+    for stylesheet in ['style.css', 'theme.css', 'timeline.css']:
+        style_revision = hashlib.sha256((PUBLIC / stylesheet).read_bytes()).hexdigest()[:12]
+        index_html = index_html.replace(f'href="{stylesheet}"', f'href="{stylesheet}?v={style_revision}"')
+    (dist / 'index.html').write_text(index_html)
     (dist / 'app.js').write_text((PUBLIC / 'app.js').read_text().replace("'./analytics.mjs'", f"'./analytics.mjs?v={revision}'").replace("'./albums.mjs'", f"'./albums.mjs?v={revision}'"))
     (dist / '.nojekyll').touch()
     shutil.copyfile(ROOT / 'data/coverage.json', dist / 'data/coverage.json')

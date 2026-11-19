@@ -114,6 +114,9 @@ class ArchiveIntegrationTests(unittest.TestCase):
         revision = hashlib.sha256(b''.join((ROOT / 'public' / name).read_bytes() for name in ['app.js', 'analytics.mjs', 'albums.mjs', 'point-cloud.mjs', 'assets/rose-graph.json', 'data/catalog.json'])).hexdigest()[:12]
         self.assertIn(f'src="app.js?v={revision}"', (ROOT / 'dist/index.html').read_text())
         self.assertIn(f"'./analytics.mjs?v={revision}'", (ROOT / 'dist/app.js').read_text())
+        for stylesheet in ['style.css', 'theme.css', 'timeline.css']:
+            style_revision = hashlib.sha256((ROOT / 'public' / stylesheet).read_bytes()).hexdigest()[:12]
+            self.assertIn(f'href="{stylesheet}?v={style_revision}"', (ROOT / 'dist/index.html').read_text())
 
     def test_song_observations_deduplicate_sources_and_reprises(self):
         c = self.catalog
