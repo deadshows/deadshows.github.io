@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {normalizeState, ratedSource, selectShows, songStatistics, timelineBins, showBins} from '../public/analytics.mjs';
+import {normalizeState, ratedSource, selectShows, songStatistics, timelineBins, showBins, yearDensity, relistenUrl} from '../public/analytics.mjs';
 const history={eras:[{id:'wall',start:'1974-03-23',end:'1974-10-20'}],members:[{id:'keith'}]};
 const shows=[
   {id:'a',date:'1974-06-23',venue:'Jai-Alai',location:'Miami',song_ids:['dark-star'],member_ids:['keith'],recording_count:5,rated_sources:[{id:'one',count:6,adjusted:4.9},{id:'two',count:60,adjusted:4.8}]},
@@ -115,4 +115,21 @@ test('distinct event identities on the same date remain individually openable',(
   const sample=[{...shows[0],id:'late'},{...shows[0],id:'early'}];
   const rows=showBins(sample,'dark-star','1974-01')[5].shows;
   assert.deepEqual(rows.map(row=>row.showId),['early','late']);
+});
+
+test('ranking is the default while explicit chronological links remain valid',()=>{
+  const data={history,songs:[]};
+  assert.equal(normalizeState(new URLSearchParams(),data).sort,'rating');
+  assert.equal(normalizeState(new URLSearchParams('sort=date'),data).sort,'date');
+});
+test('year mini histograms retain twelve months, gaps and song evidence',()=>{
+  const bins=yearDensity(shows,'dark-star');
+  assert.equal(bins[1974].length,12);
+  assert.equal(bins[1974][0].frequency,null);
+  assert.deepEqual([bins[1974][5].total,bins[1974][5].evidence,bins[1974][5].count],[3,2,1]);
+  assert.equal(bins[1974].reduce((n,m)=>n+m.count,0),1);
+});
+test('Relisten uses HTTPS universal links with a web destination',()=>{
+  assert.equal(relistenUrl('1977-05-08'),'https://relisten.net/grateful-dead/1977/05/08');
+  assert.throws(()=>relistenUrl('bad/date'));
 });

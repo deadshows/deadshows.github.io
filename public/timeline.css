@@ -144,3 +144,44 @@
 .show-sections { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
 .show-sections button { padding: 7px 10px; border: 1px solid var(--line); background: var(--sage); font-size: 11px; }
 #show-dialog h3 { scroll-margin-top: 80px; }
+/* Each year remains one control, with twelve miniature calendar bars. */
+.timeline-panel .activity-chart:not(.show-timeline) { min-width: 1050px; gap: 7px; }
+.timeline-panel .density-year { padding: 0; background: transparent; }
+.year-density { position: absolute; inset: 0; display: flex; align-items: stretch; gap: 1px; pointer-events: none; }
+.month-density { position: relative; flex: 1; min-width: 0; }
+.month-density .month-observed,.month-density .month-coverage { position: absolute; bottom: 0; width: 100%; left: 0; }
+.month-density .month-observed { height: var(--month-height); background: var(--ink); z-index: 2; }
+.month-density .month-coverage { height: var(--month-coverage); background: #a4b8a0; z-index: 1; }
+.song-timeline .month-observed { background: var(--blue); }
+.frequency-timeline .month-coverage { display: none; }
+.unknown-month::after { content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:repeating-linear-gradient(135deg,#82917e 0 1px,transparent 1px 3px); }
+.density-year:hover .month-observed,.density-year:focus-visible .month-observed { background: var(--red); }
+.album-section { margin: 32px 0; border-top: 1px solid var(--line); padding-top: 25px; }
+.album-heading { display:flex;align-items:baseline;justify-content:space-between;gap:15px;flex-wrap:wrap; }
+.album-heading h3 { font: 24px var(--solid-display);margin:0; }
+.album-heading>span { font-size:11px;color:var(--muted); }
+.album-heading .eyebrow { margin:0 0 5px; }
+.album-chronology { display:flex;gap:22px;overflow-x:auto;scrollbar-width:thin;padding:12px 4px 20px; }
+.album-year { flex:0 0 auto;display:grid;grid-template-columns:repeat(var(--album-count),155px);align-content:start;gap:12px;border-left:1px solid var(--line);padding-left:14px; }
+.album-year-label { grid-column:1 / -1;font:18px var(--solid-display);color:var(--blue); }
+.outside-album-range .album-year-label { color:var(--muted); }
+.album-card { display:grid;gap:6px;align-content:start; }
+.album-tile { position:relative;width:100%;height:90px;background:hsl(var(--tile-hue) 24% 86%);border:1px solid var(--ink);overflow:hidden;color:var(--ink); }
+.album-tile i { position:absolute;width:115px;height:115px;top:12px;right:-12px;border:18px double currentColor;border-radius:50%;opacity:.25; }
+.album-tile span { position:absolute;top:9px;left:10px;font:11px 'Courier New',monospace; }
+.album-tile b { position:absolute;bottom:7px;left:10px;font:25px var(--display); }
+.album-title { font:14px var(--solid-display);text-decoration-thickness:1px; }
+.album-card small { font-size:10px;color:var(--muted); }
+.album-card button { display:flex;justify-content:space-between;background:none;border:1px solid var(--line);padding:6px 9px;font-size:11px;text-align:left; }
+.album-card button[aria-expanded=true] { background:var(--ink);color:var(--paper); }
+.album-detail { border:1px solid var(--ink);background:#faf8ed;padding:20px;margin-top:12px; }
+.album-detail[hidden] { display:none; }
+.album-detail-heading { display:flex;justify-content:space-between;align-items:start;gap:15px; }
+.album-detail h4 { font:25px var(--solid-display);margin:0; }
+.album-detail-heading button { background:none;border:0;white-space:nowrap;font-size:12px; }
+.album-tracks { display:grid;grid-template-columns:1fr 1fr;gap:12px 35px;padding-left:24px;margin:22px 0; }
+.album-tracks li { padding:5px;font-size:13px;break-inside:avoid; }
+.album-tracks a { display:block; }
+.album-tracks small,.album-tracks a span { display:block;font:10px/1.5 var(--sans);color:var(--muted);text-decoration:none; }
+.album-tracks strong { display:block;font-weight:600;margin-bottom:5px; }
+@media(max-width:700px) { .album-tracks { grid-template-columns:1fr; } .album-detail { padding:15px; } }

@@ -1,0 +1,644 @@
+{
+  "albums": [
+    {
+      "id": "live-dead",
+      "title": "Live/Dead",
+      "artist": "Grateful Dead",
+      "year": 1969,
+      "kind": "live",
+      "wikipedia": "https://en.wikipedia.org/wiki/Live/Dead",
+      "edition": "Original LP track sequence; release year only.",
+      "tracks": [
+        {
+          "title": "Dark Star",
+          "song_ids": [
+            "dark-star"
+          ]
+        },
+        {
+          "title": "St. Stephen",
+          "song_ids": [
+            "saint-stephen"
+          ]
+        },
+        {
+          "title": "The Eleven",
+          "song_ids": [
+            "the-eleven"
+          ]
+        },
+        {
+          "title": "Turn On Your Lovelight",
+          "song_ids": [
+            "turn-on-your-lovelight"
+          ]
+        },
+        {
+          "title": "Death Don’t Have No Mercy",
+          "song_ids": [
+            "death-dont-have-no-mercy"
+          ]
+        },
+        {
+          "title": "Feedback",
+          "song_ids": [
+            "feedback"
+          ]
+        },
+        {
+          "title": "And We Bid You Goodnight",
+          "song_ids": [
+            "and-we-bid-you-goodnight"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "workingmans-dead",
+      "title": "Workingman’s Dead",
+      "artist": "Grateful Dead",
+      "year": 1970,
+      "kind": "studio",
+      "wikipedia": "https://en.wikipedia.org/wiki/Workingman%27s_Dead",
+      "edition": "Original LP track sequence; release year only.",
+      "tracks": [
+        {
+          "title": "Uncle John’s Band",
+          "song_ids": [
+            "uncle-johns-band"
+          ]
+        },
+        {
+          "title": "High Time",
+          "song_ids": [
+            "high-time"
+          ]
+        },
+        {
+          "title": "Dire Wolf",
+          "song_ids": [
+            "dire-wolf"
+          ]
+        },
+        {
+          "title": "New Speedway Boogie",
+          "song_ids": [
+            "new-speedway-boogie"
+          ]
+        },
+        {
+          "title": "Cumberland Blues",
+          "song_ids": [
+            "cumberland-blues"
+          ]
+        },
+        {
+          "title": "Black Peter",
+          "song_ids": [
+            "black-peter"
+          ]
+        },
+        {
+          "title": "Easy Wind",
+          "song_ids": [
+            "easy-wind"
+          ]
+        },
+        {
+          "title": "Casey Jones",
+          "song_ids": [
+            "casey-jones"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "american-beauty",
+      "title": "American Beauty",
+      "artist": "Grateful Dead",
+      "year": 1970,
+      "kind": "studio",
+      "wikipedia": "https://en.wikipedia.org/wiki/American_Beauty_(album)",
+      "edition": "Original LP track sequence; release year only.",
+      "tracks": [
+        {
+          "title": "Box of Rain",
+          "song_ids": [
+            "box-of-rain"
+          ]
+        },
+        {
+          "title": "Friend of the Devil",
+          "song_ids": [
+            "friend-of-the-devil"
+          ]
+        },
+        {
+          "title": "Sugar Magnolia",
+          "song_ids": [
+            "sugar-magnolia"
+          ]
+        },
+        {
+          "title": "Operator",
+          "song_ids": [
+            "operator"
+          ]
+        },
+        {
+          "title": "Candyman",
+          "song_ids": [
+            "candyman"
+          ]
+        },
+        {
+          "title": "Ripple",
+          "song_ids": [
+            "ripple"
+          ]
+        },
+        {
+          "title": "Brokedown Palace",
+          "song_ids": [
+            "broke-down-palace"
+          ]
+        },
+        {
+          "title": "Till the Morning Comes",
+          "song_ids": []
+        },
+        {
+          "title": "Attics of My Life",
+          "song_ids": [
+            "attics-of-my-life"
+          ]
+        },
+        {
+          "title": "Truckin’",
+          "song_ids": [
+            "truckin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "garcia",
+      "title": "Garcia",
+      "artist": "Jerry Garcia",
+      "year": 1972,
+      "kind": "solo",
+      "wikipedia": "https://en.wikipedia.org/wiki/Garcia_(album)",
+      "edition": "Original LP track sequence; release year only.",
+      "tracks": [
+        {
+          "title": "Deal",
+          "song_ids": [
+            "deal"
+          ]
+        },
+        {
+          "title": "Bird Song",
+          "song_ids": [
+            "bird-song"
+          ]
+        },
+        {
+          "title": "Sugaree",
+          "song_ids": [
+            "sugaree"
+          ]
+        },
+        {
+          "title": "Loser",
+          "song_ids": [
+            "loser"
+          ]
+        },
+        {
+          "title": "Late for Supper",
+          "song_ids": []
+        },
+        {
+          "title": "Spidergawd",
+          "song_ids": []
+        },
+        {
+          "title": "Eep Hour",
+          "song_ids": []
+        },
+        {
+          "title": "To Lay Me Down",
+          "song_ids": [
+            "to-lay-me-down"
+          ]
+        },
+        {
+          "title": "An Odd Little Place",
+          "song_ids": []
+        },
+        {
+          "title": "The Wheel",
+          "song_ids": [
+            "the-wheel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ace",
+      "title": "Ace",
+      "artist": "Bob Weir",
+      "year": 1972,
+      "kind": "solo",
+      "wikipedia": "https://en.wikipedia.org/wiki/Ace_(Bob_Weir_album)",
+      "edition": "Original LP track sequence; release year only.",
+      "tracks": [
+        {
+          "title": "Greatest Story Ever Told",
+          "song_ids": [
+            "greatest-story-ever-told"
+          ]
+        },
+        {
+          "title": "Black-Throated Wind",
+          "song_ids": [
+            "black-throated-wind"
+          ]
+        },
+        {
+          "title": "Walk in the Sunshine",
+          "song_ids": []
+        },
+        {
+          "title": "Playing in the Band",
+          "song_ids": [
+            "playing-in-the-band"
+          ]
+        },
+        {
+          "title": "Looks Like Rain",
+          "song_ids": [
+            "looks-like-rain"
+          ]
+        },
+        {
+          "title": "Mexicali Blues",
+          "song_ids": [
+            "mexicali-blues"
+          ]
+        },
+        {
+          "title": "One More Saturday Night",
+          "song_ids": [
+            "one-more-saturday-night"
+          ]
+        },
+        {
+          "title": "Cassidy",
+          "song_ids": [
+            "cassidy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "europe-72",
+      "title": "Europe ’72",
+      "artist": "Grateful Dead",
+      "year": 1972,
+      "kind": "live",
+      "wikipedia": "https://en.wikipedia.org/wiki/Europe_%2772",
+      "edition": "Original LP track sequence; release year only.",
+      "tracks": [
+        {
+          "title": "Cumberland Blues",
+          "song_ids": [
+            "cumberland-blues"
+          ]
+        },
+        {
+          "title": "He’s Gone",
+          "song_ids": [
+            "hes-gone"
+          ]
+        },
+        {
+          "title": "One More Saturday Night",
+          "song_ids": [
+            "one-more-saturday-night"
+          ]
+        },
+        {
+          "title": "Jack Straw",
+          "song_ids": [
+            "jack-straw"
+          ]
+        },
+        {
+          "title": "You Win Again",
+          "song_ids": [
+            "you-win-again"
+          ]
+        },
+        {
+          "title": "China Cat Sunflower",
+          "song_ids": [
+            "china-cat-sunflower"
+          ]
+        },
+        {
+          "title": "I Know You Rider",
+          "song_ids": [
+            "i-know-you-rider"
+          ]
+        },
+        {
+          "title": "Brown-Eyed Women",
+          "song_ids": [
+            "brown-eyed-women"
+          ]
+        },
+        {
+          "title": "Hurts Me Too",
+          "song_ids": [
+            "it-hurts-me-too"
+          ]
+        },
+        {
+          "title": "Ramble On Rose",
+          "song_ids": [
+            "ramble-on-rose"
+          ]
+        },
+        {
+          "title": "Sugar Magnolia",
+          "song_ids": [
+            "sugar-magnolia"
+          ]
+        },
+        {
+          "title": "Mr. Charlie",
+          "song_ids": [
+            "mr-charlie"
+          ]
+        },
+        {
+          "title": "Tennessee Jed",
+          "song_ids": [
+            "tennessee-jed"
+          ]
+        },
+        {
+          "title": "Truckin’",
+          "song_ids": [
+            "truckin"
+          ]
+        },
+        {
+          "title": "Epilog",
+          "song_ids": []
+        },
+        {
+          "title": "Prelude",
+          "song_ids": []
+        },
+        {
+          "title": "Morning Dew",
+          "song_ids": [
+            "morning-dew"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wake-of-the-flood",
+      "title": "Wake of the Flood",
+      "artist": "Grateful Dead",
+      "year": 1973,
+      "kind": "studio",
+      "wikipedia": "https://en.wikipedia.org/wiki/Wake_of_the_Flood",
+      "edition": "Original LP track sequence; release year only.",
+      "tracks": [
+        {
+          "title": "Mississippi Half-Step Uptown Toodeloo",
+          "song_ids": [
+            "mississippi-half-step-uptown-toodeloo"
+          ]
+        },
+        {
+          "title": "Let Me Sing Your Blues Away",
+          "song_ids": [
+            "let-me-sing-your-blues-away"
+          ]
+        },
+        {
+          "title": "Row Jimmy",
+          "song_ids": [
+            "row-jimmy"
+          ]
+        },
+        {
+          "title": "Stella Blue",
+          "song_ids": [
+            "stella-blue"
+          ]
+        },
+        {
+          "title": "Here Comes Sunshine",
+          "song_ids": [
+            "here-comes-sunshine"
+          ]
+        },
+        {
+          "title": "Eyes of the World",
+          "song_ids": [
+            "eyes-of-the-world"
+          ]
+        },
+        {
+          "title": "Weather Report Suite",
+          "song_ids": [
+            "weather-report-suite",
+            "weather-report-suite-prelude",
+            "weather-report-suite-part-one",
+            "let-it-grow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mars-hotel",
+      "title": "From the Mars Hotel",
+      "artist": "Grateful Dead",
+      "year": 1974,
+      "kind": "studio",
+      "wikipedia": "https://en.wikipedia.org/wiki/From_the_Mars_Hotel",
+      "edition": "Original LP track sequence; release year only.",
+      "tracks": [
+        {
+          "title": "U.S. Blues",
+          "song_ids": [
+            "u-s-blues"
+          ]
+        },
+        {
+          "title": "China Doll",
+          "song_ids": [
+            "china-doll"
+          ]
+        },
+        {
+          "title": "Unbroken Chain",
+          "song_ids": [
+            "unbroken-chain"
+          ]
+        },
+        {
+          "title": "Loose Lucy",
+          "song_ids": [
+            "loose-lucy"
+          ]
+        },
+        {
+          "title": "Scarlet Begonias",
+          "song_ids": [
+            "scarlet-begonias"
+          ]
+        },
+        {
+          "title": "Pride of Cucamonga",
+          "song_ids": []
+        },
+        {
+          "title": "Money Money",
+          "song_ids": [
+            "money-money"
+          ]
+        },
+        {
+          "title": "Ship of Fools",
+          "song_ids": [
+            "ship-of-fools"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "blues-for-allah",
+      "title": "Blues for Allah",
+      "artist": "Grateful Dead",
+      "year": 1975,
+      "kind": "studio",
+      "wikipedia": "https://en.wikipedia.org/wiki/Blues_for_Allah",
+      "edition": "Original LP track sequence; release year only.",
+      "tracks": [
+        {
+          "title": "Help on the Way",
+          "song_ids": [
+            "help-on-the-way"
+          ]
+        },
+        {
+          "title": "Slipknot!",
+          "song_ids": [
+            "slipknot"
+          ]
+        },
+        {
+          "title": "Franklin’s Tower",
+          "song_ids": [
+            "franklins-tower"
+          ]
+        },
+        {
+          "title": "King Solomon’s Marbles",
+          "song_ids": []
+        },
+        {
+          "title": "Stronger than Dirt or Milkin’ the Turkey",
+          "song_ids": []
+        },
+        {
+          "title": "The Music Never Stopped",
+          "song_ids": [
+            "the-music-never-stopped"
+          ]
+        },
+        {
+          "title": "Crazy Fingers",
+          "song_ids": [
+            "crazy-fingers"
+          ]
+        },
+        {
+          "title": "Sage & Spirit",
+          "song_ids": [
+            "sage-and-spirit"
+          ]
+        },
+        {
+          "title": "Blues for Allah",
+          "song_ids": [
+            "blues-for-allah"
+          ]
+        },
+        {
+          "title": "Sand Castles & Glass Camels",
+          "song_ids": []
+        },
+        {
+          "title": "Unusual Occurrences in the Desert",
+          "song_ids": []
+        }
+      ]
+    },
+    {
+      "id": "terrapin-station",
+      "title": "Terrapin Station",
+      "artist": "Grateful Dead",
+      "year": 1977,
+      "kind": "studio",
+      "wikipedia": "https://en.wikipedia.org/wiki/Terrapin_Station",
+      "edition": "Original LP track sequence; release year only.",
+      "tracks": [
+        {
+          "title": "Estimated Prophet",
+          "song_ids": [
+            "estimated-prophet"
+          ]
+        },
+        {
+          "title": "Dancin’ in the Streets",
+          "song_ids": [
+            "dancing-in-the-street"
+          ]
+        },
+        {
+          "title": "Passenger",
+          "song_ids": [
+            "passenger"
+          ]
+        },
+        {
+          "title": "Samson & Delilah",
+          "song_ids": [
+            "samson-and-delilah"
+          ]
+        },
+        {
+          "title": "Sunrise",
+          "song_ids": [
+            "sunrise"
+          ]
+        },
+        {
+          "title": "Terrapin Part 1",
+          "song_ids": [
+            "terrapin-station"
+          ],
+          "note": "Suite; the link explores the archive’s Terrapin Station song identity, not every studio section."
+        }
+      ]
+    }
+  ]
+}

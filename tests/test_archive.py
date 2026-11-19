@@ -111,7 +111,7 @@ class ArchiveIntegrationTests(unittest.TestCase):
         self.assertEqual(c['coverage']['dates_with_metadata'] + c['coverage']['dates_awaiting_metadata'], len(c['shows']))
 
     def test_build_versions_code_and_data_to_refresh_cached_clients(self):
-        revision = hashlib.sha256(b''.join((ROOT / 'public' / name).read_bytes() for name in ['app.js', 'analytics.mjs', 'point-cloud.mjs', 'assets/rose-graph.json', 'data/catalog.json'])).hexdigest()[:12]
+        revision = hashlib.sha256(b''.join((ROOT / 'public' / name).read_bytes() for name in ['app.js', 'analytics.mjs', 'albums.mjs', 'point-cloud.mjs', 'assets/rose-graph.json', 'data/catalog.json'])).hexdigest()[:12]
         self.assertIn(f'src="app.js?v={revision}"', (ROOT / 'dist/index.html').read_text())
         self.assertIn(f"'./analytics.mjs?v={revision}'", (ROOT / 'dist/app.js').read_text())
 
@@ -163,6 +163,30 @@ class ArchiveIntegrationTests(unittest.TestCase):
         with sqlite3.connect(ROOT / 'data/archive.sqlite') as db:
             self.assertEqual(db.execute('PRAGMA foreign_key_check').fetchall(), [])
             self.assertEqual(db.execute('SELECT COUNT(*) FROM recordings').fetchone()[0], self.catalog['coverage']['recordings_in_scope'])
+
+    def test_share_preview_uses_committed_png_and_absolute_url(self):
+        import struct
+        image=(ROOT/'dist/assets/share-card.png').read_bytes()
+        self.assertEqual(image[:8],b'\x89PNG\r\n\x1a\n')
+        self.assertEqual(struct.unpack('>II',image[16:24]),(1200,630))
+        home=(ROOT/'dist/index.html').read_text()
+        self.assertIn('property="og:image" content="https://deadshows.github.io/assets/share-card.png"',home)
+        show=(ROOT/'dist/shows/gd-1977-05-08/index.html').read_text()
+        self.assertIn('https://deadshows.github.io/assets/share-card.png',show)
+
+    def test_album_tracks_link_only_to_known_song_identities(self):
+        albums=self.catalog['albums']
+        self.assertEqual(len(albums),10)
+        self.assertEqual([a['year'] for a in albums],sorted(a['year'] for a in albums))
+        known={s['id'] for s in json.loads((ROOT/'data/curated/songs.json').read_text())['songs']}
+        for album in albums:
+            self.assertTrue(album['wikipedia'].startswith('https://en.wikipedia.org/wiki/'))
+            self.assertTrue(album['tracks'])
+            for track in album['tracks']:
+                self.assertTrue(set(track['song_ids'])<=known)
+        ace=next(a for a in albums if a['id']=='ace')
+        self.assertEqual(next(t for t in ace['tracks'] if t['title']=='Cassidy')['song_ids'],['cassidy'])
+        self.assertEqual(next(t for t in ace['tracks'] if t['title']=='Walk in the Sunshine')['song_ids'],[])
 
     def test_release_does_not_publish_raw_archive_records(self):
         snapshot = json.loads((ROOT / 'data/release/archive.json').read_text())

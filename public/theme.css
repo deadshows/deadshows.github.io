@@ -176,3 +176,7 @@ dialog h3 { font: italic 28px/1.2 var(--serif); letter-spacing: -.5px; }
   .hero-art.point-cloud-art { top: auto; right: auto; width: 100%; max-width: 440px; opacity: 1; pointer-events: auto; justify-self: center; padding: 5px 0; }
   .point-cloud-field { width: calc(100% + 64px); }
 }
+@media (max-width: 700px) {
+  /* The enlarged rose keeps its size without widening the whole page. */
+  .hero { overflow: hidden; }
+}

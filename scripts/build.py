@@ -269,7 +269,11 @@ def build():
             'warnings': show['warnings'],
             'metadata': [{'id': r['id'], 'url': r['url'], 'retrieved_at': snapshots[r['id']]['retrieved_at'], 'track_count': len(r['tracks']), 'note': r['evidence_note']} for r in imported]})
     dump(ROOT / 'data/processing/all-dates.json', {'scope': 'Reported dates in the cached Internet Archive inventory, 1965–1995-07-09; one representative tracklist per date, not every duplicate tape or verified complete setlists.', 'summary': import_coverage(shows, recordings), 'years': years, 'dates': audit_dates})
-    catalog = {'schema_version': 1, 'retrieved_at': inventory['retrieved_at'], 'rating_prior': prior, 'rating_prior_strength': PRIOR_STRENGTH, 'history': history, 'coverage': {k: v for k, v in report.items() if k not in ['excluded_items', 'unresolved_status_counts']}, 'shows': catalog_shows, 'songs': exported_songs}
+    albums = load(CURATED / 'albums.json')['albums']
+    for album in albums:
+        for track in album['tracks']:
+            assert set(track['song_ids']) <= set(songs), track
+    catalog = {'albums': albums, 'schema_version': 1, 'retrieved_at': inventory['retrieved_at'], 'rating_prior': prior, 'rating_prior_strength': PRIOR_STRENGTH, 'history': history, 'coverage': {k: v for k, v in report.items() if k not in ['excluded_items', 'unresolved_status_counts']}, 'shows': catalog_shows, 'songs': exported_songs}
     dump(PUBLIC / 'data/catalog.json', catalog)
     dump(ROOT / 'data/coverage.json', report)
     database(shows, recordings, tracks, songs, aliases, history, curated_rows, inventory)
@@ -314,9 +318,9 @@ def package(catalog):
     shutil.copytree(PUBLIC, dist)
     # Content revisions refresh module and data URLs after an offline rebuild.
     # A new tab can otherwise reuse yesterday's heuristically cached catalog.
-    revision = hashlib.sha256(b''.join((PUBLIC / name).read_bytes() for name in ['app.js', 'analytics.mjs', 'point-cloud.mjs', 'assets/rose-graph.json', 'data/catalog.json'])).hexdigest()[:12]
+    revision = hashlib.sha256(b''.join((PUBLIC / name).read_bytes() for name in ['app.js', 'analytics.mjs', 'albums.mjs', 'point-cloud.mjs', 'assets/rose-graph.json', 'data/catalog.json'])).hexdigest()[:12]
     (dist / 'index.html').write_text((PUBLIC / 'index.html').read_text().replace('src="app.js"', f'src="app.js?v={revision}"').replace('src="point-cloud.mjs"', f'src="point-cloud.mjs?v={revision}"'))
-    (dist / 'app.js').write_text((PUBLIC / 'app.js').read_text().replace("'./analytics.mjs'", f"'./analytics.mjs?v={revision}'"))
+    (dist / 'app.js').write_text((PUBLIC / 'app.js').read_text().replace("'./analytics.mjs'", f"'./analytics.mjs?v={revision}'").replace("'./albums.mjs'", f"'./albums.mjs?v={revision}'"))
     (dist / '.nojekyll').touch()
     shutil.copyfile(ROOT / 'data/coverage.json', dist / 'data/coverage.json')
     (dist / 'sources.html').write_text((PUBLIC / 'sources.html').read_text())
@@ -353,7 +357,7 @@ def package(catalog):
 
 def write_page(path, title, body, explorer):
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(f'<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{html.escape(title)} — Deadshows</title><link rel="stylesheet" href="../../style.css"><link rel="stylesheet" href="../../theme.css"><body class="document"><nav><a href="../../">Deadshows / The live archive</a></nav><main><p class="eyebrow">ARCHIVE RECORD</p><h1>{html.escape(title)}</h1><p><a class="primary-link" href="{html.escape(explorer)}">Open in the interactive explorer ↗</a></p>{body}<p><a href="../../sources.html">Sources & methodology</a></p></main></body></html>')
+    path.write_text(f'<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{html.escape(title)} — Deadshows</title><meta property="og:type" content="website"><meta property="og:title" content="{html.escape(title)} — Dead Shows Archive"><meta property="og:image" content="https://deadshows.github.io/assets/share-card.png"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="../../style.css"><link rel="stylesheet" href="../../theme.css"><body class="document"><nav><a href="../../">Deadshows / The live archive</a></nav><main><p class="eyebrow">ARCHIVE RECORD</p><h1>{html.escape(title)}</h1><p><a class="primary-link" href="{html.escape(explorer)}">Open in the interactive explorer ↗</a></p>{body}<p><a href="../../sources.html">Sources & methodology</a></p></main></body></html>')
 
 if __name__ == '__main__':
     build()

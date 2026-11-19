@@ -105,5 +105,16 @@ export function normalizeState(params, data) {
   return {from, to, month, granularity, windowStart:window?.start || '', metric:valid('metric',['count','frequency']) || 'count',
     song:valid('song',data.songs.map(s=>s.id)), members, member:members.length===1?members[0]:'', memberMode:params.get('member_match')==='any'?'any':'all',
     era:valid('era',data.history.eras.map(e=>e.id)), search:(params.get('q') || '').slice(0,200),
-    sort:valid('sort',['date','rating','sources']) || 'date', minimum:[5,10,25,50].includes(Number(params.get('min')))?Number(params.get('min')):5};
+    sort:valid('sort',['date','rating','sources']) || 'rating', minimum:[5,10,25,50].includes(Number(params.get('min')))?Number(params.get('min')):5};
+}
+
+/** Twelve calendar bins per year, sharing the yearly selection semantics. */
+export function yearDensity(shows, songId) {
+  return timelineBins(shows, songId, {from:1965,to:1995,granularity:'month'})
+    .reduce((groups,row)=>{(groups[row.year] ||= []).push(row);return groups;},{});
+}
+
+export function relistenUrl(date) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) throw new Error('Invalid show date');
+  return `https://relisten.net/grateful-dead/${date.replaceAll('-','/')}`;
 }

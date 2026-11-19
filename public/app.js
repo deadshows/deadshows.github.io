@@ -1,4 +1,5 @@
-import {ratedSource, selectShows, songStatistics, yearCounts, timelineBins, normalizeState, rollingWindow, monthKey, showBins} from './analytics.mjs';
+import {renderAlbums} from './albums.mjs';
+import {ratedSource, selectShows, songStatistics, yearCounts, timelineBins, normalizeState, rollingWindow, monthKey, showBins, yearDensity, relistenUrl} from './analytics.mjs';
 const $ = id => document.getElementById(id);
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const number = n => Number(n).toLocaleString('en-US');
@@ -19,7 +20,7 @@ function currentUrl({show, omitShow = false} = {}) {
   if (state.members.length && state.memberMode === 'any') query.set('member_match','any');
   if (state.granularity === 'month' && state.windowStart) query.set('window',state.windowStart);
   if (state.search) query.set('q', state.search);
-  if (state.sort !== 'date') query.set('sort', state.sort);
+  if (state.sort !== 'rating') query.set('sort', state.sort);
   if (state.minimum !== 5) query.set('min', state.minimum);
   if (state.month) query.set('month', state.month);
   if (state.granularity !== 'year') query.set('bins', state.granularity);
@@ -61,7 +62,7 @@ function render() {
   filtered = selectShows(data.shows, state, data.history);
   $('eras').innerHTML = `<button class="chip ${!state.era?'active':''}" type="button" data-era="" aria-pressed="${!state.era}">All eras</button>` + data.history.eras.map(e => `<button class="chip ${state.era===e.id?'active':''}" type="button" data-era="${escape(e.id)}" aria-pressed="${state.era===e.id}">${escape(e.title)}</button>`).join('');
   $('review-label').hidden = state.sort !== 'rating';
-  renderActivity(); renderNotes(); renderTable(); renderSongs(); renderHistory();
+  renderActivity(); renderNotes(); renderTable(); renderSongs(); renderHistory(); renderAlbums(data,state,exploreAlbumSong);
 }
 function binLabel(key) {
   return key.length === 4 ? key : new Date(key + '-01T12:00:00Z').toLocaleDateString('en-US', {month:'short', year:'numeric', timeZone:'UTC'});
@@ -94,7 +95,8 @@ function renderActivity() {
     $('window-next').disabled=window.index===360;
   }
   timelineRows = new Map(rows.map(r=>[r.key,r]));
-  const max = frequency ? 1 : Math.max(1, ...rows.map(r => song ? r.evidence : r.total));
+  const density = yearDensity(base,state.song);
+  const max = frequency ? 1 : Math.max(1, ...Object.values(density).flat().map(r => song ? r.evidence : r.total));
   $('timeline-max').textContent = frequency ? '100%' : max;
   $('activity-chart').classList.toggle('monthly', monthly);
   $('activity-chart').classList.toggle('song-timeline', !!song);
@@ -106,6 +108,14 @@ function renderActivity() {
     const value = frequency ? r.frequency || 0 : r.count;
     const description = song ? `${r.count} observations; ${r.evidence} imported of ${r.total} reported dates${r.frequency===null?'; frequency unknown':`; ${Math.round(r.frequency*100)} percent of imported dates`}` : `${r.total} reported dates; ${r.evidence} imported tracklists`;
     const label = monthly ? (r.key.endsWith('-01') && rows.length>12 ? binLabel(r.key) : rows.length<=24 ? binLabel(r.key).split(' ')[0] : '') : (index%5===0 || index===rows.length-1 ? r.key : '');
+    if(!monthly) {
+      const months=density[r.year]||[];
+      const mini=months.map(m=>{
+        const height=frequency?(m.frequency||0)*100:m.count/max*100;
+        return `<span class="month-density ${!m.evidence?'unknown-month':''}" style="--month-height:${height}%;--month-coverage:${m.evidence/max*100}%"><span class="month-coverage"></span><span class="month-observed"></span></span>`;
+      }).join('');
+      return `<button class="year-bar density-year ${selected?'selected-range':'outside'} ${!r.evidence?'no-evidence':''}" type="button" data-bin="${r.key}" tabindex="${index===focusIndex?0:-1}" aria-pressed="${selected}" title="${r.key}: ${description}" aria-label="Select ${r.key}: ${description}; twelve monthly density bars"><span class="year-density" aria-hidden="true">${mini}</span><span class="bar-label">${escape(label)}</span></button>`;
+    }
     return `<button class="year-bar ${selected?'selected-range':'outside'} ${!r.evidence?'no-evidence':''}" type="button" data-bin="${r.key}" tabindex="${index===focusIndex?0:-1}" aria-pressed="${selected}" style="--height:${value/max*100}%;--coverage-height:${r.evidence/max*100}%" title="${binLabel(r.key)}: ${description}" aria-label="Select ${binLabel(r.key)}: ${description}"><span class="coverage-fill"></span><span class="bar-fill"${!value?' hidden':''}></span><span class="bar-label">${escape(label)}</span></button>`;
   }).join('');
   if(monthly) {
@@ -126,6 +136,7 @@ function renderActivity() {
   $('timeline-metric').title=monthly?'Each bar is one reported show date; use the yearly overview to compare frequency.':song?'Count dates or compare frequency':'Choose a song to compare frequency';
   $('chart-title').textContent = song ? `When was ${song.title} played?` : member ? `Dates during ${member.name}’s membership` : 'Recording timeline';
   $('chart-caption').textContent = song ? `Observed song evidence in imported recordings${member?` during ${member.name}’s membership windows`:''}. ${frequency?'Bar height is the share of imported dates containing this song. Hatched periods have no track evidence; their frequency is unknown.':'Pale bars show how many dates have track evidence; unfilled periods can be unknown.'}` : member ? 'Reported recording dates inside documented membership windows. These are not confirmed appearances.' : 'Reported recording dates across the live years. Choose a song to reveal its observation history, or a member to explore their time with the band.';
+  if(!monthly) $('chart-caption').textContent+=' Each year contains January–December bars. Heights compare monthly counts (or monthly shares when selected); click anywhere in a year to zoom.';
   if(monthly) $('chart-caption').textContent=`Each bar opens one reported show date.${song?' Full bars mark this song as observed; baseline marks mean it was not observed.':' Height shows the number of observed song titles.'} Hatched marks indicate unknown song evidence. Months expand to fit their dates; empty months stay visible. Scroll sideways for individual dates.`;
   const selectedBase = selectShows(data.shows, state, data.history, {ignoreSong:true,ignoreSort:true});
   const matches = selectShows(data.shows, state, data.history, {ignoreSort:true});
@@ -237,7 +248,7 @@ async function openShow(id, {updateUrl=true}={}) {
     if(version!==detailVersion) return;
     const rating=ratedSource(show,state.minimum);
     const lineup=data.history.members.filter(m=>show.member_ids.includes(m.id)).map(m=>m.name).join(' · ');
-    $('show-detail').innerHTML=`<p class="detail-kicker">${shortDate(detail.date)} / ${detail.recordings.length} RECORDING SOURCES</p><h2 id="show-heading">${escape(detail.venue)}</h2><p class="detail-meta">${escape(detail.location)}</p>${rating?`<p class="show-rating"><a href="https://archive.org/details/${encodeURIComponent(rating.id)}">★ ${rating.average.toFixed(2)} / 5 ↗</a><small>${rating.count} reviews · adjusted ${rating.adjusted.toFixed(2)} · recording rating</small></p>`:''}<nav class="show-sections" aria-label="Show details sections"><button type="button" data-pane-section="show-tracks">Tracklist</button><button type="button" data-pane-section="show-personnel">Personnel</button><button type="button" data-pane-section="show-recordings">Recordings</button></nav><h3 id="show-personnel" tabindex="-1">Personnel context</h3><p class="detail-meta">${escape(lineup)||'Not documented'}</p><p class="detail-meta">Personnel are membership-window context, not confirmed attendance.</p><p><a href="shows/${escape(id)}/">Permanent archive record ↗</a> · <a href="https://relisten.net/grateful-dead/${detail.date.slice(0,4)}/${detail.date.slice(5,7)}/${detail.date.slice(8,10)}">Open date on Relisten ↗</a></p><div class="detail-warning">${detail.status==='verified_event'?'Sourced event record.':'Provisional reported-date group. May combine early/late shows or mislabeled recordings.'} ${detail.warnings.map(escape).join(' ')}<br>Recording reviews may discuss performance, sound quality, or both. Ratings below belong to each recording.</div><h3 id="show-tracks" tabindex="-1">${detail.completeness==='complete'?'Verified setlist':'Setlist / recorded tracks'}</h3>${detail.tracks.length?`<p class="small-note">${detail.source_url?sourceLink(detail.source_url,'Setlist source'):sourceLink('https://archive.org/details/'+detail.evidence_recording,'Tracklist source')} · ${detail.completeness==='complete'?'Set divisions follow the cited source.':'Potentially incomplete. Order follows the source recording; sets and segues are not inferred.'}</p><ol class="track-list">${detail.tracks.map(t=>`<li>${t.song_id&&data.songs.some(s=>s.id===t.song_id)?`<button class="show-button" data-detail-song="${escape(t.song_id)}">${escape(t.title)}</button>`:escape(t.title)} ${t.status==='candidate'?'<small>unreviewed title</small>':t.status==='excluded_non_concert_or_other_artist'?'<small>excluded: other artist / non-concert</small>':!t.song_id?'<small>unresolved / non-song</small>':''}${t.set?` <small>${escape(t.set)}</small>`:''}</li>`).join('')}</ol>`:(detail.recordings.some(r=>r.enriched)?'<p class="small-note">Metadata is imported, but usable concert song evidence is unresolved or excluded. See the sources and review notes below.</p>':'<p class="small-note">Track metadata has not been imported for this date. Follow a recording source below to inspect its setlist.</p>')}<h3 id="show-recordings" tabindex="-1">Ratings & recording sources</h3>${detail.recordings.map(r=>`<article class="recording-card">${sourceLink(r.url,r.id)}${r.evidence_note?`<p>${escape(r.evidence_note)}</p>`:''}<p>${r.rating.average?`<span class="rating-star">★</span> ${r.rating.average.toFixed(2)} / 5 · ${r.rating.count} reviews · adjusted ${r.rating.adjusted.toFixed(2)}`:'No star rating available'}</p><small>Rating snapshot: ${escape(r.rating.retrieved_at.slice(0,10))} · ${r.enriched?'Track metadata imported':'Index metadata only'}</small></article>`).join('')}`;
+    $('show-detail').innerHTML=`<p class="detail-kicker">${shortDate(detail.date)} / ${detail.recordings.length} RECORDING SOURCES</p><h2 id="show-heading">${escape(detail.venue)}</h2><p class="detail-meta">${escape(detail.location)}</p>${rating?`<p class="show-rating"><a href="https://archive.org/details/${encodeURIComponent(rating.id)}">★ ${rating.average.toFixed(2)} / 5 ↗</a><small>${rating.count} reviews · adjusted ${rating.adjusted.toFixed(2)} · recording rating</small></p>`:''}<nav class="show-sections" aria-label="Show details sections"><button type="button" data-pane-section="show-tracks">Tracklist</button><button type="button" data-pane-section="show-personnel">Personnel</button><button type="button" data-pane-section="show-recordings">Recordings</button></nav><h3 id="show-personnel" tabindex="-1">Personnel context</h3><p class="detail-meta">${escape(lineup)||'Not documented'}</p><p class="detail-meta">Personnel are membership-window context, not confirmed attendance.</p><p><a href="shows/${escape(id)}/">Permanent archive record ↗</a> · <a href="${escape(relistenUrl(detail.date))}">Open in Relisten ↗</a></p><div class="detail-warning">${detail.status==='verified_event'?'Sourced event record.':'Provisional reported-date group. May combine early/late shows or mislabeled recordings.'} ${detail.warnings.map(escape).join(' ')}<br>Recording reviews may discuss performance, sound quality, or both. Ratings below belong to each recording.</div><h3 id="show-tracks" tabindex="-1">${detail.completeness==='complete'?'Verified setlist':'Setlist / recorded tracks'}</h3>${detail.tracks.length?`<p class="small-note">${detail.source_url?sourceLink(detail.source_url,'Setlist source'):sourceLink('https://archive.org/details/'+detail.evidence_recording,'Tracklist source')} · ${detail.completeness==='complete'?'Set divisions follow the cited source.':'Potentially incomplete. Order follows the source recording; sets and segues are not inferred.'}</p><ol class="track-list">${detail.tracks.map(t=>`<li>${t.song_id&&data.songs.some(s=>s.id===t.song_id)?`<button class="show-button" data-detail-song="${escape(t.song_id)}">${escape(t.title)}</button>`:escape(t.title)} ${t.status==='candidate'?'<small>unreviewed title</small>':t.status==='excluded_non_concert_or_other_artist'?'<small>excluded: other artist / non-concert</small>':!t.song_id?'<small>unresolved / non-song</small>':''}${t.set?` <small>${escape(t.set)}</small>`:''}</li>`).join('')}</ol>`:(detail.recordings.some(r=>r.enriched)?'<p class="small-note">Metadata is imported, but usable concert song evidence is unresolved or excluded. See the sources and review notes below.</p>':'<p class="small-note">Track metadata has not been imported for this date. Follow a recording source below to inspect its setlist.</p>')}<h3 id="show-recordings" tabindex="-1">Ratings & recording sources</h3>${detail.recordings.map(r=>`<article class="recording-card">${sourceLink(r.url,r.id)}${r.evidence_note?`<p>${escape(r.evidence_note)}</p>`:''}<p>${r.rating.average?`<span class="rating-star">★</span> ${r.rating.average.toFixed(2)} / 5 · ${r.rating.count} reviews · adjusted ${r.rating.adjusted.toFixed(2)}`:'No star rating available'}</p><small>Rating snapshot: ${escape(r.rating.retrieved_at.slice(0,10))} · ${r.enriched?'Track metadata imported':'Index metadata only'}</small></article>`).join('')}`;
   } catch(error) {
     if(version===detailVersion) $('show-detail').innerHTML=`<h2 id="show-heading">This record could not be opened.</h2><p>${escape(error.message)}</p><a href="shows/${escape(id)}/">Try the static archive page ↗</a>`;
   }
@@ -247,6 +258,12 @@ function closeShow() {
   $('show-dialog').close();
   history.replaceState(null,'',currentUrl({omitShow:true}));
   lastFocus?.focus();
+}
+function exploreAlbumSong(songId) {
+  change({from:1965,to:1995,song:songId,members:[],era:'',search:'',month:'',windowStart:'',granularity:'year',metric:'count'});
+  location.hash='timeline';
+  $('timeline').scrollIntoView({behavior:'smooth',block:'start'});
+  $('chart-title').tabIndex=-1;$('chart-title').focus({preventScroll:true});
 }
 async function start() {
   try {
