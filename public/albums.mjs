@@ -16,6 +16,8 @@ function showAlbum(id, focus=true) {
 export function renderAlbums(data,state,onExplore) {
   currentData=data;explore=onExplore;
   const rail=document.getElementById('album-chronology'), saved=rail.scrollLeft;
+  const years=(data.albums||[]).map(a=>a.year);
+  document.getElementById('album-scope').textContent='Selected studio, live & solo releases'+(years.length?` · ${Math.min(...years)}–${Math.max(...years)}`:'');
   const groups=new Map();
   for(const album of data.albums||[]){if(!groups.has(album.year))groups.set(album.year,[]);groups.get(album.year).push(album);}
   rail.innerHTML=[...groups].map(([year,albums])=>`<div class="album-year ${year<state.from||year>state.to?'outside-album-range':''}" style="--album-count:${albums.length}"><span class="album-year-label">${year}</span>${albums.map((a,i)=>`<article class="album-card"><div class="album-tile" style="--tile-hue:${(year*13+i*63)%360}" aria-hidden="true"><span>${year}</span><i></i><b>${a.artist==='Grateful Dead'?'GD':a.artist==='Bob Weir'?'BW':'JG'}</b></div><a class="album-title" href="${esc(a.wikipedia)}" target="_blank" rel="noopener">${esc(a.title)} ↗</a><small>${esc(a.artist)} · ${esc(a.kind)}</small><button type="button" data-album="${a.id}" aria-expanded="${selected===a.id}" aria-controls="album-detail">Tracklist <span>↗</span></button></article>`).join('')}</div>`).join('');

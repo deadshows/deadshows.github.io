@@ -639,6 +639,397 @@
           "note": "Suite; the link explores the archive’s Terrapin Station song identity, not every studio section."
         }
       ]
+    },
+    {
+      "id": "shakedown-street",
+      "title": "Shakedown Street",
+      "artist": "Grateful Dead",
+      "year": 1978,
+      "kind": "studio",
+      "wikipedia": "https://en.wikipedia.org/wiki/Shakedown_Street",
+      "edition": "Original LP track sequence; release year only.",
+      "tracks": [
+        {
+          "title": "Good Lovin’",
+          "song_ids": [
+            "good-lovin"
+          ]
+        },
+        {
+          "title": "France",
+          "song_ids": []
+        },
+        {
+          "title": "Shakedown Street",
+          "song_ids": [
+            "shakedown-street"
+          ]
+        },
+        {
+          "title": "Serengetti",
+          "song_ids": []
+        },
+        {
+          "title": "Fire on the Mountain",
+          "song_ids": [
+            "fire-on-the-mountain"
+          ]
+        },
+        {
+          "title": "I Need a Miracle",
+          "song_ids": [
+            "i-need-a-miracle"
+          ]
+        },
+        {
+          "title": "From the Heart of Me",
+          "song_ids": [
+            "from-the-heart-of-me"
+          ]
+        },
+        {
+          "title": "Stagger Lee",
+          "song_ids": [
+            "stagger-lee"
+          ]
+        },
+        {
+          "title": "All New Minglewood Blues",
+          "song_ids": [
+            "new-minglewood-blues"
+          ]
+        },
+        {
+          "title": "If I Had the World to Give",
+          "song_ids": [
+            "if-i-had-the-world-to-give"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "go-to-heaven",
+      "title": "Go to Heaven",
+      "artist": "Grateful Dead",
+      "year": 1980,
+      "kind": "studio",
+      "wikipedia": "https://en.wikipedia.org/wiki/Go_to_Heaven",
+      "edition": "Original LP track sequence; release year only.",
+      "tracks": [
+        {
+          "title": "Alabama Getaway",
+          "song_ids": [
+            "alabama-getaway"
+          ]
+        },
+        {
+          "title": "Far from Me",
+          "song_ids": [
+            "far-from-me"
+          ]
+        },
+        {
+          "title": "Althea",
+          "song_ids": [
+            "althea"
+          ]
+        },
+        {
+          "title": "Feel Like a Stranger",
+          "song_ids": [
+            "feel-like-a-stranger"
+          ]
+        },
+        {
+          "title": "Lost Sailor",
+          "song_ids": [
+            "lost-sailor"
+          ]
+        },
+        {
+          "title": "Saint of Circumstance",
+          "song_ids": [
+            "saint-of-circumstance"
+          ]
+        },
+        {
+          "title": "Antwerp’s Placebo (The Plumber)",
+          "song_ids": []
+        },
+        {
+          "title": "Easy to Love You",
+          "song_ids": [
+            "easy-to-love-you"
+          ]
+        },
+        {
+          "title": "Don’t Ease Me In",
+          "song_ids": [
+            "dont-ease-me-in"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reckoning",
+      "title": "Reckoning",
+      "artist": "Grateful Dead",
+      "year": 1981,
+      "kind": "live",
+      "wikipedia": "https://en.wikipedia.org/wiki/Reckoning_(Grateful_Dead_album)",
+      "edition": "Original LP track sequence; release year only.",
+      "tracks": [
+        {
+          "title": "Dire Wolf",
+          "song_ids": [
+            "dire-wolf"
+          ]
+        },
+        {
+          "title": "The Race Is On",
+          "song_ids": [
+            "the-race-is-on"
+          ]
+        },
+        {
+          "title": "Oh Babe It Ain’t No Lie",
+          "song_ids": [
+            "oh-babe-it-aint-no-lie"
+          ]
+        },
+        {
+          "title": "It Must Have Been the Roses",
+          "song_ids": [
+            "it-must-have-been-the-roses"
+          ]
+        },
+        {
+          "title": "Dark Hollow",
+          "song_ids": [
+            "dark-hollow"
+          ]
+        },
+        {
+          "title": "China Doll",
+          "song_ids": [
+            "china-doll"
+          ]
+        },
+        {
+          "title": "Been All Around This World",
+          "song_ids": [
+            "ive-been-all-around-this-world"
+          ]
+        },
+        {
+          "title": "Monkey and the Engineer",
+          "song_ids": [
+            "monkey-and-the-engineer"
+          ]
+        },
+        {
+          "title": "Jack-A-Roe",
+          "song_ids": [
+            "jack-a-roe"
+          ]
+        },
+        {
+          "title": "Deep Elem Blues",
+          "song_ids": [
+            "deep-elem-blues"
+          ]
+        },
+        {
+          "title": "Cassidy",
+          "song_ids": [
+            "cassidy"
+          ]
+        },
+        {
+          "title": "To Lay Me Down",
+          "song_ids": [
+            "to-lay-me-down"
+          ]
+        },
+        {
+          "title": "Rosa Lee McFall",
+          "song_ids": [
+            "rosalie-mcfall"
+          ]
+        },
+        {
+          "title": "On the Road Again",
+          "song_ids": [
+            "on-the-road-again"
+          ]
+        },
+        {
+          "title": "Bird Song",
+          "song_ids": [
+            "bird-song"
+          ]
+        },
+        {
+          "title": "Ripple",
+          "song_ids": [
+            "ripple"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dead-set",
+      "title": "Dead Set",
+      "artist": "Grateful Dead",
+      "year": 1981,
+      "kind": "live",
+      "wikipedia": "https://en.wikipedia.org/wiki/Dead_Set_(album)",
+      "edition": "Original LP track sequence; release year only.",
+      "tracks": [
+        {
+          "title": "Samson and Delilah",
+          "song_ids": [
+            "samson-and-delilah"
+          ]
+        },
+        {
+          "title": "Friend of the Devil",
+          "song_ids": [
+            "friend-of-the-devil"
+          ]
+        },
+        {
+          "title": "New Minglewood Blues",
+          "song_ids": [
+            "new-minglewood-blues"
+          ]
+        },
+        {
+          "title": "Deal",
+          "song_ids": [
+            "deal"
+          ]
+        },
+        {
+          "title": "Candyman",
+          "song_ids": [
+            "candyman"
+          ]
+        },
+        {
+          "title": "Little Red Rooster",
+          "song_ids": [
+            "little-red-rooster"
+          ]
+        },
+        {
+          "title": "Loser",
+          "song_ids": [
+            "loser"
+          ]
+        },
+        {
+          "title": "Passenger",
+          "song_ids": [
+            "passenger"
+          ]
+        },
+        {
+          "title": "Feel Like a Stranger",
+          "song_ids": [
+            "feel-like-a-stranger"
+          ]
+        },
+        {
+          "title": "Franklin’s Tower",
+          "song_ids": [
+            "franklins-tower"
+          ]
+        },
+        {
+          "title": "Drums",
+          "song_ids": [
+            "drums"
+          ]
+        },
+        {
+          "title": "Space",
+          "song_ids": [
+            "space"
+          ]
+        },
+        {
+          "title": "Fire on the Mountain",
+          "song_ids": [
+            "fire-on-the-mountain"
+          ]
+        },
+        {
+          "title": "Greatest Story Ever Told",
+          "song_ids": [
+            "greatest-story-ever-told"
+          ]
+        },
+        {
+          "title": "Brokedown Palace",
+          "song_ids": [
+            "broke-down-palace"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "in-the-dark",
+      "title": "In the Dark",
+      "artist": "Grateful Dead",
+      "year": 1987,
+      "kind": "studio",
+      "wikipedia": "https://en.wikipedia.org/wiki/In_the_Dark_(Grateful_Dead_album)",
+      "edition": "Original LP track sequence; release year only.",
+      "tracks": [
+        {
+          "title": "Touch of Grey",
+          "song_ids": [
+            "touch-of-grey"
+          ]
+        },
+        {
+          "title": "Hell in a Bucket",
+          "song_ids": [
+            "hell-in-a-bucket"
+          ]
+        },
+        {
+          "title": "When Push Comes to Shove",
+          "song_ids": [
+            "when-push-comes-to-shove"
+          ]
+        },
+        {
+          "title": "West L.A. Fadeaway",
+          "song_ids": [
+            "west-l-a-fadeaway"
+          ]
+        },
+        {
+          "title": "Tons of Steel",
+          "song_ids": [
+            "tons-of-steel"
+          ]
+        },
+        {
+          "title": "Throwing Stones",
+          "song_ids": [
+            "throwing-stones"
+          ]
+        },
+        {
+          "title": "Black Muddy River",
+          "song_ids": [
+            "black-muddy-river"
+          ]
+        }
+      ]
     }
   ]
 }

@@ -176,7 +176,7 @@ class ArchiveIntegrationTests(unittest.TestCase):
 
     def test_album_tracks_link_only_to_known_song_identities(self):
         albums=self.catalog['albums']
-        self.assertEqual(len(albums),10)
+        self.assertTrue({'garcia','ace','terrapin-station','shakedown-street','go-to-heaven','reckoning','dead-set','in-the-dark'} <= {a['id'] for a in albums})
         self.assertEqual([a['year'] for a in albums],sorted(a['year'] for a in albums))
         known={s['id'] for s in json.loads((ROOT/'data/curated/songs.json').read_text())['songs']}
         for album in albums:
@@ -187,6 +187,22 @@ class ArchiveIntegrationTests(unittest.TestCase):
         ace=next(a for a in albums if a['id']=='ace')
         self.assertEqual(next(t for t in ace['tracks'] if t['title']=='Cassidy')['song_ids'],['cassidy'])
         self.assertEqual(next(t for t in ace['tracks'] if t['title']=='Walk in the Sunshine')['song_ids'],[])
+
+    def test_album_chronology_extends_through_in_the_dark(self):
+        albums={a['id']:a for a in self.catalog['albums']}
+        self.assertEqual(albums['shakedown-street']['year'],1978)
+        self.assertEqual(albums['go-to-heaven']['year'],1980)
+        self.assertEqual(albums['reckoning']['year'],1981)
+        self.assertEqual(albums['dead-set']['year'],1981)
+        dark=albums['in-the-dark']
+        self.assertEqual(dark['year'],1987)
+        self.assertEqual([t['song_ids'] for t in dark['tracks']], [
+            ['touch-of-grey'],['hell-in-a-bucket'],['when-push-comes-to-shove'],
+            ['west-l-a-fadeaway'],['tons-of-steel'],['throwing-stones'],['black-muddy-river']])
+        shakedown=albums['shakedown-street']['tracks']
+        self.assertEqual(next(t for t in shakedown if t['title']=='All New Minglewood Blues')['song_ids'],['new-minglewood-blues'])
+        self.assertEqual(len(albums['reckoning']['tracks']),16)
+        self.assertEqual(len(albums['dead-set']['tracks']),15)
 
     def test_release_does_not_publish_raw_archive_records(self):
         snapshot = json.loads((ROOT / 'data/release/archive.json').read_text())
