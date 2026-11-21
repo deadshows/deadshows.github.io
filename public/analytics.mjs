@@ -1,4 +1,8 @@
 /** Pure selection/statistics functions, shared by the explorer and regression tests. */
+export function anniversaryShows(shows, monthDay) {
+  return shows.filter(s => s.date.slice(5) === monthDay).map(show => ({show, rating: ratedSource(show, 5)}))
+    .sort((a,b) => (b.rating?.adjusted ?? -1) - (a.rating?.adjusted ?? -1) || (b.rating?.count ?? 0) - (a.rating?.count ?? 0) || a.show.date.localeCompare(b.show.date));
+}
 export function ratedSource(show, minimum = 5) {
   return (show.rated_sources || []).filter(r => r.count >= minimum && Number.isFinite(r.adjusted))
     .sort((a, b) => b.adjusted - a.adjusted || b.count - a.count || a.id.localeCompare(b.id))[0] || null;
@@ -117,4 +121,8 @@ export function yearDensity(shows, songId) {
 export function relistenUrl(date) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) throw new Error('Invalid show date');
   return `https://relisten.net/grateful-dead/${date.replaceAll('-','/')}`;
+}
+
+export function birthdaysOn(members, monthDay) {
+  return members.filter(m => m.birth_date?.slice(5) === monthDay);
 }

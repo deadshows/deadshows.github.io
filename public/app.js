@@ -1,5 +1,5 @@
 import {renderAlbums} from './albums.mjs';
-import {ratedSource, selectShows, songStatistics, yearCounts, timelineBins, normalizeState, rollingWindow, monthKey, showBins, yearDensity, relistenUrl} from './analytics.mjs';
+import {birthdaysOn, anniversaryShows, ratedSource, selectShows, songStatistics, yearCounts, timelineBins, normalizeState, rollingWindow, monthKey, showBins, yearDensity, relistenUrl} from './analytics.mjs';
 const $ = id => document.getElementById(id);
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const number = n => Number(n).toLocaleString('en-US');
@@ -270,12 +270,87 @@ function exploreAlbumSong(songId) {
   $('timeline').scrollIntoView({behavior:'smooth',block:'start'});
   $('chart-title').tabIndex=-1;$('chart-title').focus({preventScroll:true});
 }
+function mountBirthdayCake(canvas) {
+  const ctx=canvas.getContext('2d');
+  if (!ctx) return;
+  const nodes=[], edges=[];
+  function line(points,color) {
+    let previous=null;
+    for(const [x,y] of points) {
+      const index=nodes.length; nodes.push({x,y,px:x,py:y,vx:0,vy:0,color});
+      if(previous!==null) edges.push([previous,index]); previous=index;
+    }
+  }
+  // Elliptical layers form an original wire-and-point cake.
+  for(let y=88;y<=151;y+=9) {
+    const ring=[];
+    for(let a=0;a<=64;a++) {const t=a/64*Math.PI*2;ring.push([120+76*Math.cos(t),y+19*Math.sin(t)]);}
+    line(ring,y===88||y===151?'#c53c32':'#30758a');
+  }
+  for(let a=0;a<24;a++) {
+    const t=a/24*Math.PI*2, side=[];
+    for(let y=88;y<=151;y+=9) side.push([120+76*Math.cos(t),y+19*Math.sin(t)]);
+    line(side,'#21382f');
+  }
+  const icing=[];
+  for(let a=0;a<=96;a++) {const t=a/96*Math.PI*2;icing.push([120+77*Math.cos(t),94+19*Math.sin(t)+4*Math.sin(t*12)]);}
+  line(icing,'#c53c32');
+  for(const x of [92,120,148]) {
+    for(const offset of [-3,3]) line(Array.from({length:10},(_,i)=>[x+offset,83-i*3]),'#21382f');
+    line(Array.from({length:25},(_,i)=>{const t=i/24*Math.PI*2;return [x+5*Math.sin(t)*Math.sin(t/2),47+9*Math.cos(t)];}),'#c53c32');
+  }
+  let pointer=null, frame=0, previous=0, visible=false;
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  function draw(now=0) {
+    const step=previous?Math.min((now-previous)/16.67,2):1; previous=now;
+    ctx.clearRect(0,0,240,200);
+    for(const n of nodes) {
+      const wave=reduced.matches?0:Math.sin(now*.0018+n.y*.035+n.x*.018)*1.2;
+      let tx=n.x,ty=n.y+wave;
+      if(pointer&&!reduced.matches) {const dx=n.x-pointer[0],dy=n.y-pointer[1],d=Math.hypot(dx,dy),force=Math.max(0,1-d/65)*24;tx+=dx/Math.max(1,d)*force;ty+=dy/Math.max(1,d)*force;}
+      n.vx=(n.vx+(tx-n.px)*.08*step)*Math.pow(.78,step);
+      n.vy=(n.vy+(ty-n.py)*.08*step)*Math.pow(.78,step);
+      n.px+=n.vx*step;n.py+=n.vy*step;
+    }
+    ctx.lineWidth=.6;ctx.globalAlpha=.25;
+    for(const [a,b] of edges) {ctx.strokeStyle=nodes[a].color;ctx.beginPath();ctx.moveTo(nodes[a].px,nodes[a].py);ctx.lineTo(nodes[b].px,nodes[b].py);ctx.stroke();}
+    ctx.globalAlpha=.9;
+    for(const n of nodes) {ctx.fillStyle=n.color;ctx.beginPath();ctx.arc(n.px,n.py,1.05,0,Math.PI*2);ctx.fill();}
+    frame=visible&&!document.hidden&&!reduced.matches?requestAnimationFrame(draw):0;
+  }
+  function sync() {cancelAnimationFrame(frame);previous=0;draw();}
+  canvas.addEventListener('pointermove',e=>{const r=canvas.getBoundingClientRect();pointer=[(e.clientX-r.left)/r.width*240,(e.clientY-r.top)/r.height*200];});
+  canvas.addEventListener('pointerleave',()=>{pointer=null;});
+  new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;sync();}).observe(canvas);
+  document.addEventListener('visibilitychange',sync);reduced.addEventListener('change',sync);draw();
+}
+function renderThisDay() {
+  const today = new Date();
+  const monthDay = `${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+  const matches = anniversaryShows(data.shows, monthDay);
+  $('this-day-birthdays').innerHTML = birthdaysOn(data.history.members, monthDay).map(m => `<div class="birthday-note"><canvas class="birthday-cake" width="240" height="200" role="img" aria-label="Animated birthday cake point cloud"></canvas><p>Born on this day<br><strong>${escape(m.name)}</strong> · ${escape(m.birth_date.slice(0,4))} <a href="${escape(m.birth_source)}" aria-label="Birthday source for ${escape(m.name)}">↗</a></p></div>`).join('');
+  $('this-day-birthdays').querySelectorAll('canvas').forEach(mountBirthdayCake);
+  $('this-day-date').textContent = today.toLocaleDateString('en-US',{month:'long',day:'numeric'});
+  if (!matches.length) {
+    $('this-day-content').innerHTML = '<p>No shows are indexed for this day. Explore the timeline to find another date.</p>';
+    return;
+  }
+  function showPick(id) {
+    const {show, rating} = matches.find(m=>m.show.id===id) || matches[0];
+    $('this-day-pick').innerHTML = `<h3>${shortDate(show.date)} · ${escape(show.venue)}</h3><p>${escape(show.location || 'Location not documented')}</p>${rating ? `<p>★ ${rating.average.toFixed(2)} / 5 · ${rating.count} reviews · adjusted ${rating.adjusted.toFixed(2)}</p>` : '<p>No recording with at least 5 reviews is available for this date.</p>'}<p class="this-day-links"><button type="button" class="primary-link" id="this-day-open">Show details ↗</button><a href="${escape(relistenUrl(show.date))}">Relisten ↗</a>${rating ? `<a href="https://archive.org/details/${encodeURIComponent(rating.id)}">Internet Archive ↗</a>` : ''}</p>`;
+    $('this-day-open').addEventListener('click',()=>openShow(show.id));
+  }
+  $('this-day-content').innerHTML = `<label class="field-label" for="this-day-select">${matches.length} indexed date${matches.length===1?'':'s'} · ranked recordings</label><select id="this-day-select">${matches.map(({show})=>`<option value="${escape(show.id)}">${shortDate(show.date)} · ${escape(show.venue)}</option>`).join('')}</select><div id="this-day-pick"></div>`;
+  $('this-day-select').addEventListener('change',e=>showPick(e.target.value));
+  showPick(matches[0].show.id);
+}
 async function start() {
   try {
     const response=await fetch(dataUrl('data/catalog.json'), {cache:'no-cache'});
     if(!response.ok) throw new Error(`Catalog request failed (${response.status})`);
     data=await response.json();
     state=normalizeState(params(),data);
+    renderThisDay();
     const c=data.coverage;
     $('stats').innerHTML=[['1965—95','Years on the road'],[number(c.date_groups),'Reported dates'],[number(c.recordings_in_scope),'Recording sources'],[number(c.dates_with_tracks),'Tracklists imported']].map(([v,l])=>`<div class="stat"><strong>${v}</strong><span>${l}</span></div>`).join('');
     $('song').innerHTML+=[...data.songs].sort((a,b)=>a.title.localeCompare(b.title)).map(s=>`<option value="${escape(s.id)}">${escape(s.title)}${s.status==='candidate'?' *':''}</option>`).join('');

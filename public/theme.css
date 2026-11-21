@@ -181,3 +181,17 @@ dialog h3 { font: italic 28px/1.2 var(--serif); letter-spacing: -.5px; }
   /* The enlarged rose keeps its size without widening the whole page. */
   .hero { overflow: hidden; }
 }
+
+/* Daily listening pick and birthdays within band history. */
+.this-day { margin: 1.5rem 0 2.5rem; padding: clamp(1.2rem,3vw,2rem); border: 1px solid #21382f40; border-left: 4px solid #c53c32; border-radius: 4px; background: #f4f0e4e8; display: grid; grid-template-columns: minmax(180px,1fr) minmax(0,2fr); gap: 2rem; align-items: start; }
+.this-day h2 { font-size: clamp(1.5rem,2.5vw,2rem); margin: .35rem 0 .7rem; }
+.this-day h3 { font-size: clamp(1.1rem,2vw,1.4rem); margin: .4rem 0; }
+.this-day select { width: 100%; max-width: 100%; margin: .5rem 0 .8rem; }
+.this-day > div { min-width: 0; overflow-wrap: anywhere; }
+.this-day p { margin: .5rem 0; }
+.this-day-links { display: flex; flex-wrap: wrap; gap: .8rem 1.3rem; align-items: center; padding-top: .5rem; }
+@media(max-width:700px) { .this-day { grid-template-columns: 1fr; gap: .8rem; } }
+
+.birthday-note { display: flex; gap: .6rem; align-items: center; margin-top: .8rem; }
+.birthday-cake { width: 120px; height: 100px; flex: 0 0 120px; touch-action: pan-y; }
+.birthday-note p { font-size: .9rem; line-height: 1.5; }
