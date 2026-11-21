@@ -30,7 +30,7 @@ async function mount() {
       if (reducedMotion.matches) dx = dy = 0;
       if (pointer && !reducedMotion.matches) {
         const distance = Math.hypot(x-pointer[0], y-pointer[1]);
-        const strength = Math.max(0,1-distance/170)*14;
+        const strength = Math.max(0,1-distance/220)*35;
         dx += (x-pointer[0])/Math.max(1,distance)*strength;
         dy += (y-pointer[1])/Math.max(1,distance)*strength;
       }
