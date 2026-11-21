@@ -208,3 +208,11 @@ dialog h3 { font: italic 28px/1.2 var(--serif); letter-spacing: -.5px; }
 .notable-dialog h2 { font-size:1.6rem; line-height:1.2; }
 .notable-dialog::backdrop { background:#21382f66; }
 .show-notable { position:absolute; top:-1.2rem; left:50%; transform:translateX(-50%); color:#9c4232; font-size:.7rem; }
+
+.member-menu .guest-filter { display:block; margin-top:1rem; padding-top:.8rem; border-top:1px solid var(--line); }
+.member-menu .guest-filter select { display:block; max-width:100%; width:100%; margin-top:.4rem; }
+.member-menu .guest-index-note { margin:.6rem 0 0; font-size:.7rem; }
+.guest-names { color:var(--blue); max-width:32em; }
+.show-guests { border-block:1px solid var(--line); margin:1rem 0; padding:.6rem 0; }
+.show-guests ul { padding-left:1.2rem; }
+.show-guests li p { font-size:.85rem; line-height:1.5; }

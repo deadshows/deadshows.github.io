@@ -223,6 +223,14 @@ def build():
         show['best_recording'] = {'id': best['id'], **best['rating']} if best else None
         show['rated_sources'] = [{'id': r['id'], **r['rating']} for r in rated]
         show['metadata_imported'] = any(recordings[r]['enriched'] for r in show['recordings'])
+    # Event identity is curated separately from tape attribution and song evidence.
+    for event in load(CURATED / 'events.json')['shows']:
+        if event['id'] != f"gd-{event['date']}" or not valid_date(event['date']) or not event['source_url'].startswith('https://'):
+            raise ValueError('Invalid sourced event')
+        show = shows.setdefault(event['id'], {'id': event['id'], 'date': event['date'], 'venue': '', 'location': '', 'status': 'date_group', 'completeness': 'unknown', 'warnings': [], 'venues': [], 'recordings': [], 'song_ids': [], 'tracks': [], 'evidence_recording': None, 'best_recording': None, 'rated_sources': [], 'metadata_imported': False})
+        show.update(venue=event['venue'], location=event['location'], status='verified_event', source_url=event['source_url'])
+        show['warnings'] = [w for w in show['warnings'] if not w.startswith('Venue labels disagree')]
+        show['warnings'].append(event['note'])
     # Optional, explicitly sourced complete/partial setlists. This path also accepts
     # distinct same-date event IDs and unrecorded shows when a cleared catalog arrives.
     curated_rows = []
@@ -259,8 +267,22 @@ def build():
                 raise ValueError('Invalid release performance date or coverage')
             dates_seen.add(entry['date'])
             releases_by_date[entry['date']].append({k:release[k] for k in ['id','title','category','source_url']} | {'volume': release.get('volume'), 'coverage':entry['coverage']})
+    guests = load(CURATED / 'guests.json')
+    guest_people = {p['id']: p for p in guests['people']}
+    if len(guest_people) != len(guests['people']):
+        raise ValueError('Duplicate guest person')
+    guest_appearances = defaultdict(list)
+    appearance_keys = set()
+    for appearance in guests['appearances']:
+        appearance_key = (appearance['show_id'], appearance['guest_id'])
+        if appearance_key in appearance_keys or appearance_key[0] not in shows or appearance_key[1] not in guest_people or not appearance['source_url'].startswith('https://'):
+            raise ValueError('Invalid or duplicate guest appearance')
+        appearance_keys.add(appearance_key)
+        guest_appearances[appearance_key[0]].append(appearance)
     catalog_shows, years = [], []
     for show in sorted(shows.values(), key=lambda s: (s['date'], s['id'])):
+        show['guest_appearances'] = guest_appearances.get(show['id'], [])
+        show['guest_ids'] = sorted({a['guest_id'] for a in show['guest_appearances']})
         show['official_releases'] = releases_by_date.get(show['date'], [])
         show['era_ids'] = [e['id'] for e in history['eras'] if e['start'] <= show['date'] <= e['end']]
         show['member_ids'] = [m['id'] for m in history['members'] if any(i['start'] <= show['date'] <= i['end'] for i in m['intervals'])]
@@ -293,7 +315,7 @@ def build():
     notable = load(CURATED / 'notable_shows.json')
     assert len({n['show_id'] for n in notable['shows']}) == len(notable['shows'])
     assert all(n['show_id'] in shows and n['source'].startswith('https://') for n in notable['shows'])
-    catalog = {'notable_shows': notable, 'release_index_note': release_data['note'], 'albums': albums, 'schema_version': 1, 'retrieved_at': inventory['retrieved_at'], 'rating_prior': prior, 'rating_prior_strength': PRIOR_STRENGTH, 'history': history, 'coverage': {k: v for k, v in report.items() if k not in ['excluded_items', 'unresolved_status_counts']}, 'shows': catalog_shows, 'songs': exported_songs}
+    catalog = {'guests': guests, 'notable_shows': notable, 'release_index_note': release_data['note'], 'albums': albums, 'schema_version': 1, 'retrieved_at': inventory['retrieved_at'], 'rating_prior': prior, 'rating_prior_strength': PRIOR_STRENGTH, 'history': history, 'coverage': {k: v for k, v in report.items() if k not in ['excluded_items', 'unresolved_status_counts']}, 'shows': catalog_shows, 'songs': exported_songs}
     dump(PUBLIC / 'data/catalog.json', catalog)
     dump(PUBLIC / 'data/setlists.json', load(ROOT / 'data/release/setlists.json'))
     dump(ROOT / 'data/coverage.json', report)
@@ -352,6 +374,7 @@ def package(catalog):
     shutil.copyfile(ROOT / 'data/coverage.json', dist / 'data/coverage.json')
     (dist / 'sources.html').write_text((PUBLIC / 'sources.html').read_text())
     # Crawlable and useful without JS; explorer links preserve the selected entity.
+    guest_names = {p['id']: p['name'] for p in catalog['guests']['people']}
     for show in catalog['shows']:
         title = f'{show["date"]} · {show["venue"]}'
         body = f'<p>{html.escape(show.get("location", ""))}</p><p>{show["recording_count"]} recordings indexed. Status: {html.escape(show["completeness"])}.</p><p>Reported-date grouping; distinct events on one date may be combined until verified.</p>'
@@ -365,6 +388,11 @@ def package(catalog):
             'id', 'url', 'rating', 'enriched', 'evidence_note'}}
             for r in detail['recordings']]
         dump(dist / 'data/shows' / f'{show["id"]}.json', detail)
+        if show.get('source_url'):
+            body += f'<p><a href="{html.escape(show["source_url"])}">Historical event source</a></p>'
+        body += ''.join(f'<p>{html.escape(w)}</p>' for w in show['warnings'])
+        if show.get('guest_appearances'):
+            body += '<h2>Documented guest appearances</h2><ul>' + ''.join(f'<li>{html.escape(guest_names[a["guest_id"]])}: {html.escape(a["scope"])} <a href="{html.escape(a["source_url"])}">Source</a></li>' for a in show['guest_appearances']) + '</ul>'
         if detail['tracks']:
             body += '<h2>Recorded track evidence</h2><p>May be incomplete; order follows source files. Set divisions are not inferred.</p><ol>' + ''.join(f'<li>{html.escape(t["title"])}</li>' for t in detail['tracks']) + '</ol>'
         body += '<h2>Recording sources</h2><ul>' + ''.join(f'<li><a href="{html.escape(r["url"])}">{html.escape(r["id"])}</a></li>' for r in detail['recordings']) + '</ul>'

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "shows": [
+    {
+      "id": "gd-1967-01-14",
+      "date": "1967-01-14",
+      "venue": "Polo Field, Golden Gate Park",
+      "location": "San Francisco, CA",
+      "source_url": "https://www.dead.net/show/january-14-1967",
+      "note": "The official event archive places the afternoon Human Be-In at the Polo Field. Archive recording labels include Fillmore Auditorium; original labels remain in the source inventory. Other same-day performances and disputed track attribution mean these tapes are not a verified Human Be-In setlist."
+    },
+    {
+      "id": "gd-1968-05-03",
+      "date": "1968-05-03",
+      "venue": "Low Library Plaza, Columbia University",
+      "location": "New York, NY",
+      "source_url": "https://www.dead.net/show/may-3-1968",
+      "note": "Sourced Columbia concert during the student strike. No Internet Archive recording or reviewed tracklist is indexed here. The official archive describes the filmed song list as probably incomplete; no songs or ratings are inferred."
+    }
+  ]
+}

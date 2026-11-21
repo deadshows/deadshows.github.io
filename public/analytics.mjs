@@ -18,6 +18,7 @@ export function selectShows(shows, state, history, {ignoreSong = false, ignoreYe
       (ignoreMonth || !state.month || s.date.startsWith(state.month)) &&
       (!era || s.date >= era.start && s.date <= era.end) &&
       (!members.length || (state.memberMode === 'any' ? members.some(id => s.member_ids.includes(id)) : members.every(id => s.member_ids.includes(id)))) &&
+      (!state.guest || (s.guest_ids || []).includes(state.guest)) &&
       (ignoreSong || !state.song || s.song_ids.includes(state.song)) &&
       (!search || `${s.date} ${s.venue} ${s.location}`.toLocaleLowerCase().includes(search)) &&
       (ignoreSort || state.sort !== 'rating' || ratedSource(s, state.minimum));
@@ -107,6 +108,7 @@ export function normalizeState(params, data) {
   const requested = new Set(params.getAll('member').flatMap(value => value.split(',')));
   const members = data.history.members.filter(m => requested.has(m.id)).map(m => m.id);
   return {from, to, month, granularity, windowStart:window?.start || '', metric:valid('metric',['count','frequency']) || 'count',
+    guest:valid('guest',(data.guests?.people || []).map(p=>p.id)),
     song:valid('song',data.songs.map(s=>s.id)), members, member:members.length===1?members[0]:'', memberMode:params.get('member_match')==='any'?'any':'all',
     era:valid('era',data.history.eras.map(e=>e.id)), search:(params.get('q') || '').slice(0,200),
     sort:valid('sort',['date','rating','sources']) || 'rating', minimum:[5,10,25,50].includes(Number(params.get('min')))?Number(params.get('min')):5};

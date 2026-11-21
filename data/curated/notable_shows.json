@@ -3,12 +3,60 @@
   "note": "An editorial selection of documented historical moments, not a ranking of musical quality. Date groups may combine multiple performances.",
   "shows": [
     {
+      "show_id": "gd-1967-01-14",
+      "date": "1967-01-14",
+      "title": "The Great Human Be-In",
+      "category": "counterculture milestone",
+      "blurb": "The Dead played the afternoon Human Be-In at the Polo Field in Golden Gate Park, alongside other San Francisco bands, poets, and speakers. The event venue is sourced independently of the mixed venue labels and disputed attribution in circulating recordings.",
+      "source": "https://www.dead.net/show/january-14-1967"
+    },
+    {
+      "show_id": "gd-1968-02-14",
+      "date": "1968-02-14",
+      "title": "Valentine’s Day at the Carousel",
+      "category": "broadcast milestone",
+      "blurb": "This Carousel Ballroom concert was broadcast on San Francisco’s KMPX. The second set was dedicated to Neal Cassady, connecting an early psychedelic-era performance with the Merry Pranksters’ recent loss.",
+      "source": "https://www.dead.net/show/february-14-1968"
+    },
+    {
+      "show_id": "gd-1968-05-03",
+      "date": "1968-05-03",
+      "title": "Columbia’s student-strike concert",
+      "category": "counterculture milestone",
+      "blurb": "The Dead played Low Library Plaza at Columbia University during the student strike. The official archive connects footage to Columbia Revolt; this is a documented event, but no recording or reviewed setlist is indexed here.",
+      "source": "https://www.dead.net/archives/1968/photos/phil-bobby-play-columbia-u"
+    },
+    {
       "show_id": "gd-1969-02-27",
       "date": "1969-02-27",
       "title": "A cornerstone of Live/Dead",
       "category": "landmark recording",
       "blurb": "The Fillmore West performance supplied “Dark Star” and “St. Stephen” for Live/Dead, tying this date to one of the band’s defining live records.",
       "source": "https://www.dead.net/show/february-27-1969"
+    },
+    {
+      "show_id": "gd-1969-08-16",
+      "date": "1969-08-16",
+      "title": "Woodstock: the Dead at Yasgur’s farm",
+      "category": "festival appearance",
+      "blurb": "The Dead played the Woodstock Music and Art Fair at Max Yasgur’s farm in Bethel, New York. This date places the band within one of the defining gatherings of the 1960s counterculture; its historical importance is separate from how listeners rate the performance.",
+      "source": "https://www.dead.net/show/august-16-1969"
+    },
+    {
+      "show_id": "gd-1970-02-11",
+      "date": "1970-02-11",
+      "title": "Allmans and Peter Green join the late show",
+      "category": "guest appearance",
+      "blurb": "The Fillmore East late show brought Duane and Gregg Allman and Fleetwood Mac’s Peter Green into the Dead’s extended improvisation. The guest collaboration belongs to the late performance, not every set in this date group.",
+      "source": "https://www.dead.net/show/february-11-1970-0"
+    },
+    {
+      "show_id": "gd-1970-02-13",
+      "date": "1970-02-13",
+      "title": "Fillmore East’s long-form Dark Star",
+      "category": "landmark recording",
+      "blurb": "The late-show “Dark Star” became a centerpiece of Dick’s Picks Volume 4. The date group includes early and late performances; the historical note refers to the late-show improvisation.",
+      "source": "https://www.dead.net/enjoying-ride-east-coast-part-1"
     },
     {
       "show_id": "gd-1970-05-02",
@@ -35,6 +83,22 @@
       "source": "https://www.dead.net/show/october-19-1971"
     },
     {
+      "show_id": "gd-1972-03-25",
+      "date": "1972-03-25",
+      "title": "Bo Diddley and Donna at the Academy",
+      "category": "guest appearance",
+      "blurb": "The Academy of Music concert featured a first-set collaboration with Bo Diddley. It also marked Donna Godchaux’s first official appearance as a member, joining a guest encounter to a change in the regular lineup.",
+      "source": "https://www.dead.net/show/march-25-1972"
+    },
+    {
+      "show_id": "gd-1972-05-26",
+      "date": "1972-05-26",
+      "title": "Europe ’72 reaches its final night",
+      "category": "tour milestone",
+      "blurb": "The European tour ended at London’s Lyceum. “Truckin’” and “Morning Dew” from this date supplied material for Europe ’72, while several Pigpen songs received their final live performances.",
+      "source": "https://www.dead.net/show/may-26-1972"
+    },
+    {
       "show_id": "gd-1972-06-17",
       "date": "1972-06-17",
       "title": "Pigpen’s final concert; Stella Blue debuts",
@@ -49,6 +113,30 @@
       "category": "benefit concert",
       "blurb": "The band played the Springfield Creamery benefit in Veneta, Oregon, with the Merry Pranksters involved in the gathering. The concert was filmed and later released as Sunshine Daydream.",
       "source": "https://www.dead.net/veneta-oregon"
+    },
+    {
+      "show_id": "gd-1973-06-10",
+      "date": "1973-06-10",
+      "title": "RFK’s cross-band third set",
+      "category": "guest appearance",
+      "blurb": "The second RFK stadium concert with the Allman Brothers Band ended with an extended guest-filled set, including Dickey Betts and Merl Saunders. It documents the musical exchange between the two bands ahead of Watkins Glen.",
+      "source": "https://www.dead.net/here-comes-sunshine-rfk-stadium-673"
+    },
+    {
+      "show_id": "gd-1973-07-27",
+      "date": "1973-07-27",
+      "title": "Watkins Glen: the soundcheck becomes a show",
+      "category": "festival appearance",
+      "blurb": "The public soundcheck on the eve of Summer Jam grew into an extended performance for fans already on the grounds. Its free-form soundcheck jam later appeared on So Many Roads. This is the soundcheck date, separate from the July 28 festival concert.",
+      "source": "https://www.dead.net/watkins-glen-summer-jam-773-part-1"
+    },
+    {
+      "show_id": "gd-1973-07-28",
+      "date": "1973-07-28",
+      "title": "Watkins Glen Summer Jam",
+      "category": "festival appearance",
+      "blurb": "The Dead shared the Summer Jam bill with the Allman Brothers Band and The Band. The enormous gathering at Watkins Glen was a landmark in outdoor concert history, with the weekend culminating in a cross-band jam.",
+      "source": "https://www.dead.net/deadcast/watkins-glen-summer-jam-73-part-2"
     },
     {
       "show_id": "gd-1974-03-23",
@@ -67,12 +155,36 @@
       "source": "https://jerrygarcia.com/show/1974-10-20-winterland-arena-san-francisco-ca-usa/"
     },
     {
+      "show_id": "gd-1975-03-23",
+      "date": "1975-03-23",
+      "title": "SNACK benefit during the hiatus",
+      "category": "benefit concert",
+      "blurb": "The band appeared at Bill Graham’s Students Need Athletics, Culture and Kicks benefit at Kezar Stadium during its break from touring. With Merl Saunders and Ned Lagin participating, the short set introduced “Blues for Allah” and “Stronger Than Dirt.”",
+      "source": "https://www.dead.net/show/march-23-1975"
+    },
+    {
       "show_id": "gd-1975-08-13",
       "date": "1975-08-13",
       "title": "One from the Vault",
       "category": "landmark recording",
       "blurb": "During the touring hiatus, the band presented its new Blues for Allah material at Great American Music Hall. The concert later became One from the Vault.",
       "source": "https://www.dead.net/inside-vault"
+    },
+    {
+      "show_id": "gd-1976-06-03",
+      "date": "1976-06-03",
+      "title": "Back on the road",
+      "category": "tour milestone",
+      "blurb": "The Paramount Theatre concert in Portland marked the resumption of touring after the 1974 farewell and the sparse performance schedule of 1975. This date begins the band’s next sustained touring chapter.",
+      "source": "https://www.dead.net/features/year/1976"
+    },
+    {
+      "show_id": "gd-1977-02-26",
+      "date": "1977-02-26",
+      "title": "Terrapin and Estimated arrive",
+      "category": "song debut",
+      "blurb": "The band opened at Swing Auditorium with the first live “Terrapin Station.” “Estimated Prophet” also debuted that evening, introducing two major parts of the repertoire before the celebrated spring 1977 tour.",
+      "source": "https://www.dead.net/show/february-26-1977"
     },
     {
       "show_id": "gd-1977-03-18",
@@ -99,6 +211,30 @@
       "source": "https://www.dead.net/wake-flood-50-eyes-world"
     },
     {
+      "show_id": "gd-1978-09-14",
+      "date": "1978-09-14",
+      "title": "Egypt: opening night at Giza",
+      "category": "international milestone",
+      "blurb": "The first of three concerts at Giza’s Sound and Light Theater opened the band’s Egyptian expedition. The run was recorded for a proposed live album, but technical problems with the first night’s multitracks complicated that plan.",
+      "source": "https://www.dead.net/features/release-info/rocking-cradle-grateful-dead-egypt-1978"
+    },
+    {
+      "show_id": "gd-1978-09-15",
+      "date": "1978-09-15",
+      "title": "Egypt: the second night",
+      "category": "international milestone",
+      "blurb": "The second Giza concert continued the three-night Egyptian run. Material from this night and September 16 was eventually assembled into Rocking the Cradle, preserving the expedition after the original live-album plan stalled.",
+      "source": "https://www.dead.net/features/release-info/rocking-cradle-grateful-dead-egypt-1978"
+    },
+    {
+      "show_id": "gd-1978-09-16",
+      "date": "1978-09-16",
+      "title": "Egypt: the final night",
+      "category": "international milestone",
+      "blurb": "The Giza run concluded with a setlist that brought “Ollin Arageed” into “Fire on the Mountain.” The Egyptian performances connected the Dead with Hamza El Din and other percussionists; music from the last two nights later appeared on Rocking the Cradle.",
+      "source": "https://www.dead.net/show/september-16-1978"
+    },
+    {
       "show_id": "gd-1978-12-31",
       "date": "1978-12-31",
       "title": "The closing of Winterland",
@@ -115,12 +251,182 @@
       "source": "https://www.dead.net/features/year/1979"
     },
     {
+      "show_id": "gd-1980-10-31",
+      "date": "1980-10-31",
+      "title": "Halloween at Radio City",
+      "category": "broadcast milestone",
+      "blurb": "The Radio City run paired acoustic music with electric sets. Its Halloween finale was carried on closed-circuit television and FM radio; footage from October 30–31 became Dead Ahead.",
+      "source": "https://www.dead.net/archives/1995/artwork/dead-ahead-video-front"
+    },
+    {
+      "show_id": "gd-1981-10-16",
+      "date": "1981-10-16",
+      "title": "A birthday at the Melkweg",
+      "category": "repertoire return",
+      "blurb": "On Bob Weir’s 34th birthday, the band played an acoustic-and-electric show at Amsterdam’s Melkweg. The night revived “Turn On Your Lovelight,” absent since 1972, and “Gloria,” last played in 1968.",
+      "source": "https://www.dead.net/show/october-16-1981"
+    },
+    {
+      "show_id": "gd-1984-07-13",
+      "date": "1984-07-13",
+      "title": "Dark Star as a Greek Theatre encore",
+      "category": "repertoire return",
+      "blurb": "The Berkeley concert ended with “Dark Star,” its first performance since New Year’s Eve 1981. Its appearance as the encore made this a rare mid-1980s encounter with the band’s signature improvisational vehicle.",
+      "source": "https://www.dead.net/show/july-13-1984"
+    },
+    {
+      "show_id": "gd-1985-11-04",
+      "date": "1985-11-04",
+      "title": "Bill Walton brings the Celtics backstage",
+      "category": "cultural connection",
+      "blurb": "Bill Walton brought his Boston Celtics teammates to the Worcester Centrum and introduced them to the Dead backstage. In his later account, the players gathered at Larry Bird’s house before traveling to the concert together, then returned for the following night’s show on his birthday.",
+      "source": "https://www.boston.com/sports/boston-celtics/2024/05/28/bill-walton-deadhead-took-1985-celtics-to-see-the-grateful-dead/",
+      "links": [
+        {
+          "label": "Walton’s account in Relix",
+          "url": "https://relix.com/features/detail/i-am-the-luckiest-guy-in-the-world-bill-walton-on-the-grateful-dead-phish-the-celtics-and-how-they-all-entwined"
+        },
+        {
+          "label": "Watch video on YouTube",
+          "url": "https://www.youtube.com/watch?v=Sc-Wh50Pt4Q"
+        },
+        {
+          "label": "Watch another video on YouTube",
+          "url": "https://www.youtube.com/watch?v=QMH4Ho0cQBc"
+        }
+      ]
+    },
+    {
+      "show_id": "gd-1985-11-05",
+      "date": "1985-11-05",
+      "title": "The Celtics return for Walton’s birthday",
+      "category": "cultural connection",
+      "blurb": "The Worcester run continued on Bill Walton’s birthday, with Celtics teammates returning after their first night with the Dead. In Walton’s later account, the players enjoyed the outing enough to ask to come back the next day. The two nights became a memorable meeting of his basketball and musical worlds.",
+      "source": "https://relix.com/features/detail/i-am-the-luckiest-guy-in-the-world-bill-walton-on-the-grateful-dead-phish-the-celtics-and-how-they-all-entwined",
+      "links": [
+        {
+          "label": "Walton’s account in Relix",
+          "url": "https://relix.com/features/detail/i-am-the-luckiest-guy-in-the-world-bill-walton-on-the-grateful-dead-phish-the-celtics-and-how-they-all-entwined"
+        },
+        {
+          "label": "Watch video on YouTube",
+          "url": "https://www.youtube.com/watch?v=Sc-Wh50Pt4Q"
+        },
+        {
+          "label": "Watch another video on YouTube",
+          "url": "https://www.youtube.com/watch?v=QMH4Ho0cQBc"
+        }
+      ]
+    },
+    {
+      "show_id": "gd-1986-03-20",
+      "date": "1986-03-20",
+      "title": "Box of Rain returns to Hampton",
+      "category": "repertoire return",
+      "blurb": "Phil Lesh sang “Box of Rain” at Hampton Coliseum for the first time since July 28, 1973. The return restored a long-absent American Beauty song to the concert repertoire.",
+      "source": "https://www.dead.net/features/greatest-stories-ever-told/greatest-stories-ever-told-box-rain-0"
+    },
+    {
+      "show_id": "gd-1986-12-15",
+      "date": "1986-12-15",
+      "title": "The Dead return after Garcia’s illness",
+      "category": "band milestone",
+      "blurb": "The Dead resumed performing in Oakland following Jerry Garcia’s recovery from his July coma, opening with “Touch of Grey.” This marks the band’s return, rather than Garcia’s first solo-band performance after the illness.",
+      "source": "https://www.dead.net/features/year/1986"
+    },
+    {
+      "show_id": "gd-1987-07-04",
+      "date": "1987-07-04",
+      "title": "Dylan and the Dead at Foxboro",
+      "category": "guest appearance",
+      "blurb": "At Sullivan Stadium, the Dead’s own sets were followed by a set backing Bob Dylan. The collaboration brought numerous Dylan songs into the band’s live history, including “Chimes of Freedom” and “Queen Jane Approximately.”",
+      "source": "https://www.dead.net/show/july-4-1987"
+    },
+    {
+      "show_id": "gd-1988-09-24",
+      "date": "1988-09-24",
+      "title": "Madison Square Garden’s rainforest benefit",
+      "category": "guest appearance",
+      "blurb": "The Dead’s rainforest benefit brought a succession of guests into the performance, including Mick Taylor, Suzanne Vega, Hall & Oates, Olatunji, and Bruce Hornsby. Guest roles varied by song; Hornsby also played a separate opening set with the Range.",
+      "source": "https://www.dead.net/show/september-24-1988"
+    },
+    {
+      "show_id": "gd-1988-12-31",
+      "date": "1988-12-31",
+      "title": "Clarence Clemons rings in the new year",
+      "category": "guest appearance",
+      "blurb": "E Street Band saxophonist Clarence Clemons joined the Oakland New Year’s Eve performance. The documented sit-in included “Wang Dang Doodle” and “West L.A. Fadeaway,” bringing a different saxophone voice to the Dead’s stage.",
+      "source": "https://www.dead.net/features/gd-radio-hour/grateful-dead-hour-no-23"
+    },
+    {
+      "show_id": "gd-1989-10-08",
+      "date": "1989-10-08",
+      "title": "Hampton: Formerly the Warlocks",
+      "category": "repertoire return",
+      "blurb": "Billed as “Formerly The Warlocks,” the Dead opened a pair of low-profile Hampton shows. The second set restored “Help on the Way” and “Slipknot!” to the live repertoire for the first time since 1985, reconnecting the Help–Slip–Franklin sequence.",
+      "source": "https://www.dead.net/show/october-8-1989"
+    },
+    {
+      "show_id": "gd-1989-10-09",
+      "date": "1989-10-09",
+      "title": "Hampton: Dark Star and Attics return",
+      "category": "repertoire return",
+      "blurb": "The second “Formerly The Warlocks” concert brought back “Dark Star,” last played in 1984, and closed with “Attics of My Life,” absent since 1972. Those returns made the Hampton pair a major moment in the band’s late-era repertoire.",
+      "source": "https://www.dead.net/show/october-9-1989"
+    },
+    {
       "show_id": "gd-1990-03-29",
       "date": "1990-03-29",
       "title": "Branford Marsalis sits in",
       "category": "guest appearance",
       "blurb": "Saxophonist Branford Marsalis joined the band at Nassau Coliseum, beginning a recurring musical connection. “Eyes of the World” from this date appears on Without a Net.",
       "source": "https://www.dead.net/features/year/1990"
+    },
+    {
+      "show_id": "gd-1991-03-17",
+      "date": "1991-03-17",
+      "title": "Rubin and Cherise joins the Dead repertoire",
+      "category": "song debut",
+      "blurb": "The Capital Centre show introduced “Rubin and Cherise” to Grateful Dead concerts. The song already belonged to Garcia’s solo repertoire; this is a band debut, not the song’s first performance anywhere.",
+      "source": "https://www.dead.net/show/march-17-1991"
+    },
+    {
+      "show_id": "gd-1991-09-10",
+      "date": "1991-09-10",
+      "title": "Branford returns at Madison Square Garden",
+      "category": "guest appearance",
+      "blurb": "Branford Marsalis joined the Dead at Madison Square Garden, continuing the connection established at Nassau in 1990. The show’s second set included Help–Slip–Franklin and a Dark Star passage around Drums and Space.",
+      "source": "https://www.dead.net/show/september-10-1991"
+    },
+    {
+      "show_id": "gd-1992-03-24",
+      "date": "1992-03-24",
+      "title": "A backstage connection to Lithuania’s Olympic team",
+      "category": "cultural connection",
+      "blurb": "Šarūnas Marčiulionis attended the Palace concert with George Shirk and Donnie Nelson, then gave Dennis McNally a letter requesting support for Lithuania’s Olympic basketball effort. McNally and Ramrod helped secure a $5,000 Rex Foundation donation. The date follows the detailed 2022 interview-based account, corroborated by the Warriors’ game at the Palace the next night; an earlier retrospective had placed the meeting in 1991.",
+      "source": "https://www.inkl.com/news/the-real-story-of-why-you-see-tie-dyed-lithuanian-basketball-shirts-at-grateful-dead-shows",
+      "links": [
+        {
+          "label": "Original USA Today / For The Win report",
+          "url": "https://ftw.usatoday.com/2022/09/the-real-story-of-why-you-see-tie-dyed-lithuanian-basketball-shirts-at-grateful-dead-shows"
+        },
+        {
+          "label": "Warriors–Pistons schedule: March 25, 1992",
+          "url": "https://www.basketball-reference.com/leagues/NBA_1992_games-march.html"
+        },
+        {
+          "label": "1996 retrospective with a differing year",
+          "url": "https://www.spokesman.com/stories/1996/may/24/lithuanians-marketing-dead-on-target-former/"
+        }
+      ]
+    },
+    {
+      "show_id": "gd-1995-03-19",
+      "date": "1995-03-19",
+      "title": "Unbroken Chain finally reaches the stage",
+      "category": "song debut",
+      "blurb": "The Spectrum concert included the first live Grateful Dead performance of “Unbroken Chain.” Its arrival came more than two decades after the song’s appearance on From the Mars Hotel, making it a notable late-career repertoire addition.",
+      "source": "https://www.dead.net/show/march-19-1995"
     },
     {
       "show_id": "gd-1995-07-09",

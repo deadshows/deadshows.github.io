@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "note": "Selective, cited onstage guest appearances with the Grateful Dead. Not a complete guest history. Missing entries mean not documented here, not confirmed absence. A date match does not imply participation in every song. Opening sets and backstage visits are excluded.",
+  "people": [
+    {
+      "id": "babatunde-olatunji",
+      "name": "Babatunde Olatunji",
+      "instrument": "percussion"
+    },
+    {
+      "id": "bo-diddley",
+      "name": "Bo Diddley",
+      "instrument": "guitar and vocals"
+    },
+    {
+      "id": "bob-dylan",
+      "name": "Bob Dylan",
+      "instrument": "guitar and vocals"
+    },
+    {
+      "id": "branford-marsalis",
+      "name": "Branford Marsalis",
+      "instrument": "saxophone"
+    },
+    {
+      "id": "bruce-hornsby",
+      "name": "Bruce Hornsby",
+      "instrument": "keyboards, accordion and vocals"
+    },
+    {
+      "id": "clarence-clemons",
+      "name": "Clarence Clemons",
+      "instrument": "saxophone"
+    },
+    {
+      "id": "daryl-hall",
+      "name": "Daryl Hall",
+      "instrument": "guitar and vocals"
+    },
+    {
+      "id": "dickey-betts",
+      "name": "Dickey Betts",
+      "instrument": "guitar"
+    },
+    {
+      "id": "duane-allman",
+      "name": "Duane Allman",
+      "instrument": "guitar"
+    },
+    {
+      "id": "gregg-allman",
+      "name": "Gregg Allman",
+      "instrument": "keyboards"
+    },
+    {
+      "id": "hamza-el-din",
+      "name": "Hamza El Din",
+      "instrument": "vocals and percussion"
+    },
+    {
+      "id": "jack-casady",
+      "name": "Jack Casady",
+      "instrument": "bass"
+    },
+    {
+      "id": "john-oates",
+      "name": "John Oates",
+      "instrument": "guitar and vocals"
+    },
+    {
+      "id": "mark-rivera",
+      "name": "Mark Rivera",
+      "instrument": "saxophone"
+    },
+    {
+      "id": "merl-saunders",
+      "name": "Merl Saunders",
+      "instrument": "keyboards"
+    },
+    {
+      "id": "michael-hinton",
+      "name": "Michael Hinton",
+      "instrument": "percussion"
+    },
+    {
+      "id": "mick-taylor",
+      "name": "Mick Taylor",
+      "instrument": "guitar"
+    },
+    {
+      "id": "ned-lagin",
+      "name": "Ned Lagin",
+      "instrument": "keyboards"
+    },
+    {
+      "id": "peter-green",
+      "name": "Peter Green",
+      "instrument": "guitar"
+    },
+    {
+      "id": "suzanne-vega",
+      "name": "Suzanne Vega",
+      "instrument": "guitar and vocals"
+    },
+    {
+      "id": "beach-boys",
+      "name": "The Beach Boys",
+      "instrument": "vocals and instruments"
+    },
+    {
+      "id": "t-bone-wolk",
+      "name": "Tom “T-Bone” Wolk",
+      "instrument": "multiple instruments"
+    }
+  ],
+  "appearances": [
+    {
+      "show_id": "gd-1970-02-11",
+      "guest_id": "duane-allman",
+      "scope": "Late show: guest collaboration in the Dark Star / Spanish Jam / Lovelight passage; not the whole date group.",
+      "source_url": "https://www.dead.net/show/february-11-1970-0"
+    },
+    {
+      "show_id": "gd-1970-02-11",
+      "guest_id": "gregg-allman",
+      "scope": "Late show: guest collaboration in the Dark Star / Spanish Jam / Lovelight passage; not the whole date group.",
+      "source_url": "https://www.dead.net/show/february-11-1970-0"
+    },
+    {
+      "show_id": "gd-1970-02-11",
+      "guest_id": "peter-green",
+      "scope": "Late show: guest collaboration in the Dark Star / Spanish Jam / Lovelight passage; not the whole date group.",
+      "source_url": "https://www.dead.net/show/february-11-1970-0"
+    },
+    {
+      "show_id": "gd-1971-04-27",
+      "guest_id": "beach-boys",
+      "scope": "Shared guest segment; the Beach Boys also performed some numbers without the Dead.",
+      "source_url": "https://www.dead.net/show/april-27-1971"
+    },
+    {
+      "show_id": "gd-1972-03-25",
+      "guest_id": "bo-diddley",
+      "scope": "First-set collaboration.",
+      "source_url": "https://www.dead.net/show/march-25-1972"
+    },
+    {
+      "show_id": "gd-1973-06-10",
+      "guest_id": "dickey-betts",
+      "scope": "Guest-filled third set; not the entire concert.",
+      "source_url": "https://www.dead.net/here-comes-sunshine-rfk-stadium-673"
+    },
+    {
+      "show_id": "gd-1973-06-10",
+      "guest_id": "merl-saunders",
+      "scope": "Guest-filled third set; not the entire concert.",
+      "source_url": "https://www.dead.net/here-comes-sunshine-rfk-stadium-673"
+    },
+    {
+      "show_id": "gd-1975-03-23",
+      "guest_id": "merl-saunders",
+      "scope": "SNACK benefit performance with the Dead.",
+      "source_url": "https://www.dead.net/show/march-23-1975"
+    },
+    {
+      "show_id": "gd-1975-03-23",
+      "guest_id": "ned-lagin",
+      "scope": "SNACK benefit performance with the Dead.",
+      "source_url": "https://www.dead.net/show/march-23-1975"
+    },
+    {
+      "show_id": "gd-1978-09-16",
+      "guest_id": "hamza-el-din",
+      "scope": "Ollin Arageed collaboration leading into Fire on the Mountain; not the entire concert.",
+      "source_url": "https://www.dead.net/features/release-info/rocking-cradle-grateful-dead-egypt-1978"
+    },
+    {
+      "show_id": "gd-1987-07-04",
+      "guest_id": "bob-dylan",
+      "scope": "Dylan set backed by the Dead, following the band’s own sets.",
+      "source_url": "https://www.dead.net/show/july-4-1987"
+    },
+    {
+      "show_id": "gd-1988-09-24",
+      "guest_id": "babatunde-olatunji",
+      "scope": "Percussion segment and the remainder of the second set.",
+      "source_url": "https://www.dead.net/show/september-24-1988"
+    },
+    {
+      "show_id": "gd-1988-09-24",
+      "guest_id": "bruce-hornsby",
+      "scope": "Not Fade Away and the encores; separately billed opening set is not counted as a sit-in.",
+      "source_url": "https://www.dead.net/show/september-24-1988"
+    },
+    {
+      "show_id": "gd-1988-09-24",
+      "guest_id": "daryl-hall",
+      "scope": "Every Time You Go Away, What’s Going On, and the encores.",
+      "source_url": "https://www.dead.net/show/september-24-1988"
+    },
+    {
+      "show_id": "gd-1988-09-24",
+      "guest_id": "jack-casady",
+      "scope": "Encore appearances on bass.",
+      "source_url": "https://www.dead.net/show/september-24-1988"
+    },
+    {
+      "show_id": "gd-1988-09-24",
+      "guest_id": "john-oates",
+      "scope": "Every Time You Go Away, What’s Going On, and the encores.",
+      "source_url": "https://www.dead.net/show/september-24-1988"
+    },
+    {
+      "show_id": "gd-1988-09-24",
+      "guest_id": "mark-rivera",
+      "scope": "Every Time You Go Away and What’s Going On.",
+      "source_url": "https://www.dead.net/show/september-24-1988"
+    },
+    {
+      "show_id": "gd-1988-09-24",
+      "guest_id": "michael-hinton",
+      "scope": "Percussion segment.",
+      "source_url": "https://www.dead.net/show/september-24-1988"
+    },
+    {
+      "show_id": "gd-1988-09-24",
+      "guest_id": "mick-taylor",
+      "scope": "West L.A. Fadeaway and Little Red Rooster.",
+      "source_url": "https://www.dead.net/show/september-24-1988"
+    },
+    {
+      "show_id": "gd-1988-09-24",
+      "guest_id": "suzanne-vega",
+      "scope": "Chinese Bones, Neighborhood Girls, and Knockin’ on Heaven’s Door.",
+      "source_url": "https://www.dead.net/show/september-24-1988"
+    },
+    {
+      "show_id": "gd-1988-09-24",
+      "guest_id": "t-bone-wolk",
+      "scope": "Every Time You Go Away and What’s Going On.",
+      "source_url": "https://www.dead.net/show/september-24-1988"
+    },
+    {
+      "show_id": "gd-1988-12-31",
+      "guest_id": "clarence-clemons",
+      "scope": "Selected songs including Wang Dang Doodle and West L.A. Fadeaway; source does not establish the full appearance span.",
+      "source_url": "https://www.dead.net/features/gd-radio-hour/grateful-dead-hour-no-23"
+    },
+    {
+      "show_id": "gd-1990-03-29",
+      "guest_id": "branford-marsalis",
+      "scope": "Saxophone sit-in; this entry identifies the show, not a verified song-by-song participation list.",
+      "source_url": "https://www.dead.net/features/year/1990"
+    },
+    {
+      "show_id": "gd-1991-09-10",
+      "guest_id": "branford-marsalis",
+      "scope": "Saxophone sit-in; official event notes identify the guest without a song-by-song participation list.",
+      "source_url": "https://www.dead.net/show/september-10-1991"
+    }
+  ]
+}
