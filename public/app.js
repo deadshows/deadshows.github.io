@@ -58,8 +58,20 @@ function moveWindow(index) {
   const window=rollingWindow(monthKey(Math.max(0,Math.min(360,index))));
   change({from:window.from,to:window.to,windowStart:window.start,granularity:'month',month:''});
 }
+function notableFor(id) {return data?.notable_shows?.shows.find(n=>n.show_id===id);}
+function notableMarker(id) {
+  const note=notableFor(id);
+  return note?`<button type="button" class="notable-marker" data-notable="${escape(id)}" aria-label="Historical note: ${escape(note.title)}" title="${escape(note.title)}">✦</button>`:'';
+}
+function openNotable(id) {
+  const note=notableFor(id);if(!note)return;
+  $('notable-content').innerHTML=`<p class="eyebrow">✦ ${escape(note.category)} · ${shortDate(note.date)}</p><h2 id="notable-title">${escape(note.title)}</h2><p>${escape(note.blurb)}</p><p>${sourceLink(note.source,'Historical source')}</p><p><button type="button" id="notable-open-show" class="primary-link">Open show ↗</button></p><p class="small-note">Historical context, separate from recording ratings. ${escape(data.notable_shows.note)}</p>`;
+  $('notable-open-show').addEventListener('click',()=>{$('notable-dialog').close();openShow(id);});
+  $('notable-dialog').showModal();
+}
 function render() {
   filtered = selectShows(data.shows, state, data.history);
+  if($('notable-only').checked) filtered=filtered.filter(s=>notableFor(s.id));
   $('eras').innerHTML = `<button class="chip ${!state.era?'active':''}" type="button" data-era="" aria-pressed="${!state.era}">All eras</button>` + data.history.eras.map(e => `<button class="chip ${state.era===e.id?'active':''}" type="button" data-era="${escape(e.id)}" aria-pressed="${state.era===e.id}">${escape(e.title)}</button>`).join('');
   $('review-label').hidden = state.sort !== 'rating';
   renderActivity(); renderNotes(); renderTable(); renderSongs(); renderHistory(); renderAlbums(data,state,exploreAlbumSong);
@@ -125,8 +137,8 @@ function renderActivity() {
     $('timeline-max').textContent=maxValue;
     $('activity-chart').style.setProperty('--show-width',groups.reduce((total,group)=>total+Math.max(54,group.shows.length*16),0)+'px');
     $('activity-chart').innerHTML=groups.map(group=>`<div class="show-month" style="--dates:${Math.max(1,group.shows.length)}" role="group" aria-label="${binLabel(group.key)}: ${group.shows.length} reported show dates"><span class="show-month-label">${escape(binLabel(group.key))}</span>${group.shows.length?group.shows.map(row=>{
-      const title=`${shortDate(row.date)} · ${row.venue} · ${!row.evidence?'song evidence unknown':song?row.observed?`${song.title} played`:`${song.title} not listed`:`${row.value} listed song titles`}`;
-      return `<button type="button" class="year-bar show-bin ${!row.evidence?'no-evidence':''} ${row.value===0?'not-observed':''}" data-show-bin="${escape(row.key)}" data-show="${escape(row.showId)}" tabindex="${row===dates[0]?0:-1}" style="--height:${(row.value||0)/maxValue*100}%" title="${escape(title)}" aria-label="Open ${escape(title)}"><span class="bar-fill"${!row.value?' hidden':''}></span><span class="show-baseline"></span><span class="show-day">${escape(row.date.slice(8))}</span></button>`;
+      const title=`${notableFor(row.showId)?'✦ Historical note available · ':''}${shortDate(row.date)} · ${row.venue} · ${!row.evidence?'song evidence unknown':song?row.observed?`${song.title} played`:`${song.title} not listed`:`${row.value} listed song titles`}`;
+      return `<button type="button" class="year-bar show-bin ${!row.evidence?'no-evidence':''} ${row.value===0?'not-observed':''}" data-show-bin="${escape(row.key)}" data-show="${escape(row.showId)}" tabindex="${row===dates[0]?0:-1}" style="--height:${(row.value||0)/maxValue*100}%" title="${escape(title)}" aria-label="Open ${escape(title)}"><span class="bar-fill"${!row.value?' hidden':''}></span><span class="show-baseline"></span>${notableFor(row.showId)?'<span class="show-notable" aria-hidden="true">✦</span>':''}<span class="show-day">${escape(row.date.slice(8))}</span></button>`;
     }).join(''):'<span class="no-show-dates">—<span class="sr-only">No reported dates</span></span>'}</div>`).join('');
   }
   $('activity-chart').classList.toggle('show-timeline',monthly);
@@ -171,10 +183,10 @@ function renderNotes() {
   $('selection-note').hidden = !notes.length;
   $('selection-note').innerHTML = notes.join('');
 }
-function releaseCell(show,category) {
-  const releases=(show.official_releases||[]).filter(release=>release.category===category);
+function releaseCell(show) {
+  const releases=(show.official_releases||[]);
   const labels={complete:'Complete show',selections:'Selections',bonus:'Bonus tracks',featured:'Featured'};
-  return releases.length?releases.map(release=>`<div class="release-reference"><a href="${escape(release.source_url)}" target="_blank" rel="noopener" aria-label="${escape(release.title)}: ${labels[release.coverage]} from ${escape(show.date)}">${escape(category==='dicks_picks'?`Vol. ${release.volume}`:release.title)}</a><small>${labels[release.coverage]}</small></div>`).join(''):'<span class="release-unknown" aria-label="Release status not documented here" title="Release status not documented here">—</span>';
+  return releases.length?releases.map(release=>`<div class="release-reference"><a href="${escape(release.source_url)}" target="_blank" rel="noopener" aria-label="${escape(release.title)}: ${labels[release.coverage]} from ${escape(show.date)}">${escape(release.title)}</a><small>${labels[release.coverage]}</small></div>`).join(''):'<span class="release-unknown" aria-label="Release status not documented here" title="Release status not documented here">—</span>';
 }
 function renderTable() {
   const pages = Math.max(1, Math.ceil(filtered.length/pageSize));
@@ -187,8 +199,8 @@ function renderTable() {
   $('result-count').textContent = `${number(filtered.length)} date groups · ${number(filtered.reduce((n,s)=>n+s.recording_count,0))} recordings`;
   $('shows').innerHTML = filtered.slice(first, first+pageSize).map(s => {
     const rated = ratedSource(s, state.minimum);
-    return `<tr><td><button class="show-button" data-show="${escape(s.id)}">${shortDate(s.date)}</button></td><td><button class="show-button" data-show="${escape(s.id)}">${escape(s.venue)}</button><small>${escape(s.location||'Location not documented')} · ${s.recording_count} sources${s.warnings.length?' · needs review':''}</small></td><td><a class="relisten-button" href="${escape(relistenUrl(s.date))}" aria-label="Open ${escape(s.date)} in Relisten">Relisten</a></td><td class="concert-release-cell">${releaseCell(s,'standalone')}</td><td class="dicks-picks-cell">${releaseCell(s,'dicks_picks')}</td><td>${rated?`<a class="rating-source" href="https://archive.org/details/${encodeURIComponent(rated.id)}" aria-label="Listen to rated recording for ${escape(s.date)}">★ ${rated.average.toFixed(2)} ↗</a><small>${rated.count} reviews · adj. ${rated.adjusted.toFixed(2)}</small>`:'<span class="small-note">No eligible rating</span>'}</td><td><button class="open-arrow" data-show="${escape(s.id)}" aria-label="Open ${escape(s.date)} recording sources">↗</button></td></tr>`;
-  }).join('') || '<tr><td colspan="7" class="empty-state">No matching date groups. Try widening the years or removing a filter. Song filters only match imported tracklists.</td></tr>';
+    return `<tr><td><button class="show-button" data-show="${escape(s.id)}">${shortDate(s.date)}</button>${notableMarker(s.id)}</td><td><button class="show-button" data-show="${escape(s.id)}">${escape(s.venue)}</button><small>${escape(s.location||'Location not documented')} · ${s.recording_count} sources${s.warnings.length?' · needs review':''}</small></td><td><a class="relisten-button" href="${escape(relistenUrl(s.date))}" aria-label="Open ${escape(s.date)} in Relisten">Relisten</a></td><td class="concert-release-cell">${releaseCell(s)}</td><td>${rated?`<a class="rating-source" href="https://archive.org/details/${encodeURIComponent(rated.id)}" aria-label="Listen to rated recording for ${escape(s.date)}">★ ${rated.average.toFixed(2)} ↗</a><small>${rated.count} reviews · adj. ${rated.adjusted.toFixed(2)}</small>`:'<span class="small-note">No eligible rating</span>'}</td><td><button class="open-arrow" data-show="${escape(s.id)}" aria-label="Open ${escape(s.date)} recording sources">↗</button></td></tr>`;
+  }).join('') || '<tr><td colspan="6" class="empty-state">No matching date groups. Try widening the years or removing a filter. Song filters only match imported tracklists.</td></tr>';
   $('page-label').textContent = filtered.length ? `${first+1}–${Math.min(first+pageSize,filtered.length)} / ${number(filtered.length)}` : '0 results';
   $('previous').disabled = page===0;
   $('next').disabled = page>=pages-1;
@@ -253,7 +265,7 @@ async function openShow(id, {updateUrl=true}={}) {
     if(version!==detailVersion) return;
     const rating=ratedSource(show,state.minimum);
     const lineup=data.history.members.filter(m=>show.member_ids.includes(m.id)).map(m=>m.name).join(' · ');
-    $('show-detail').innerHTML=`<p class="detail-kicker">${shortDate(detail.date)} / ${detail.recordings.length} RECORDING SOURCES</p><h2 id="show-heading">${escape(detail.venue)}</h2><p class="detail-meta">${escape(detail.location)}</p>${rating?`<p class="show-rating"><a href="https://archive.org/details/${encodeURIComponent(rating.id)}">★ ${rating.average.toFixed(2)} / 5 ↗</a><small>${rating.count} reviews · adjusted ${rating.adjusted.toFixed(2)} · recording rating</small></p>`:''}<nav class="show-sections" aria-label="Show details sections"><button type="button" data-pane-section="show-tracks">Tracklist</button><button type="button" data-pane-section="show-personnel">Personnel</button><button type="button" data-pane-section="show-recordings">Recordings</button></nav><h3 id="show-personnel" tabindex="-1">Personnel context</h3><p class="detail-meta">${escape(lineup)||'Not documented'}</p><p class="detail-meta">Personnel are membership-window context, not confirmed attendance.</p><p><a href="shows/${escape(id)}/">Permanent archive record ↗</a> · <a href="${escape(relistenUrl(detail.date))}">Open in Relisten ↗</a></p><div class="detail-warning">${detail.status==='verified_event'?'Sourced event record.':'Provisional reported-date group. May combine early/late shows or mislabeled recordings.'} ${detail.warnings.map(escape).join(' ')}<br>Recording reviews may discuss performance, sound quality, or both. Ratings below belong to each recording.</div><h3 id="show-tracks" tabindex="-1">${detail.completeness==='complete'?'Verified setlist':'Setlist / recorded tracks'}</h3>${detail.tracks.length?`<p class="small-note">${detail.source_url?sourceLink(detail.source_url,'Setlist source'):sourceLink('https://archive.org/details/'+detail.evidence_recording,'Tracklist source')} · ${detail.completeness==='complete'?'Set divisions follow the cited source.':'Potentially incomplete. Order follows the source recording; sets and segues are not inferred.'}</p><ol class="track-list">${detail.tracks.map(t=>`<li>${t.song_id&&data.songs.some(s=>s.id===t.song_id)?`<button class="show-button" data-detail-song="${escape(t.song_id)}">${escape(t.title)}</button>`:escape(t.title)} ${t.status==='candidate'?'<small>unreviewed title</small>':t.status==='excluded_non_concert_or_other_artist'?'<small>excluded: other artist / non-concert</small>':!t.song_id?'<small>unresolved / non-song</small>':''}${t.set?` <small>${escape(t.set)}</small>`:''}</li>`).join('')}</ol>`:(detail.recordings.some(r=>r.enriched)?'<p class="small-note">Metadata is imported, but usable concert song evidence is unresolved or excluded. See the sources and review notes below.</p>':'<p class="small-note">Track metadata has not been imported for this date. Follow a recording source below to inspect its setlist.</p>')}<h3 id="show-recordings" tabindex="-1">Ratings & recording sources</h3>${detail.recordings.map(r=>`<article class="recording-card">${sourceLink(r.url,r.id)}${r.evidence_note?`<p>${escape(r.evidence_note)}</p>`:''}<p>${r.rating.average?`<span class="rating-star">★</span> ${r.rating.average.toFixed(2)} / 5 · ${r.rating.count} reviews · adjusted ${r.rating.adjusted.toFixed(2)}`:'No star rating available'}</p><small>Rating snapshot: ${escape(r.rating.retrieved_at.slice(0,10))} · ${r.enriched?'Track metadata imported':'Index metadata only'}</small></article>`).join('')}`;
+    $('show-detail').innerHTML=`<p class="detail-kicker">${shortDate(detail.date)} / ${detail.recordings.length} RECORDING SOURCES</p><h2 id="show-heading">${escape(detail.venue)} ${notableMarker(id)}</h2><p class="detail-meta">${escape(detail.location)}</p>${rating?`<p class="show-rating"><a href="https://archive.org/details/${encodeURIComponent(rating.id)}">★ ${rating.average.toFixed(2)} / 5 ↗</a><small>${rating.count} reviews · adjusted ${rating.adjusted.toFixed(2)} · recording rating</small></p>`:''}<nav class="show-sections" aria-label="Show details sections"><button type="button" data-pane-section="show-tracks">Tracklist</button><button type="button" data-pane-section="show-personnel">Personnel</button><button type="button" data-pane-section="show-recordings">Recordings</button></nav><h3 id="show-personnel" tabindex="-1">Personnel context</h3><p class="detail-meta">${escape(lineup)||'Not documented'}</p><p class="detail-meta">Personnel are membership-window context, not confirmed attendance.</p><p><a href="shows/${escape(id)}/">Permanent archive record ↗</a> · <a href="${escape(relistenUrl(detail.date))}">Open in Relisten ↗</a></p><div class="detail-warning">${detail.status==='verified_event'?'Sourced event record.':'Provisional reported-date group. May combine early/late shows or mislabeled recordings.'} ${detail.warnings.map(escape).join(' ')}<br>Recording reviews may discuss performance, sound quality, or both. Ratings below belong to each recording.</div><h3 id="show-tracks" tabindex="-1">${detail.completeness==='complete'?'Verified setlist':'Setlist / recorded tracks'}</h3>${detail.tracks.length?`<p class="small-note">${detail.source_url?sourceLink(detail.source_url,'Setlist source'):sourceLink('https://archive.org/details/'+detail.evidence_recording,'Tracklist source')} · ${detail.completeness==='complete'?'Set divisions follow the cited source.':'Potentially incomplete. Order follows the source recording; sets and segues are not inferred.'}</p><ol class="track-list">${detail.tracks.map(t=>`<li>${t.song_id&&data.songs.some(s=>s.id===t.song_id)?`<button class="show-button" data-detail-song="${escape(t.song_id)}">${escape(t.title)}</button>`:escape(t.title)} ${t.status==='candidate'?'<small>unreviewed title</small>':t.status==='excluded_non_concert_or_other_artist'?'<small>excluded: other artist / non-concert</small>':!t.song_id?'<small>unresolved / non-song</small>':''}${t.set?` <small>${escape(t.set)}</small>`:''}</li>`).join('')}</ol>`:(detail.recordings.some(r=>r.enriched)?'<p class="small-note">Metadata is imported, but usable concert song evidence is unresolved or excluded. See the sources and review notes below.</p>':'<p class="small-note">Track metadata has not been imported for this date. Follow a recording source below to inspect its setlist.</p>')}<h3 id="show-recordings" tabindex="-1">Ratings & recording sources</h3>${detail.recordings.map(r=>`<article class="recording-card">${sourceLink(r.url,r.id)}${r.evidence_note?`<p>${escape(r.evidence_note)}</p>`:''}<p>${r.rating.average?`<span class="rating-star">★</span> ${r.rating.average.toFixed(2)} / 5 · ${r.rating.count} reviews · adjusted ${r.rating.adjusted.toFixed(2)}`:'No star rating available'}</p><small>Rating snapshot: ${escape(r.rating.retrieved_at.slice(0,10))} · ${r.enriched?'Track metadata imported':'Index metadata only'}</small></article>`).join('')}`;
   } catch(error) {
     if(version===detailVersion) $('show-detail').innerHTML=`<h2 id="show-heading">This record could not be opened.</h2><p>${escape(error.message)}</p><a href="shows/${escape(id)}/">Try the static archive page ↗</a>`;
   }
@@ -321,23 +333,40 @@ function mountBirthdayCake(canvas) {
   function sync() {cancelAnimationFrame(frame);previous=0;draw();}
   canvas.addEventListener('pointermove',e=>{const r=canvas.getBoundingClientRect();pointer=[(e.clientX-r.left)/r.width*240,(e.clientY-r.top)/r.height*200];});
   canvas.addEventListener('pointerleave',()=>{pointer=null;});
-  new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;sync();}).observe(canvas);
+  const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;sync();}); observer.observe(canvas);
   document.addEventListener('visibilitychange',sync);reduced.addEventListener('change',sync);draw();
+  return ()=>{visible=false;cancelAnimationFrame(frame);observer.disconnect();document.removeEventListener('visibilitychange',sync);reduced.removeEventListener('change',sync);};
 }
-function renderThisDay() {
-  const today = new Date();
-  const monthDay = `${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+let birthdayCleanups=[];
+function setupDayPicker() {
+  const month=$('this-day-month'), day=$('this-day-day');
+  month.innerHTML=Array.from({length:12},(_,i)=>`<option value="${i+1}">${new Date(2000,i,1).toLocaleDateString('en-US',{month:'long'})}</option>`).join('');
+  function updateDays(preferred) {
+    const count=new Date(2000,Number(month.value),0).getDate();
+    day.innerHTML=Array.from({length:count},(_,i)=>`<option value="${i+1}">${i+1}</option>`).join('');
+    day.value=String(Math.min(preferred,count));
+  }
+  function renderPick() {renderThisDay(`${month.value.padStart(2,'0')}-${day.value.padStart(2,'0')}`);}
+  function today() {const now=new Date();month.value=String(now.getMonth()+1);updateDays(now.getDate());renderPick();}
+  month.addEventListener('change',()=>{updateDays(Number(day.value));renderPick();});
+  day.addEventListener('change',renderPick);
+  $('this-day-today').addEventListener('click',today);
+  today();
+}
+function renderThisDay(monthDay) {
+  birthdayCleanups.forEach(dispose=>dispose?.());birthdayCleanups=[];
+  const selectedDate = new Date(`2000-${monthDay}T12:00:00`);
   const matches = anniversaryShows(data.shows, monthDay);
   $('this-day-birthdays').innerHTML = birthdaysOn(data.history.members, monthDay).map(m => `<div class="birthday-note"><canvas class="birthday-cake" width="240" height="200" role="img" aria-label="Animated birthday cake point cloud"></canvas><p>Born on this day<br><strong>${escape(m.name)}</strong> · ${escape(m.birth_date.slice(0,4))} <a href="${escape(m.birth_source)}" aria-label="Birthday source for ${escape(m.name)}">↗</a></p></div>`).join('');
-  $('this-day-birthdays').querySelectorAll('canvas').forEach(mountBirthdayCake);
-  $('this-day-date').textContent = today.toLocaleDateString('en-US',{month:'long',day:'numeric'});
+  birthdayCleanups=Array.from($('this-day-birthdays').querySelectorAll('canvas'),mountBirthdayCake);
+  $('this-day-date').textContent = selectedDate.toLocaleDateString('en-US',{month:'long',day:'numeric'});
   if (!matches.length) {
     $('this-day-content').innerHTML = '<p>No shows are indexed for this day. Explore the timeline to find another date.</p>';
     return;
   }
   function showPick(id) {
     const {show, rating} = matches.find(m=>m.show.id===id) || matches[0];
-    $('this-day-pick').innerHTML = `<h3>${shortDate(show.date)} · ${escape(show.venue)}</h3><p>${escape(show.location || 'Location not documented')}</p>${rating ? `<p>★ ${rating.average.toFixed(2)} / 5 · ${rating.count} reviews · adjusted ${rating.adjusted.toFixed(2)}</p>` : '<p>No recording with at least 5 reviews is available for this date.</p>'}<p class="this-day-links"><button type="button" class="primary-link" id="this-day-open">Show details ↗</button><a href="${escape(relistenUrl(show.date))}">Relisten ↗</a>${rating ? `<a href="https://archive.org/details/${encodeURIComponent(rating.id)}">Internet Archive ↗</a>` : ''}</p>`;
+    $('this-day-pick').innerHTML = `<h3>${shortDate(show.date)} · ${escape(show.venue)} ${notableMarker(show.id)}</h3><p>${escape(show.location || 'Location not documented')}</p>${rating ? `<p>★ ${rating.average.toFixed(2)} / 5 · ${rating.count} reviews · adjusted ${rating.adjusted.toFixed(2)}</p>` : '<p>No recording with at least 5 reviews is available for this date.</p>'}<p class="this-day-links"><button type="button" class="primary-link" id="this-day-open">Show details ↗</button><a href="${escape(relistenUrl(show.date))}">Relisten ↗</a>${rating ? `<a href="https://archive.org/details/${encodeURIComponent(rating.id)}">Internet Archive ↗</a>` : ''}</p>`;
     $('this-day-open').addEventListener('click',()=>openShow(show.id));
   }
   $('this-day-content').innerHTML = `<label class="field-label" for="this-day-select">${matches.length} indexed date${matches.length===1?'':'s'} · ranked recordings</label><select id="this-day-select">${matches.map(({show})=>`<option value="${escape(show.id)}">${shortDate(show.date)} · ${escape(show.venue)}</option>`).join('')}</select><div id="this-day-pick"></div>`;
@@ -350,7 +379,10 @@ async function start() {
     if(!response.ok) throw new Error(`Catalog request failed (${response.status})`);
     data=await response.json();
     state=normalizeState(params(),data);
-    renderThisDay();
+    setupDayPicker();
+    $('notable-only').addEventListener('change',()=>{page=0;render();});
+    $('notable-close').addEventListener('click',()=>$('notable-dialog').close());
+    $('notable-dialog').addEventListener('click',e=>{if(e.target===$('notable-dialog')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close();}});
     const c=data.coverage;
     $('stats').innerHTML=[['1965—95','Years on the road'],[number(c.date_groups),'Reported dates'],[number(c.recordings_in_scope),'Recording sources'],[number(c.dates_with_tracks),'Tracklists imported']].map(([v,l])=>`<div class="stat"><strong>${v}</strong><span>${l}</span></div>`).join('');
     $('song').innerHTML+=[...data.songs].sort((a,b)=>a.title.localeCompare(b.title)).map(s=>`<option value="${escape(s.id)}">${escape(s.title)}${s.status==='candidate'?' *':''}</option>`).join('');
@@ -392,11 +424,12 @@ async function start() {
     $('min-reviews').addEventListener('change',()=>change({minimum:Number($('min-reviews').value)}));
     let searchTimer;
     $('search').addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(()=>change({search:$('search').value.slice(0,200)}),150);});
-    $('reset').addEventListener('click',()=>{clearTimeout(searchTimer);change(normalizeState(new URLSearchParams(),data));});
+    $('reset').addEventListener('click',()=>{$('notable-only').checked=false;clearTimeout(searchTimer);change(normalizeState(new URLSearchParams(),data));});
     $('member-picker').addEventListener('keydown',e=>{if(e.key==='Escape'){$('member-picker').open=false;$('member-picker').querySelector('summary').focus();}});
     document.addEventListener('click',e=>{
       if(!$('member-picker').contains(e.target)) $('member-picker').open=false;
       const button=e.target.closest('button');if(!button) return;
+      if(button.dataset.notable){openNotable(button.dataset.notable);return;}
       if(button.dataset.paneSection){const section=$(button.dataset.paneSection);section?.scrollIntoView({block:'start'});section?.focus({preventScroll:true});}
       if(button.hasAttribute('data-era')) change({era:button.dataset.era});
       if(button.dataset.year) zoomYear(Number(button.dataset.year));

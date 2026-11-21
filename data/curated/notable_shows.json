@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "note": "An editorial selection of documented historical moments, not a ranking of musical quality. Date groups may combine multiple performances.",
+  "shows": [
+    {
+      "show_id": "gd-1969-02-27",
+      "date": "1969-02-27",
+      "title": "A cornerstone of Live/Dead",
+      "category": "landmark recording",
+      "blurb": "The Fillmore West performance supplied “Dark Star” and “St. Stephen” for Live/Dead, tying this date to one of the band’s defining live records.",
+      "source": "https://www.dead.net/show/february-27-1969"
+    },
+    {
+      "show_id": "gd-1970-05-02",
+      "date": "1970-05-02",
+      "title": "Harpur: acoustic and electric",
+      "category": "landmark recording",
+      "blurb": "This Harpur College concert became Dick’s Picks Volume 8. Its acoustic and electric performances document two sides of the band’s 1970 repertoire.",
+      "source": "https://www.dead.net/archives/1997/artwork/dicks-picks-volume-8"
+    },
+    {
+      "show_id": "gd-1971-04-27",
+      "date": "1971-04-27",
+      "title": "The Beach Boys at Fillmore East",
+      "category": "guest appearance",
+      "blurb": "The Beach Boys joined the evening at Fillmore East, bringing an unusual meeting of the two bands. The shared portion included “Help Me, Rhonda” and “Okie from Muskogee”; some Beach Boys numbers were performed without the Dead.",
+      "source": "https://www.dead.net/show/april-27-1971"
+    },
+    {
+      "show_id": "gd-1971-10-19",
+      "date": "1971-10-19",
+      "title": "Keith’s first concert",
+      "category": "band milestone",
+      "blurb": "Northrop Auditorium introduced Keith Godchaux onstage. The official show notes also identify first performances of Jack Straw and Tennessee Jed.",
+      "source": "https://www.dead.net/show/october-19-1971"
+    },
+    {
+      "show_id": "gd-1972-06-17",
+      "date": "1972-06-17",
+      "title": "Pigpen’s final concert; Stella Blue debuts",
+      "category": "band milestone",
+      "blurb": "The Hollywood Bowl show notes identify Pigpen’s last appearance and the first Stella Blue.",
+      "source": "https://www.dead.net/show/june-17-1972"
+    },
+    {
+      "show_id": "gd-1972-08-27",
+      "date": "1972-08-27",
+      "title": "Veneta’s Sunshine Daydream",
+      "category": "benefit concert",
+      "blurb": "The band played the Springfield Creamery benefit in Veneta, Oregon, with the Merry Pranksters involved in the gathering. The concert was filmed and later released as Sunshine Daydream.",
+      "source": "https://www.dead.net/veneta-oregon"
+    },
+    {
+      "show_id": "gd-1974-03-23",
+      "date": "1974-03-23",
+      "title": "Wall of Sound test; Scarlet Begonias debuts",
+      "category": "band milestone",
+      "blurb": "The Cow Palace show is documented as the Wall’s sound test and the first performances of Scarlet Begonias and Cassidy.",
+      "source": "https://www.dead.net/show/march-23-1974"
+    },
+    {
+      "show_id": "gd-1974-10-20",
+      "date": "1974-10-20",
+      "title": "Winterland farewell & Mickey’s return",
+      "category": "band milestone",
+      "blurb": "The final Winterland farewell concert preceded the touring hiatus and brought Mickey Hart back onstage.",
+      "source": "https://jerrygarcia.com/show/1974-10-20-winterland-arena-san-francisco-ca-usa/"
+    },
+    {
+      "show_id": "gd-1975-08-13",
+      "date": "1975-08-13",
+      "title": "One from the Vault",
+      "category": "landmark recording",
+      "blurb": "During the touring hiatus, the band presented its new Blues for Allah material at Great American Music Hall. The concert later became One from the Vault.",
+      "source": "https://www.dead.net/inside-vault"
+    },
+    {
+      "show_id": "gd-1977-03-18",
+      "date": "1977-03-18",
+      "title": "Fire on the Mountain debuts",
+      "category": "band milestone",
+      "blurb": "The Winterland show notes identify the first Fire on the Mountain.",
+      "source": "https://www.dead.net/show/march-18-1977"
+    },
+    {
+      "show_id": "gd-1977-05-08",
+      "date": "1977-05-08",
+      "title": "Cornell enters the national registry",
+      "category": "landmark recording",
+      "blurb": "The Barton Hall recording became a touchstone of tape trading. It was selected for the Library of Congress National Recording Registry in 2011.",
+      "source": "https://www.loc.gov/programs/national-recording-preservation-board/recording-registry/descriptions-and-essays/"
+    },
+    {
+      "show_id": "gd-1977-09-03",
+      "date": "1977-09-03",
+      "title": "Englishtown’s outdoor gathering",
+      "category": "landmark recording",
+      "blurb": "The Raceway Park concert in Englishtown was a major outdoor gathering and later became Dick’s Picks Volume 15. Its “Eyes of the World” is discussed in the band’s retrospective on the song.",
+      "source": "https://www.dead.net/wake-flood-50-eyes-world"
+    },
+    {
+      "show_id": "gd-1978-12-31",
+      "date": "1978-12-31",
+      "title": "The closing of Winterland",
+      "category": "venue milestone",
+      "blurb": "The band rang in 1979 at Winterland’s final concert. The occasion is preserved in The Closing of Winterland live release.",
+      "source": "https://www.dead.net/archives/2003/artwork/album-cover-closing-winterland"
+    },
+    {
+      "show_id": "gd-1979-04-22",
+      "date": "1979-04-22",
+      "title": "Brent’s first concert",
+      "category": "band milestone",
+      "blurb": "Brent Mydland made his concert debut after Keith and Donna’s departure.",
+      "source": "https://www.dead.net/features/year/1979"
+    },
+    {
+      "show_id": "gd-1990-03-29",
+      "date": "1990-03-29",
+      "title": "Branford Marsalis sits in",
+      "category": "guest appearance",
+      "blurb": "Saxophonist Branford Marsalis joined the band at Nassau Coliseum, beginning a recurring musical connection. “Eyes of the World” from this date appears on Without a Net.",
+      "source": "https://www.dead.net/features/year/1990"
+    },
+    {
+      "show_id": "gd-1995-07-09",
+      "date": "1995-07-09",
+      "title": "The final Grateful Dead concert",
+      "category": "band milestone",
+      "blurb": "The band’s final concert took place at Soldier Field, Chicago.",
+      "source": "https://www.dead.net/features/year/1995"
+    }
+  ]
+}

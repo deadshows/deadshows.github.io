@@ -199,7 +199,7 @@ class ArchiveIntegrationTests(unittest.TestCase):
                 self.assertTrue(release['source_url'].startswith('https://'))
         markup=(ROOT/'dist/index.html').read_text()
         self.assertIn('RELISTEN</th>',markup)
-        self.assertIn('DICK’S PICKS</th>',markup)
+        self.assertIn('OFFICIAL RELEASES</th>',markup)
         self.assertNotIn('>EVIDENCE</th>',markup)
 
     def test_album_tracks_link_only_to_known_song_identities(self):

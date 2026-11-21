@@ -195,3 +195,16 @@ dialog h3 { font: italic 28px/1.2 var(--serif); letter-spacing: -.5px; }
 .birthday-note { display: flex; gap: .6rem; align-items: center; margin-top: .8rem; }
 .birthday-cake { width: 120px; height: 100px; flex: 0 0 120px; touch-action: pan-y; }
 .birthday-note p { font-size: .9rem; line-height: 1.5; }
+
+.this-day-picker { display:flex; flex-wrap:wrap; gap:.6rem; align-items:end; margin:.8rem 0; }
+.this-day-picker label { display:grid; gap:.2rem; font-size:.8rem; }
+.this-day-picker select { width:auto; margin:0; min-height:36px; }
+.this-day-picker button { min-height:36px; }
+
+.notable-marker { border:0; background:transparent; color:#7f6852; padding:.3rem .45rem; font-size:1rem; cursor:pointer; vertical-align:baseline; }
+.notable-marker:hover,.notable-marker:focus-visible { color:#c53c32; background:#c53c3210; outline:1px solid currentColor; border-radius:50%; }
+.notable-filter { display:flex; align-items:center; gap:.4rem; font-size:.85rem; margin:1rem 0; }
+.notable-dialog { width:min(480px,calc(100vw - 2rem)); max-height:80vh; padding:1.6rem; border:1px solid #21382f; background:#f4f0e4; color:#21382f; }
+.notable-dialog h2 { font-size:1.6rem; line-height:1.2; }
+.notable-dialog::backdrop { background:#21382f66; }
+.show-notable { position:absolute; top:-1.2rem; left:50%; transform:translateX(-50%); color:#9c4232; font-size:.7rem; }

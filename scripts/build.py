@@ -290,7 +290,10 @@ def build():
     for album in albums:
         for track in album['tracks']:
             assert set(track['song_ids']) <= set(songs), track
-    catalog = {'release_index_note': release_data['note'], 'albums': albums, 'schema_version': 1, 'retrieved_at': inventory['retrieved_at'], 'rating_prior': prior, 'rating_prior_strength': PRIOR_STRENGTH, 'history': history, 'coverage': {k: v for k, v in report.items() if k not in ['excluded_items', 'unresolved_status_counts']}, 'shows': catalog_shows, 'songs': exported_songs}
+    notable = load(CURATED / 'notable_shows.json')
+    assert len({n['show_id'] for n in notable['shows']}) == len(notable['shows'])
+    assert all(n['show_id'] in shows and n['source'].startswith('https://') for n in notable['shows'])
+    catalog = {'notable_shows': notable, 'release_index_note': release_data['note'], 'albums': albums, 'schema_version': 1, 'retrieved_at': inventory['retrieved_at'], 'rating_prior': prior, 'rating_prior_strength': PRIOR_STRENGTH, 'history': history, 'coverage': {k: v for k, v in report.items() if k not in ['excluded_items', 'unresolved_status_counts']}, 'shows': catalog_shows, 'songs': exported_songs}
     dump(PUBLIC / 'data/catalog.json', catalog)
     dump(PUBLIC / 'data/setlists.json', load(ROOT / 'data/release/setlists.json'))
     dump(ROOT / 'data/coverage.json', report)
