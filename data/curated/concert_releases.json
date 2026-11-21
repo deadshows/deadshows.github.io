@@ -1,0 +1,773 @@
+{
+  "note": "Date-level source matches. Standalone selections are a growing index, not an exhaustive discography. Dick’s Picks original releases are indexed including documented bonus dates; separately packaged bonus discs and later reissues are not exhaustively indexed. No match does not establish absence of an official release. Same-date early/late shows may remain grouped.",
+  "sources": [
+    "https://www.deaddisc.com/GDFD_Dicks_Picks.htm",
+    "https://www.deaddisc.com/GDFD_Grateful_Dead.htm"
+  ],
+  "releases": [
+    {
+      "id": "dicks-picks-1",
+      "title": "Dick’s Picks Vol. 1",
+      "category": "dicks_picks",
+      "volume": 1,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_1.htm",
+      "dates": [
+        {
+          "date": "1973-12-19",
+          "coverage": "selections"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-2",
+      "title": "Dick’s Picks Vol. 2",
+      "category": "dicks_picks",
+      "volume": 2,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_2.htm",
+      "dates": [
+        {
+          "date": "1971-10-31",
+          "coverage": "selections"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-3",
+      "title": "Dick’s Picks Vol. 3",
+      "category": "dicks_picks",
+      "volume": 3,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_3.htm",
+      "dates": [
+        {
+          "date": "1977-05-22",
+          "coverage": "featured"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-4",
+      "title": "Dick’s Picks Vol. 4",
+      "category": "dicks_picks",
+      "volume": 4,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_4.htm",
+      "dates": [
+        {
+          "date": "1970-02-13",
+          "coverage": "selections"
+        },
+        {
+          "date": "1970-02-14",
+          "coverage": "selections"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-5",
+      "title": "Dick’s Picks Vol. 5",
+      "category": "dicks_picks",
+      "volume": 5,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_5.htm",
+      "dates": [
+        {
+          "date": "1979-12-26",
+          "coverage": "complete"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-6",
+      "title": "Dick’s Picks Vol. 6",
+      "category": "dicks_picks",
+      "volume": 6,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_6.htm",
+      "dates": [
+        {
+          "date": "1983-10-14",
+          "coverage": "complete"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-7",
+      "title": "Dick’s Picks Vol. 7",
+      "category": "dicks_picks",
+      "volume": 7,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_7.htm",
+      "dates": [
+        {
+          "date": "1974-09-09",
+          "coverage": "selections"
+        },
+        {
+          "date": "1974-09-10",
+          "coverage": "selections"
+        },
+        {
+          "date": "1974-09-11",
+          "coverage": "selections"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-8",
+      "title": "Dick’s Picks Vol. 8",
+      "category": "dicks_picks",
+      "volume": 8,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_8.htm",
+      "dates": [
+        {
+          "date": "1970-05-02",
+          "coverage": "featured"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-9",
+      "title": "Dick’s Picks Vol. 9",
+      "category": "dicks_picks",
+      "volume": 9,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_9.htm",
+      "dates": [
+        {
+          "date": "1990-09-16",
+          "coverage": "featured"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-10",
+      "title": "Dick’s Picks Vol. 10",
+      "category": "dicks_picks",
+      "volume": 10,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_10.htm",
+      "dates": [
+        {
+          "date": "1977-12-29",
+          "coverage": "featured"
+        },
+        {
+          "date": "1977-12-30",
+          "coverage": "featured"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-11",
+      "title": "Dick’s Picks Vol. 11",
+      "category": "dicks_picks",
+      "volume": 11,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_11.htm",
+      "dates": [
+        {
+          "date": "1972-09-27",
+          "coverage": "featured"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-12",
+      "title": "Dick’s Picks Vol. 12",
+      "category": "dicks_picks",
+      "volume": 12,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_12.htm",
+      "dates": [
+        {
+          "date": "1974-06-26",
+          "coverage": "selections"
+        },
+        {
+          "date": "1974-06-28",
+          "coverage": "selections"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-13",
+      "title": "Dick’s Picks Vol. 13",
+      "category": "dicks_picks",
+      "volume": 13,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_13.htm",
+      "dates": [
+        {
+          "date": "1981-05-06",
+          "coverage": "featured"
+        },
+        {
+          "date": "1979-11-01",
+          "coverage": "bonus"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-14",
+      "title": "Dick’s Picks Vol. 14",
+      "category": "dicks_picks",
+      "volume": 14,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_14.htm",
+      "dates": [
+        {
+          "date": "1973-11-30",
+          "coverage": "selections"
+        },
+        {
+          "date": "1973-12-02",
+          "coverage": "selections"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-15",
+      "title": "Dick’s Picks Vol. 15",
+      "category": "dicks_picks",
+      "volume": 15,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_15.htm",
+      "dates": [
+        {
+          "date": "1977-09-03",
+          "coverage": "featured"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-16",
+      "title": "Dick’s Picks Vol. 16",
+      "category": "dicks_picks",
+      "volume": 16,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_16.htm",
+      "dates": [
+        {
+          "date": "1969-11-08",
+          "coverage": "featured"
+        },
+        {
+          "date": "1969-11-07",
+          "coverage": "bonus"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-17",
+      "title": "Dick’s Picks Vol. 17",
+      "category": "dicks_picks",
+      "volume": 17,
+      "source_url": "https://en.wikipedia.org/wiki/Dick%27s_Picks_Volume_17",
+      "dates": [
+        {
+          "date": "1991-09-25",
+          "coverage": "featured"
+        },
+        {
+          "date": "1991-03-31",
+          "coverage": "bonus"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-18",
+      "title": "Dick’s Picks Vol. 18",
+      "category": "dicks_picks",
+      "volume": 18,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_18.htm",
+      "dates": [
+        {
+          "date": "1978-02-03",
+          "coverage": "selections"
+        },
+        {
+          "date": "1978-02-05",
+          "coverage": "selections"
+        },
+        {
+          "date": "1978-02-04",
+          "coverage": "bonus"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-19",
+      "title": "Dick’s Picks Vol. 19",
+      "category": "dicks_picks",
+      "volume": 19,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_19.htm",
+      "dates": [
+        {
+          "date": "1973-10-19",
+          "coverage": "featured"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-20",
+      "title": "Dick’s Picks Vol. 20",
+      "category": "dicks_picks",
+      "volume": 20,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_20.htm",
+      "dates": [
+        {
+          "date": "1976-09-25",
+          "coverage": "featured"
+        },
+        {
+          "date": "1976-09-28",
+          "coverage": "featured"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-21",
+      "title": "Dick’s Picks Vol. 21",
+      "category": "dicks_picks",
+      "volume": 21,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_21.htm",
+      "dates": [
+        {
+          "date": "1985-11-01",
+          "coverage": "featured"
+        },
+        {
+          "date": "1980-09-02",
+          "coverage": "bonus"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-22",
+      "title": "Dick’s Picks Vol. 22",
+      "category": "dicks_picks",
+      "volume": 22,
+      "source_url": "https://en.wikipedia.org/wiki/Dick%27s_Picks_Volume_22",
+      "dates": [
+        {
+          "date": "1968-02-23",
+          "coverage": "selections"
+        },
+        {
+          "date": "1968-02-24",
+          "coverage": "selections"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-23",
+      "title": "Dick’s Picks Vol. 23",
+      "category": "dicks_picks",
+      "volume": 23,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_23.htm",
+      "dates": [
+        {
+          "date": "1972-09-17",
+          "coverage": "featured"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-24",
+      "title": "Dick’s Picks Vol. 24",
+      "category": "dicks_picks",
+      "volume": 24,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_24.htm",
+      "dates": [
+        {
+          "date": "1974-03-23",
+          "coverage": "selections"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-25",
+      "title": "Dick’s Picks Vol. 25",
+      "category": "dicks_picks",
+      "volume": 25,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_25.htm",
+      "dates": [
+        {
+          "date": "1978-05-10",
+          "coverage": "selections"
+        },
+        {
+          "date": "1978-05-11",
+          "coverage": "selections"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-26",
+      "title": "Dick’s Picks Vol. 26",
+      "category": "dicks_picks",
+      "volume": 26,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_26.htm",
+      "dates": [
+        {
+          "date": "1969-04-26",
+          "coverage": "selections"
+        },
+        {
+          "date": "1969-04-27",
+          "coverage": "selections"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-27",
+      "title": "Dick’s Picks Vol. 27",
+      "category": "dicks_picks",
+      "volume": 27,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_27.htm",
+      "dates": [
+        {
+          "date": "1992-12-16",
+          "coverage": "featured"
+        },
+        {
+          "date": "1992-12-17",
+          "coverage": "bonus"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-28",
+      "title": "Dick’s Picks Vol. 28",
+      "category": "dicks_picks",
+      "volume": 28,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_28.htm",
+      "dates": [
+        {
+          "date": "1973-02-26",
+          "coverage": "selections"
+        },
+        {
+          "date": "1973-02-28",
+          "coverage": "selections"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-29",
+      "title": "Dick’s Picks Vol. 29",
+      "category": "dicks_picks",
+      "volume": 29,
+      "source_url": "https://en.wikipedia.org/wiki/Dick%27s_Picks_Volume_29",
+      "dates": [
+        {
+          "date": "1977-05-19",
+          "coverage": "featured"
+        },
+        {
+          "date": "1977-05-21",
+          "coverage": "featured"
+        },
+        {
+          "date": "1977-10-11",
+          "coverage": "bonus"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-30",
+      "title": "Dick’s Picks Vol. 30",
+      "category": "dicks_picks",
+      "volume": 30,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_30.htm",
+      "dates": [
+        {
+          "date": "1972-03-25",
+          "coverage": "selections"
+        },
+        {
+          "date": "1972-03-28",
+          "coverage": "selections"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-31",
+      "title": "Dick’s Picks Vol. 31",
+      "category": "dicks_picks",
+      "volume": 31,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_31.htm",
+      "dates": [
+        {
+          "date": "1974-08-04",
+          "coverage": "selections"
+        },
+        {
+          "date": "1974-08-05",
+          "coverage": "selections"
+        },
+        {
+          "date": "1974-08-06",
+          "coverage": "selections"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-32",
+      "title": "Dick’s Picks Vol. 32",
+      "category": "dicks_picks",
+      "volume": 32,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_32.htm",
+      "dates": [
+        {
+          "date": "1982-08-07",
+          "coverage": "featured"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-33",
+      "title": "Dick’s Picks Vol. 33",
+      "category": "dicks_picks",
+      "volume": 33,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_33.htm",
+      "dates": [
+        {
+          "date": "1976-10-09",
+          "coverage": "featured"
+        },
+        {
+          "date": "1976-10-10",
+          "coverage": "featured"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-34",
+      "title": "Dick’s Picks Vol. 34",
+      "category": "dicks_picks",
+      "volume": 34,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_34.htm",
+      "dates": [
+        {
+          "date": "1977-11-05",
+          "coverage": "featured"
+        },
+        {
+          "date": "1977-11-02",
+          "coverage": "bonus"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-35",
+      "title": "Dick’s Picks Vol. 35",
+      "category": "dicks_picks",
+      "volume": 35,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_35.htm",
+      "dates": [
+        {
+          "date": "1971-08-07",
+          "coverage": "featured"
+        },
+        {
+          "date": "1971-08-24",
+          "coverage": "featured"
+        },
+        {
+          "date": "1971-08-06",
+          "coverage": "featured"
+        }
+      ]
+    },
+    {
+      "id": "dicks-picks-36",
+      "title": "Dick’s Picks Vol. 36",
+      "category": "dicks_picks",
+      "volume": 36,
+      "source_url": "https://www.deaddisc.com/disc/Dicks_Pick_36.htm",
+      "dates": [
+        {
+          "date": "1972-09-21",
+          "coverage": "featured"
+        },
+        {
+          "date": "1972-09-03",
+          "coverage": "bonus"
+        }
+      ]
+    },
+    {
+      "id": "sunshine-daydream",
+      "title": "Sunshine Daydream",
+      "category": "standalone",
+      "source_url": "https://www.deaddisc.com/disc/Sunshine_Daydream.htm",
+      "dates": [
+        {
+          "date": "1972-08-27",
+          "coverage": "complete"
+        }
+      ]
+    },
+    {
+      "id": "cornell-1977",
+      "title": "Cornell 5/8/77",
+      "category": "standalone",
+      "source_url": "https://www.deaddisc.com/disc/Cornell5877.htm",
+      "dates": [
+        {
+          "date": "1977-05-08",
+          "coverage": "complete"
+        }
+      ]
+    },
+    {
+      "id": "to-terrapin",
+      "title": "To Terrapin: Hartford ’77",
+      "category": "standalone",
+      "source_url": "https://www.deaddisc.com/disc/To_Terrapin.htm",
+      "dates": [
+        {
+          "date": "1977-05-28",
+          "coverage": "complete"
+        }
+      ]
+    },
+    {
+      "id": "one-from-the-vault",
+      "title": "One from the Vault",
+      "category": "standalone",
+      "source_url": "https://www.deaddisc.com/disc/One_From_The_Vault.htm",
+      "dates": [
+        {
+          "date": "1975-08-13",
+          "coverage": "featured"
+        }
+      ]
+    },
+    {
+      "id": "three-from-the-vault",
+      "title": "Three from the Vault",
+      "category": "standalone",
+      "source_url": "https://www.deaddisc.com/disc/Three_From_The_Vault.htm",
+      "dates": [
+        {
+          "date": "1971-02-19",
+          "coverage": "featured"
+        }
+      ]
+    },
+    {
+      "id": "rockin-the-rhein",
+      "title": "Rockin’ the Rhein",
+      "category": "standalone",
+      "source_url": "https://www.deaddisc.com/disc/Rockin_The_Rhein.htm",
+      "dates": [
+        {
+          "date": "1972-04-24",
+          "coverage": "complete"
+        },
+        {
+          "date": "1972-05-24",
+          "coverage": "bonus"
+        }
+      ]
+    },
+    {
+      "id": "hundred-year-hall",
+      "title": "Hundred Year Hall",
+      "category": "standalone",
+      "source_url": "https://www.deaddisc.com/disc/Hundred_Year_Hall.htm",
+      "dates": [
+        {
+          "date": "1972-04-26",
+          "coverage": "selections"
+        }
+      ]
+    },
+    {
+      "id": "wake-up-to-find-out",
+      "title": "Wake Up to Find Out",
+      "category": "standalone",
+      "source_url": "https://www.deaddisc.com/disc/Wake_Up_To_Find_Out.htm",
+      "dates": [
+        {
+          "date": "1990-03-29",
+          "coverage": "featured"
+        }
+      ]
+    },
+    {
+      "id": "nightfall-of-diamonds",
+      "title": "Nightfall of Diamonds",
+      "category": "standalone",
+      "source_url": "https://www.deaddisc.com/disc/Nightfall_Of_Diamonds.htm",
+      "dates": [
+        {
+          "date": "1989-10-16",
+          "coverage": "featured"
+        }
+      ]
+    },
+    {
+      "id": "closing-of-winterland",
+      "title": "The Closing of Winterland",
+      "category": "standalone",
+      "source_url": "https://www.deaddisc.com/disc/Closing_Of_Winterland.htm",
+      "dates": [
+        {
+          "date": "1978-12-31",
+          "coverage": "complete"
+        }
+      ]
+    },
+    {
+      "id": "truckin-up-to-buffalo",
+      "title": "Truckin’ Up to Buffalo",
+      "category": "standalone",
+      "source_url": "https://www.deaddisc.com/disc/Truckin_Up_To_Buffalo.htm",
+      "dates": [
+        {
+          "date": "1989-07-04",
+          "coverage": "featured"
+        }
+      ]
+    },
+    {
+      "id": "crimson-white-and-indigo",
+      "title": "Crimson, White & Indigo",
+      "category": "standalone",
+      "source_url": "https://www.deaddisc.com/disc/Crimson_White_And_Indigo.htm",
+      "dates": [
+        {
+          "date": "1989-07-07",
+          "coverage": "complete"
+        }
+      ]
+    },
+    {
+      "id": "terrapin-station-live",
+      "title": "Terrapin Station (Limited Edition)",
+      "category": "standalone",
+      "source_url": "https://www.deaddisc.com/disc/Terrapin_Limited_Edition.htm",
+      "dates": [
+        {
+          "date": "1990-03-15",
+          "coverage": "featured"
+        }
+      ]
+    },
+    {
+      "id": "cow-palace-1976",
+      "title": "Live at the Cow Palace: New Year’s Eve 1976",
+      "category": "standalone",
+      "source_url": "https://www.deaddisc.com/disc/Live_At_The_Cow_Palace.htm",
+      "dates": [
+        {
+          "date": "1976-12-31",
+          "coverage": "featured"
+        }
+      ]
+    },
+    {
+      "id": "saint-of-circumstance",
+      "title": "Saint of Circumstance",
+      "category": "standalone",
+      "source_url": "https://www.deaddisc.com/disc/Giants_S_Of_C.htm",
+      "dates": [
+        {
+          "date": "1991-06-17",
+          "coverage": "complete"
+        }
+      ]
+    }
+  ]
+}

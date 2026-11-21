@@ -5,6 +5,7 @@ import datetime as dt
 import hashlib
 import html
 import json
+import math
 from pathlib import Path
 import re
 import shutil
@@ -159,7 +160,7 @@ def build():
     snapshots = inventory['evidence']
     items = inventory['items']
     ratings = [(float(i['avg_rating']), int(i['num_reviews'])) for i in items if i.get('avg_rating') and i.get('num_reviews') and 0 < float(i['avg_rating']) <= 5]
-    prior = sum(a * n for a, n in ratings) / sum(n for _, n in ratings) if ratings else 3.5
+    prior = math.fsum(a * n for a, n in ratings) / sum(n for _, n in ratings) if ratings else 3.5
     shows, recordings, tracks, excluded = {}, {}, [], []
     venue_counts_by_date = defaultdict(Counter)
     for item in items:
@@ -243,8 +244,24 @@ def build():
             show['tracks'].append(track)
             curated_rows.append((sid, track, curated['source_url']))
         show['song_ids'] = sorted({t['song_id'] for t in show['tracks']})
+    release_data = load(CURATED / 'concert_releases.json')
+    releases_by_date = defaultdict(list)
+    release_ids = set()
+    for release in release_data['releases']:
+        if release['id'] in release_ids or release['category'] not in ('standalone', 'dicks_picks'):
+            raise ValueError('Invalid or duplicate concert release')
+        release_ids.add(release['id'])
+        if not release['source_url'].startswith('https://'):
+            raise ValueError('Concert release needs an HTTPS source')
+        dates_seen = set()
+        for entry in release['dates']:
+            if not valid_date(entry['date']) or entry['date'] in dates_seen or entry['coverage'] not in ('complete', 'selections', 'bonus', 'featured'):
+                raise ValueError('Invalid release performance date or coverage')
+            dates_seen.add(entry['date'])
+            releases_by_date[entry['date']].append({k:release[k] for k in ['id','title','category','source_url']} | {'volume': release.get('volume'), 'coverage':entry['coverage']})
     catalog_shows, years = [], []
     for show in sorted(shows.values(), key=lambda s: (s['date'], s['id'])):
+        show['official_releases'] = releases_by_date.get(show['date'], [])
         show['era_ids'] = [e['id'] for e in history['eras'] if e['start'] <= show['date'] <= e['end']]
         show['member_ids'] = [m['id'] for m in history['members'] if any(i['start'] <= show['date'] <= i['end'] for i in m['intervals'])]
         catalog_shows.append({k: v for k, v in show.items() if k not in ['tracks', 'recordings', 'venues'] } | {'recording_count': len(show['recordings'])})
@@ -273,8 +290,9 @@ def build():
     for album in albums:
         for track in album['tracks']:
             assert set(track['song_ids']) <= set(songs), track
-    catalog = {'albums': albums, 'schema_version': 1, 'retrieved_at': inventory['retrieved_at'], 'rating_prior': prior, 'rating_prior_strength': PRIOR_STRENGTH, 'history': history, 'coverage': {k: v for k, v in report.items() if k not in ['excluded_items', 'unresolved_status_counts']}, 'shows': catalog_shows, 'songs': exported_songs}
+    catalog = {'release_index_note': release_data['note'], 'albums': albums, 'schema_version': 1, 'retrieved_at': inventory['retrieved_at'], 'rating_prior': prior, 'rating_prior_strength': PRIOR_STRENGTH, 'history': history, 'coverage': {k: v for k, v in report.items() if k not in ['excluded_items', 'unresolved_status_counts']}, 'shows': catalog_shows, 'songs': exported_songs}
     dump(PUBLIC / 'data/catalog.json', catalog)
+    dump(PUBLIC / 'data/setlists.json', load(ROOT / 'data/release/setlists.json'))
     dump(ROOT / 'data/coverage.json', report)
     database(shows, recordings, tracks, songs, aliases, history, curated_rows, inventory)
     package(catalog)
@@ -318,13 +336,15 @@ def package(catalog):
     shutil.copytree(PUBLIC, dist)
     # Content revisions refresh module and data URLs after an offline rebuild.
     # A new tab can otherwise reuse yesterday's heuristically cached catalog.
-    revision = hashlib.sha256(b''.join((PUBLIC / name).read_bytes() for name in ['app.js', 'analytics.mjs', 'albums.mjs', 'point-cloud.mjs', 'assets/rose-graph.json', 'data/catalog.json'])).hexdigest()[:12]
+    revision = hashlib.sha256(b''.join((PUBLIC / name).read_bytes() for name in ['app.js', 'analytics.mjs', 'albums.mjs', 'point-cloud.mjs', 'assets/rose-graph.json', 'data/catalog.json', 'data/setlists.json', 'sequence-ui.mjs', 'sequence-engine.mjs', 'sequence-timeline.mjs'])).hexdigest()[:12]
     index_html = (PUBLIC / 'index.html').read_text().replace('src="app.js"', f'src="app.js?v={revision}"').replace('src="point-cloud.mjs"', f'src="point-cloud.mjs?v={revision}"')
-    for stylesheet in ['style.css', 'theme.css', 'timeline.css']:
+    index_html = index_html.replace('src="sequence-ui.mjs"', f'src="sequence-ui.mjs?v={revision}"')
+    for stylesheet in ['style.css', 'theme.css', 'timeline.css', 'sequence.css']:
         style_revision = hashlib.sha256((PUBLIC / stylesheet).read_bytes()).hexdigest()[:12]
         index_html = index_html.replace(f'href="{stylesheet}"', f'href="{stylesheet}?v={style_revision}"')
     (dist / 'index.html').write_text(index_html)
     (dist / 'app.js').write_text((PUBLIC / 'app.js').read_text().replace("'./analytics.mjs'", f"'./analytics.mjs?v={revision}'").replace("'./albums.mjs'", f"'./albums.mjs?v={revision}'"))
+    (dist / 'sequence-ui.mjs').write_text((PUBLIC / 'sequence-ui.mjs').read_text().replace("'./analytics.mjs'", f"'./analytics.mjs?v={revision}'").replace("'./sequence-engine.mjs'", f"'./sequence-engine.mjs?v={revision}'").replace("'./sequence-timeline.mjs'", f"'./sequence-timeline.mjs?v={revision}'").replace("'data/setlists.json'", f"'data/setlists.json?v={revision}'").replace("'data/catalog.json'", f"'data/catalog.json?v={revision}'"))
     (dist / '.nojekyll').touch()
     shutil.copyfile(ROOT / 'data/coverage.json', dist / 'data/coverage.json')
     (dist / 'sources.html').write_text((PUBLIC / 'sources.html').read_text())
@@ -348,7 +368,7 @@ def package(catalog):
         write_page(dist / 'shows' / show['id'] / 'index.html', title, body, f'../../?show={show["id"]}')
     for song in catalog['songs']:
         matching = [s for s in catalog['shows'] if song['id'] in s['song_ids']]
-        body = '<p>Observed in the imported recording sample. This is not a complete performance history or a verified debut list.</p><ul>' + ''.join(f'<li><a href="../../shows/{s["id"]}/">{s["date"]} · {html.escape(s["venue"])}</a></li>' for s in matching) + '</ul>'
+        body = '<p>Played in the indexed recordings. Counts reflect indexed recordings; incomplete setlists may omit performances. This is not a complete performance history or a verified debut list.</p><ul>' + ''.join(f'<li><a href="../../shows/{s["id"]}/">{s["date"]} · {html.escape(s["venue"])}</a></li>' for s in matching) + '</ul>'
         write_page(dist / 'songs' / song['id'] / 'index.html', song['title'], body, f'../../?song={song["id"]}')
     previous = ROOT / '.dist-previous'
     shutil.rmtree(previous, ignore_errors=True)

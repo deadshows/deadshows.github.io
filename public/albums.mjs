@@ -1,14 +1,17 @@
 const esc = value => String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let selected='', bound=false, currentData, explore;
+let selected='', bound=false, currentData, explore, includeSideProjects=true;
+const initials=artist=>artist==='Grateful Dead'?'GD':artist.split(/[^A-Za-z]+/).filter(Boolean).slice(0,3).map(word=>word[0]).join('');
 function showAlbum(id, focus=true) {
   selected=id;
   const album=currentData.albums.find(a=>a.id===id), pane=document.getElementById('album-detail');
   if(!album){if(pane.open)pane.close();return;}
   const observed=new Map(currentData.songs.map(s=>[s.id,s]));
-  pane.innerHTML=`<div class="album-detail-heading"><div><p class="eyebrow">${album.year} · ${esc(album.artist)} · ${esc(album.kind)}</p><h4 id="album-detail-title" tabindex="-1"><a href="${esc(album.wikipedia)}" target="_blank" rel="noopener">${esc(album.title)} ↗</a></h4></div><button type="button" data-close-album aria-label="Close album tracklist">Close ×</button></div><p class="small-note">${esc(album.edition)}</p><ol class="album-tracks">${album.tracks.map(t=>{
-    const links=t.song_ids.filter(id=>observed.has(id)).map(id=>{const s=observed.get(id);return `<a href="?song=${encodeURIComponent(id)}#timeline" data-album-song="${esc(id)}">${t.song_ids.length===1?esc(t.title):esc(s.title)} <span>↗ ${s.date_count.toLocaleString()} observed dates</span></a>`;});
-    return `<li>${t.song_ids.length>1?`<strong>${esc(t.title)}</strong>`:''}${links.length?links.join(''): `<span>${esc(t.title)}</span><small>No linked observations in this archive</small>`}${t.note?`<small>${esc(t.note)}</small>`:''}</li>`;
-  }).join('')}</ol><p class="small-note">Links show imported recording evidence across all years, not a verified census of performances. Album release is not a song’s live debut. <a href="${esc(album.wikipedia)}" target="_blank" rel="noopener">Album information on Wikipedia ↗</a></p>`;
+  const source=album.source_url||album.wikipedia;
+  const tracks=album.tracks||[];
+  pane.innerHTML=`<div class="album-detail-heading"><div><p class="eyebrow">${album.year} · ${esc(album.artist)} · ${esc(album.kind)}</p><h4 id="album-detail-title" tabindex="-1"><a href="${esc(album.wikipedia)}" target="_blank" rel="noopener">${esc(album.title)} ↗</a></h4></div><button type="button" data-close-album aria-label="Close album tracklist">Close ×</button></div><p class="small-note">${esc(album.edition)}</p><ol class="album-tracks">${tracks.map(t=>{
+    const links=t.song_ids.filter(id=>observed.has(id)).map(id=>{const s=observed.get(id);return `<a href="?song=${encodeURIComponent(id)}#timeline" data-album-song="${esc(id)}">${t.song_ids.length===1?esc(t.title):esc(s.title)} <span>↗ ${s.date_count.toLocaleString()} dates</span></a>`;});
+    return `<li>${t.song_ids.length>1?`<strong>${esc(t.title)}</strong>`:''}${links.length?links.join(''): `<span>${esc(t.title)}</span><small>No linked performances in this archive</small>`}${t.note?`<small>${esc(t.note)}</small>`:''}</li>`;
+  }).join('')}</ol>${tracks.length?'':`<p class="album-source-note">The track list for this release is available at the source. Song links are not indexed here yet. <a href="${esc(source)}" target="_blank" rel="noopener">Open release and track information ↗</a></p>`}<p class="small-note">Links show imported recording evidence across all years, not a verified census of performances. Album release is not a song’s live debut. <a href="${esc(album.wikipedia)}" target="_blank" rel="noopener">Album information on Wikipedia ↗</a></p>`;
   if(!pane.open)pane.showModal();
   if(focus)document.getElementById('album-detail-title').focus({preventScroll:true});
   document.querySelectorAll('[data-album]').forEach(b=>b.setAttribute('aria-expanded',String(b.dataset.album===id)));
@@ -29,11 +32,15 @@ export function renderAlbums(data,state,onExplore) {
     if(!groups.has(year))groups.set(year,{left,right:left+rect.width});
     else groups.get(year).right=left+rect.width;
   }
-  document.getElementById('album-scope').textContent=monthly?'Releases in the visible years · year precision':'Selected studio, live & solo releases · 1969–1989';
+  const visibleAlbums=(data.albums||[]).filter(a=>includeSideProjects||a.artist==='Grateful Dead');
+  const releaseYears=visibleAlbums.map(a=>a.year);
+  document.getElementById('album-scope').textContent=monthly?'Releases in the visible years · year precision':`Selected band, solo & side-project releases · ${Math.min(...releaseYears)}–${Math.max(...releaseYears)}`;
+  const maxStack=Math.max(1,...[...groups.keys()].map(year=>visibleAlbums.filter(a=>a.year===year).length));
+  rail.style.height=Math.max(42,maxStack*35-7+8)+'px';
   rail.style.width=chartRect.width+'px';
   rail.innerHTML=[...groups].map(([year,pos])=>{
-    const albums=(data.albums||[]).filter(a=>a.year===year);
-    return `<div class="album-year ${year<state.from||year>state.to?'outside-album-range':''}" data-album-year="${year}" style="left:${pos.left}px;width:${pos.right-pos.left}px">${albums.map((a,i)=>`<button type="button" class="album-card" data-album="${a.id}" aria-label="${esc(a.title)}, ${year}, ${esc(a.artist)}; open tracklist" aria-expanded="${selected===a.id}" aria-controls="album-detail"><span class="album-tile" style="--tile-hue:${(year*13+i*63)%360}" aria-hidden="true"><i></i><b>${a.artist==='Grateful Dead'?'GD':a.artist==='Bob Weir'?'BW':'JG'}</b></span><span class="album-tooltip">${esc(a.title)}<small>${year} · ${esc(a.artist)}</small></span></button>`).join('')}</div>`;
+    const albums=visibleAlbums.filter(a=>a.year===year);
+    return `<div class="album-year ${year<state.from||year>state.to?'outside-album-range':''}" data-album-year="${year}" style="left:${pos.left}px;width:${pos.right-pos.left}px">${albums.map((a,i)=>`<button type="button" class="album-card" data-album="${a.id}" aria-label="${esc(a.title)}, ${year}, ${esc(a.artist)}; open tracklist" aria-expanded="${selected===a.id}" aria-controls="album-detail"><span class="album-tile" style="--tile-hue:${(year*13+i*63)%360}${a.display_color?';--album-color:'+esc(a.display_color):''}" aria-hidden="true">${a.cover_url?`<img src="${esc(a.cover_url)}" width="8" height="8" alt="">`:a.display_color?'':`<i></i><b>${esc(initials(a.artist))}</b>`}</span><span class="album-tooltip">${esc(a.title)}<small>${year} · ${esc(a.artist)}</small></span></button>`).join('')}</div>`;
   }).join('');
   if(!rail.querySelector('[data-album]'))rail.innerHTML='<p class="small-note">No selected album releases in these years.</p>';
   if(!bound){
@@ -51,6 +58,7 @@ export function renderAlbums(data,state,onExplore) {
       document.getElementById('albums').hidden=!event.target.checked;
       clear();
     });
+    document.getElementById('toggle-solo-albums').addEventListener('change',event=>{includeSideProjects=event.target.checked;renderAlbums(currentData,lastState,explore);});
     const closeAlbum=()=>{const id=selected;selected='';document.querySelector(`[data-album="${id}"]`)?.setAttribute('aria-expanded','false');};
     document.getElementById('album-detail').addEventListener('close',closeAlbum);
     document.addEventListener('click',event=>{

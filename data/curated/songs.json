@@ -2230,6 +2230,28 @@
       "sources": [
         "https://www.bobdylan.com/songs/just-tom-thumbs-blues/"
       ]
+    },
+    {
+      "id": "rubin-and-cherise",
+      "title": "Rubin and Cherise",
+      "aliases": [
+        "Rubin and Cherise",
+        "Reuben and Cherise",
+        "Reuben and Cerise",
+        "Rubin and Cerise",
+        "Rubin & Cherise",
+        "Reuben & Cherise",
+        "Reuben & Cerise",
+        "Reuben and Cérise"
+      ]
+    },
+    {
+      "id": "happiness-is-drumming",
+      "title": "Happiness Is Drumming",
+      "aliases": [
+        "Happiness Is Drumming",
+        "Happiness Is Drummin"
+      ]
     }
   ]
 }

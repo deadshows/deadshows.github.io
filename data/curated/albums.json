@@ -1,6 +1,117 @@
 {
   "albums": [
     {
+      "id": "the-grateful-dead",
+      "title": "The Grateful Dead",
+      "artist": "Grateful Dead",
+      "year": 1967,
+      "kind": "studio",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Grateful_Dead_(album)",
+      "edition": "Original nine-track LP sequence: side one, then side two. Release year only.",
+      "tracklist_status": "indexed",
+      "tracks": [
+        {
+          "title": "The Golden Road (To Unlimited Devotion)",
+          "song_ids": []
+        },
+        {
+          "title": "Beat It on Down the Line",
+          "song_ids": [
+            "beat-it-on-down-the-line"
+          ]
+        },
+        {
+          "title": "Good Morning, Little School Girl",
+          "song_ids": [
+            "good-morning-little-schoolgirl"
+          ]
+        },
+        {
+          "title": "Cold Rain and Snow",
+          "song_ids": [
+            "cold-rain-and-snow"
+          ]
+        },
+        {
+          "title": "Sitting on Top of the World",
+          "song_ids": [
+            "sittin-on-top-of-the-world"
+          ]
+        },
+        {
+          "title": "Cream Puff War",
+          "song_ids": [
+            "cream-puff-war"
+          ]
+        },
+        {
+          "title": "Morning Dew",
+          "song_ids": [
+            "morning-dew"
+          ]
+        },
+        {
+          "title": "New, New Minglewood Blues",
+          "song_ids": [
+            "new-minglewood-blues"
+          ]
+        },
+        {
+          "title": "Viola Lee Blues",
+          "song_ids": [
+            "viola-lee-blues"
+          ]
+        }
+      ],
+      "display_color": "#815d3e"
+    },
+    {
+      "id": "anthem-of-the-sun",
+      "title": "Anthem of the Sun",
+      "artist": "Grateful Dead",
+      "year": 1968,
+      "kind": "studio",
+      "wikipedia": "https://en.wikipedia.org/wiki/Anthem_of_the_Sun",
+      "edition": "Original five-track LP sequence: side one, then side two. Release year only.",
+      "tracklist_status": "indexed",
+      "tracks": [
+        {
+          "title": "That's It for the Other One",
+          "song_ids": [
+            "thats-it-for-the-other-one",
+            "cryptical-envelopment",
+            "the-other-one"
+          ],
+          "note": "Suite sections: I. Cryptical Envelopment; II. Quadlibet for Tenderfeet; III. The Faster We Go, the Rounder We Get; IV. We Leave the Castle. Links include separately indexed live components."
+        },
+        {
+          "title": "New Potato Caboose",
+          "song_ids": [
+            "new-potato-caboose"
+          ]
+        },
+        {
+          "title": "Born Cross-Eyed",
+          "song_ids": [
+            "born-cross-eyed"
+          ]
+        },
+        {
+          "title": "Alligator",
+          "song_ids": [
+            "alligator"
+          ]
+        },
+        {
+          "title": "Caution (Do Not Stop on Tracks)",
+          "song_ids": [
+            "caution-do-not-stop-on-tracks"
+          ]
+        }
+      ],
+      "display_color": "#564463"
+    },
+    {
       "id": "live-dead",
       "title": "Live/Dead",
       "artist": "Grateful Dead",
@@ -51,7 +162,67 @@
             "and-we-bid-you-goodnight"
           ]
         }
-      ]
+      ],
+      "display_color": "#ac4e51"
+    },
+    {
+      "id": "aoxomoxoa",
+      "title": "Aoxomoxoa",
+      "artist": "Grateful Dead",
+      "year": 1969,
+      "kind": "studio",
+      "wikipedia": "https://en.wikipedia.org/wiki/Aoxomoxoa",
+      "edition": "Original eight-track LP sequence: side one, then side two; reissue bonus tracks excluded. Release year only.",
+      "tracklist_status": "indexed",
+      "tracks": [
+        {
+          "title": "St. Stephen",
+          "song_ids": [
+            "saint-stephen"
+          ]
+        },
+        {
+          "title": "Dupree’s Diamond Blues",
+          "song_ids": [
+            "duprees-diamond-blues"
+          ]
+        },
+        {
+          "title": "Rosemary",
+          "song_ids": [
+            "rosemary"
+          ]
+        },
+        {
+          "title": "Doin’ That Rag",
+          "song_ids": [
+            "doin-that-rag"
+          ]
+        },
+        {
+          "title": "Mountains of the Moon",
+          "song_ids": [
+            "mountains-of-the-moon"
+          ]
+        },
+        {
+          "title": "China Cat Sunflower",
+          "song_ids": [
+            "china-cat-sunflower"
+          ]
+        },
+        {
+          "title": "What’s Become of the Baby",
+          "song_ids": []
+        },
+        {
+          "title": "Cosmic Charlie",
+          "song_ids": [
+            "cosmic-charlie"
+          ]
+        }
+      ],
+      "display_color": "#6a5a4d"
     },
     {
       "id": "workingmans-dead",
@@ -110,7 +281,8 @@
             "casey-jones"
           ]
         }
-      ]
+      ],
+      "display_color": "#93785f"
     },
     {
       "id": "american-beauty",
@@ -179,7 +351,88 @@
             "truckin"
           ]
         }
-      ]
+      ],
+      "display_color": "#8c7c67"
+    },
+    {
+      "id": "skull-and-roses",
+      "title": "Grateful Dead (Skull & Roses)",
+      "artist": "Grateful Dead",
+      "year": 1971,
+      "kind": "live",
+      "wikipedia": "https://en.wikipedia.org/wiki/Grateful_Dead_(album)",
+      "edition": "Original eleven-track double-LP sequence: sides one through four; reissue bonus tracks excluded. Release year only.",
+      "tracklist_status": "indexed",
+      "tracks": [
+        {
+          "title": "Bertha",
+          "song_ids": [
+            "bertha"
+          ]
+        },
+        {
+          "title": "Mama Tried",
+          "song_ids": [
+            "mama-tried"
+          ]
+        },
+        {
+          "title": "Big Railroad Blues",
+          "song_ids": [
+            "big-railroad-blues"
+          ]
+        },
+        {
+          "title": "Playing in the Band",
+          "song_ids": [
+            "playing-in-the-band"
+          ]
+        },
+        {
+          "title": "The Other One",
+          "song_ids": [
+            "the-other-one"
+          ]
+        },
+        {
+          "title": "Me and My Uncle",
+          "song_ids": [
+            "me-and-my-uncle"
+          ]
+        },
+        {
+          "title": "Big Boss Man",
+          "song_ids": [
+            "big-boss-man"
+          ]
+        },
+        {
+          "title": "Me and Bobby McGee",
+          "song_ids": [
+            "me-and-bobby-mcgee"
+          ]
+        },
+        {
+          "title": "Johnny B. Goode",
+          "song_ids": [
+            "johnny-b-goode"
+          ]
+        },
+        {
+          "title": "Wharf Rat",
+          "song_ids": [
+            "wharf-rat"
+          ]
+        },
+        {
+          "title": "Not Fade Away / Goin’ Down the Road Feeling Bad",
+          "song_ids": [
+            "not-fade-away",
+            "going-down-the-road-feeling-bad"
+          ]
+        }
+      ],
+      "display_color": "#6b7182"
     },
     {
       "id": "garcia",
@@ -242,7 +495,8 @@
             "the-wheel"
           ]
         }
-      ]
+      ],
+      "display_color": "#b39792"
     },
     {
       "id": "ace",
@@ -299,7 +553,8 @@
             "cassidy"
           ]
         }
-      ]
+      ],
+      "display_color": "#6d6059"
     },
     {
       "id": "europe-72",
@@ -408,7 +663,64 @@
             "morning-dew"
           ]
         }
-      ]
+      ],
+      "display_color": "#e7dbb8"
+    },
+    {
+      "id": "rolling-thunder",
+      "title": "Rolling Thunder",
+      "artist": "Mickey Hart",
+      "year": 1972,
+      "kind": "solo",
+      "wikipedia": "https://en.wikipedia.org/wiki/Rolling_Thunder_(album)",
+      "edition": "Original ten-track LP sequence: side one, then side two. Release year only.",
+      "tracklist_status": "indexed",
+      "tracks": [
+        {
+          "title": "Rolling Thunder/Shoshone Invocation",
+          "song_ids": []
+        },
+        {
+          "title": "The Main Ten (Playing in the Band)",
+          "song_ids": [
+            "playing-in-the-band"
+          ],
+          "note": "Related performance timeline: Playing in the Band; this link does not identify performances of this album arrangement."
+        },
+        {
+          "title": "Fletcher Carnaby",
+          "song_ids": []
+        },
+        {
+          "title": "The Chase (Progress)",
+          "song_ids": []
+        },
+        {
+          "title": "Blind John",
+          "song_ids": []
+        },
+        {
+          "title": "Young Man",
+          "song_ids": []
+        },
+        {
+          "title": "Deep, Wide, and Frequent",
+          "song_ids": []
+        },
+        {
+          "title": "Pump Song",
+          "song_ids": []
+        },
+        {
+          "title": "Granma’s Cookies",
+          "song_ids": []
+        },
+        {
+          "title": "Hangin’ On",
+          "song_ids": []
+        }
+      ],
+      "display_color": "#554955"
     },
     {
       "id": "wake-of-the-flood",
@@ -464,7 +776,8 @@
             "let-it-grow"
           ]
         }
-      ]
+      ],
+      "display_color": "#6c5e52"
     },
     {
       "id": "mars-hotel",
@@ -521,7 +834,130 @@
             "ship-of-fools"
           ]
         }
-      ]
+      ],
+      "display_color": "#4a4b48"
+    },
+    {
+      "id": "compliments",
+      "title": "Compliments",
+      "artist": "Jerry Garcia",
+      "year": 1974,
+      "kind": "solo",
+      "wikipedia": "https://en.wikipedia.org/wiki/Compliments_(album)",
+      "edition": "Original ten-track LP sequence: side one, then side two. Release year only.",
+      "tracklist_status": "indexed",
+      "tracks": [
+        {
+          "title": "Let It Rock",
+          "song_ids": [
+            "let-it-rock"
+          ]
+        },
+        {
+          "title": "When the Hunter Gets Captured by the Game",
+          "song_ids": []
+        },
+        {
+          "title": "That’s What Love Will Make You Do",
+          "song_ids": []
+        },
+        {
+          "title": "Russian Lullaby",
+          "song_ids": []
+        },
+        {
+          "title": "Turn On the Bright Lights",
+          "song_ids": []
+        },
+        {
+          "title": "He Ain’t Give You None",
+          "song_ids": []
+        },
+        {
+          "title": "What Goes Around",
+          "song_ids": []
+        },
+        {
+          "title": "Let’s Spend the Night Together",
+          "song_ids": []
+        },
+        {
+          "title": "Mississippi Moon",
+          "song_ids": []
+        },
+        {
+          "title": "Midnight Town",
+          "song_ids": []
+        }
+      ],
+      "display_color": "#a57535"
+    },
+    {
+      "id": "tales-of-the-great-rum-runners",
+      "title": "Tales of the Great Rum Runners",
+      "artist": "Robert Hunter",
+      "year": 1974,
+      "kind": "solo",
+      "wikipedia": "https://en.wikipedia.org/wiki/Tales_of_the_Great_Rum_Runners",
+      "edition": "Original thirteen-track LP sequence: side one, then side two. Release year only.",
+      "tracklist_status": "indexed",
+      "tracks": [
+        {
+          "title": "Lady Simplicity",
+          "song_ids": []
+        },
+        {
+          "title": "That Train",
+          "song_ids": []
+        },
+        {
+          "title": "Dry Dusty Road",
+          "song_ids": []
+        },
+        {
+          "title": "I Heard You Singing",
+          "song_ids": []
+        },
+        {
+          "title": "Rum Runners",
+          "song_ids": []
+        },
+        {
+          "title": "Children’s Lament",
+          "song_ids": []
+        },
+        {
+          "title": "Maybe She’s a Bluebird",
+          "song_ids": []
+        },
+        {
+          "title": "Boys in the Barroom",
+          "song_ids": []
+        },
+        {
+          "title": "It Must Have Been the Roses",
+          "song_ids": [
+            "it-must-have-been-the-roses"
+          ]
+        },
+        {
+          "title": "Arizona Lightning",
+          "song_ids": []
+        },
+        {
+          "title": "Standing at Your Door",
+          "song_ids": []
+        },
+        {
+          "title": "Mad",
+          "song_ids": []
+        },
+        {
+          "title": "Keys to the Rain",
+          "song_ids": []
+        }
+      ],
+      "display_color": "#6b3f32"
     },
     {
       "id": "blues-for-allah",
@@ -590,7 +1026,68 @@
           "title": "Unusual Occurrences in the Desert",
           "song_ids": []
         }
-      ]
+      ],
+      "display_color": "#6c4b3a"
+    },
+    {
+      "id": "tiger-rose",
+      "title": "Tiger Rose",
+      "artist": "Robert Hunter",
+      "year": 1975,
+      "kind": "solo",
+      "wikipedia": "https://en.wikipedia.org/wiki/Robert_Hunter_(lyricist)#Discography",
+      "edition": "Release year only. Track list is linked at the source.",
+      "tracklist_status": "source_link",
+      "tracks": [],
+      "source_url": "https://www.deaddisc.com/disc/Tiger_Rose.htm",
+      "display_color": "#6f4a35"
+    },
+    {
+      "id": "reflections",
+      "title": "Reflections",
+      "artist": "Jerry Garcia",
+      "year": 1976,
+      "kind": "solo",
+      "wikipedia": "https://en.wikipedia.org/wiki/Reflections_(Jerry_Garcia_album)",
+      "edition": "Release year only. Track list is linked at the source.",
+      "tracklist_status": "source_link",
+      "tracks": [],
+      "display_color": "#8c776b"
+    },
+    {
+      "id": "diga",
+      "title": "Diga",
+      "artist": "Diga Rhythm Band",
+      "year": 1976,
+      "kind": "side project",
+      "wikipedia": "https://en.wikipedia.org/wiki/Diga_(album)",
+      "edition": "Original five-track LP sequence: side one, then side two. Release year only.",
+      "tracklist_status": "indexed",
+      "tracks": [
+        {
+          "title": "Razooli",
+          "song_ids": []
+        },
+        {
+          "title": "Happiness is Drumming",
+          "song_ids": [
+            "happiness-is-drumming"
+          ]
+        },
+        {
+          "title": "Tal Mala",
+          "song_ids": []
+        },
+        {
+          "title": "Sweet Sixteen",
+          "song_ids": []
+        },
+        {
+          "title": "Magnificent Sevens",
+          "song_ids": []
+        }
+      ],
+      "display_color": "#666d6a"
     },
     {
       "id": "terrapin-station",
@@ -638,7 +1135,8 @@
           ],
           "note": "Suite; the link explores the archive’s Terrapin Station song identity, not every studio section."
         }
-      ]
+      ],
+      "display_color": "#825147"
     },
     {
       "id": "shakedown-street",
@@ -705,7 +1203,103 @@
             "if-i-had-the-world-to-give"
           ]
         }
-      ]
+      ],
+      "display_color": "#747577"
+    },
+    {
+      "id": "heaven-help-the-fool",
+      "title": "Heaven Help the Fool",
+      "artist": "Bob Weir",
+      "year": 1978,
+      "kind": "solo",
+      "wikipedia": "https://en.wikipedia.org/wiki/Heaven_Help_the_Fool",
+      "edition": "Original eight-track LP sequence: side one, then side two. Release year only.",
+      "tracklist_status": "indexed",
+      "tracks": [
+        {
+          "title": "Bombs Away",
+          "song_ids": []
+        },
+        {
+          "title": "Easy to Slip",
+          "song_ids": []
+        },
+        {
+          "title": "Salt Lake City",
+          "song_ids": []
+        },
+        {
+          "title": "Shade of Grey",
+          "song_ids": []
+        },
+        {
+          "title": "Heaven Help the Fool",
+          "song_ids": [
+            "heaven-help-the-fool"
+          ]
+        },
+        {
+          "title": "This Time Forever",
+          "song_ids": []
+        },
+        {
+          "title": "I’ll Be Doggone",
+          "song_ids": []
+        },
+        {
+          "title": "Wrong Way Feelin’",
+          "song_ids": []
+        }
+      ],
+      "display_color": "#928b8a"
+    },
+    {
+      "id": "cats-under-the-stars",
+      "title": "Cats Under the Stars",
+      "artist": "Jerry Garcia Band",
+      "year": 1978,
+      "kind": "side project",
+      "wikipedia": "https://en.wikipedia.org/wiki/Cats_Under_the_Stars",
+      "edition": "Original eight-track LP sequence: side one, then side two; reissue bonus tracks excluded. Release year only.",
+      "tracklist_status": "indexed",
+      "tracks": [
+        {
+          "title": "Rubin and Cherise",
+          "song_ids": [
+            "rubin-and-cherise"
+          ]
+        },
+        {
+          "title": "Love in the Afternoon",
+          "song_ids": []
+        },
+        {
+          "title": "Palm Sunday",
+          "song_ids": []
+        },
+        {
+          "title": "Cats Under the Stars",
+          "song_ids": []
+        },
+        {
+          "title": "Rhapsody in Red",
+          "song_ids": []
+        },
+        {
+          "title": "Rain",
+          "song_ids": [],
+          "note": "Donna Godchaux composition; not linked to the separate song titled Rain in the Grateful Dead index."
+        },
+        {
+          "title": "Down Home",
+          "song_ids": []
+        },
+        {
+          "title": "Gomorrah",
+          "song_ids": []
+        }
+      ],
+      "display_color": "#311d2d"
     },
     {
       "id": "go-to-heaven",
@@ -768,7 +1362,8 @@
             "dont-ease-me-in"
           ]
         }
-      ]
+      ],
+      "display_color": "#cbcbce"
     },
     {
       "id": "reckoning",
@@ -875,7 +1470,8 @@
             "ripple"
           ]
         }
-      ]
+      ],
+      "display_color": "#d4c9c9"
     },
     {
       "id": "dead-set",
@@ -976,7 +1572,20 @@
             "broke-down-palace"
           ]
         }
-      ]
+      ],
+      "display_color": "#9a8979"
+    },
+    {
+      "id": "run-for-the-roses",
+      "title": "Run for the Roses",
+      "artist": "Jerry Garcia",
+      "year": 1982,
+      "kind": "solo",
+      "wikipedia": "https://en.wikipedia.org/wiki/Run_for_the_Roses_(album)",
+      "edition": "Release year only. Track list is linked at the source.",
+      "tracklist_status": "source_link",
+      "tracks": [],
+      "display_color": "#8d7460"
     },
     {
       "id": "in-the-dark",
@@ -1029,7 +1638,8 @@
             "black-muddy-river"
           ]
         }
-      ]
+      ],
+      "display_color": "#2f2322"
     },
     {
       "id": "built-to-last",
@@ -1094,7 +1704,8 @@
             "i-will-take-you-home"
           ]
         }
-      ]
+      ],
+      "display_color": "#2e2326"
     }
   ]
 }

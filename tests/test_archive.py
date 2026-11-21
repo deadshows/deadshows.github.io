@@ -111,10 +111,12 @@ class ArchiveIntegrationTests(unittest.TestCase):
         self.assertEqual(c['coverage']['dates_with_metadata'] + c['coverage']['dates_awaiting_metadata'], len(c['shows']))
 
     def test_build_versions_code_and_data_to_refresh_cached_clients(self):
-        revision = hashlib.sha256(b''.join((ROOT / 'public' / name).read_bytes() for name in ['app.js', 'analytics.mjs', 'albums.mjs', 'point-cloud.mjs', 'assets/rose-graph.json', 'data/catalog.json'])).hexdigest()[:12]
+        revision = hashlib.sha256(b''.join((ROOT / 'public' / name).read_bytes() for name in ['app.js', 'analytics.mjs', 'albums.mjs', 'point-cloud.mjs', 'assets/rose-graph.json', 'data/catalog.json', 'data/setlists.json', 'sequence-ui.mjs', 'sequence-engine.mjs', 'sequence-timeline.mjs'])).hexdigest()[:12]
         self.assertIn(f'src="app.js?v={revision}"', (ROOT / 'dist/index.html').read_text())
         self.assertIn(f"'./analytics.mjs?v={revision}'", (ROOT / 'dist/app.js').read_text())
-        for stylesheet in ['style.css', 'theme.css', 'timeline.css']:
+        self.assertIn(f'src="sequence-ui.mjs?v={revision}"', (ROOT / 'dist/index.html').read_text())
+        self.assertIn(f'data/setlists.json?v={revision}', (ROOT / 'dist/sequence-ui.mjs').read_text())
+        for stylesheet in ['style.css', 'theme.css', 'timeline.css', 'sequence.css']:
             style_revision = hashlib.sha256((ROOT / 'public' / stylesheet).read_bytes()).hexdigest()[:12]
             self.assertIn(f'href="{stylesheet}?v={style_revision}"', (ROOT / 'dist/index.html').read_text())
 
@@ -177,6 +179,29 @@ class ArchiveIntegrationTests(unittest.TestCase):
         show=(ROOT/'dist/shows/gd-1977-05-08/index.html').read_text()
         self.assertIn('https://deadshows.github.io/assets/share-card.png',show)
 
+    def test_concert_release_dates_and_bonus_material_are_separate(self):
+        releases=json.loads((ROOT/'data/curated/concert_releases.json').read_text())['releases']
+        self.assertEqual({r['volume'] for r in releases if r['category']=='dicks_picks'},set(range(1,37)))
+        self.assertEqual(sum(r['category']=='standalone' for r in releases),15)
+        shows={s['date']:s for s in self.catalog['shows']}
+        def matches(date,category):
+            return {r['id']:r for r in shows[date]['official_releases'] if r['category']==category}
+        self.assertEqual(matches('1977-05-08','standalone')['cornell-1977']['coverage'],'complete')
+        self.assertNotIn('cornell-1977',matches('1977-05-09','standalone'))
+        self.assertEqual(matches('1972-08-27','standalone')['sunshine-daydream']['coverage'],'complete')
+        self.assertEqual(matches('1972-04-26','standalone')['hundred-year-hall']['coverage'],'selections')
+        self.assertEqual(matches('1977-10-11','dicks_picks')['dicks-picks-29']['coverage'],'bonus')
+        self.assertEqual(matches('1980-09-02','dicks_picks')['dicks-picks-21']['coverage'],'bonus')
+        self.assertIn('dicks-picks-21',matches('1985-11-01','dicks_picks'))
+        self.assertEqual(matches('1991-03-31','dicks_picks')['dicks-picks-17']['coverage'],'bonus')
+        for show in self.catalog['shows']:
+            for release in show['official_releases']:
+                self.assertTrue(release['source_url'].startswith('https://'))
+        markup=(ROOT/'dist/index.html').read_text()
+        self.assertIn('RELISTEN</th>',markup)
+        self.assertIn('DICK’S PICKS</th>',markup)
+        self.assertNotIn('>EVIDENCE</th>',markup)
+
     def test_album_tracks_link_only_to_known_song_identities(self):
         albums=self.catalog['albums']
         self.assertTrue({'garcia','ace','terrapin-station','shakedown-street','go-to-heaven','reckoning','dead-set','in-the-dark'} <= {a['id'] for a in albums})
@@ -184,12 +209,81 @@ class ArchiveIntegrationTests(unittest.TestCase):
         known={s['id'] for s in json.loads((ROOT/'data/curated/songs.json').read_text())['songs']}
         for album in albums:
             self.assertTrue(album['wikipedia'].startswith('https://en.wikipedia.org/wiki/'))
-            self.assertTrue(album['tracks'])
+            self.assertTrue(album['tracks'] or album.get('tracklist_status')=='source_link')
             for track in album['tracks']:
                 self.assertTrue(set(track['song_ids'])<=known)
         ace=next(a for a in albums if a['id']=='ace')
         self.assertEqual(next(t for t in ace['tracks'] if t['title']=='Cassidy')['song_ids'],['cassidy'])
         self.assertEqual(next(t for t in ace['tracks'] if t['title']=='Walk in the Sunshine')['song_ids'],[])
+
+    def test_early_band_and_solo_releases_are_included(self):
+        albums={a['id']:a for a in self.catalog['albums']}
+        for identifier,year in [('the-grateful-dead',1967),('anthem-of-the-sun',1968),('aoxomoxoa',1969),('skull-and-roses',1971)]:
+            self.assertEqual(albums[identifier]['year'],year)
+        debut=albums['the-grateful-dead']
+        self.assertEqual(len(debut['tracks']),9)
+        self.assertEqual(debut['tracks'][7]['song_ids'],['new-minglewood-blues'])
+        self.assertEqual(debut['tracklist_status'],'indexed')
+        for identifier in ['reflections','tiger-rose','run-for-the-roses']:
+            self.assertIn(identifier,albums)
+            self.assertEqual(albums[identifier]['tracklist_status'],'source_link')
+        self.assertEqual(albums['tales-of-the-great-rum-runners']['tracklist_status'],'indexed')
+        self.assertEqual(len(albums['tales-of-the-great-rum-runners']['tracks']),13)
+        self.assertEqual(albums['tales-of-the-great-rum-runners']['tracks'][8]['song_ids'],['it-must-have-been-the-roses'])
+        self.assertEqual(albums['heaven-help-the-fool']['tracklist_status'],'indexed')
+        self.assertEqual(len(albums['heaven-help-the-fool']['tracks']),8)
+        self.assertEqual(albums['heaven-help-the-fool']['tracks'][0]['title'],'Bombs Away')
+        self.assertEqual(albums['compliments']['tracklist_status'],'indexed')
+        self.assertEqual(len(albums['compliments']['tracks']),10)
+        self.assertEqual(albums['compliments']['tracks'][0]['title'],'Let It Rock')
+        self.assertEqual(albums['rolling-thunder']['tracklist_status'],'indexed')
+        self.assertEqual(len(albums['rolling-thunder']['tracks']),10)
+        self.assertEqual(albums['rolling-thunder']['tracks'][1]['song_ids'],['playing-in-the-band'])
+        self.assertEqual(sum(a['artist']=='Grateful Dead' and a['kind']=='studio' for a in albums.values()),13)
+        self.assertEqual(min(a['year'] for a in albums.values()),1967)
+        self.assertEqual(max(a['year'] for a in albums.values()),1989)
+
+    def test_indexed_albums_have_observed_song_links(self):
+        albums={a['id']:a for a in self.catalog['albums']}
+        observed={s['id'] for s in self.catalog['songs'] if s['date_count']>0}
+        for album in albums.values():
+            if album['tracks'] and album.get('tracklist_status')!='source_link':
+                self.assertTrue(any(s in observed for t in album['tracks'] for s in t['song_ids']),album['id'])
+        for identifier in ['hooteroll','keith-and-donna','old-and-in-the-way','at-the-edge','planet-drum']:
+            self.assertNotIn(identifier,albums)
+        for identifier in ['reflections','tiger-rose','run-for-the-roses']:
+            self.assertIn(identifier,albums)
+
+    def test_mickey_return_window_includes_1975_through_1990(self):
+        mickey=next(m for m in self.catalog['history']['members'] if m['id']=='mickey')
+        self.assertEqual(mickey['intervals'][1]['start'],'1974-10-20')
+        self.assertEqual(mickey['intervals'][1]['end'],'1995-07-09')
+        for year in range(1975,1991):
+            self.assertTrue(all('mickey' in s['member_ids'] for s in self.catalog['shows'] if s['date'].startswith(str(year))))
+
+    def test_diga_links_only_documented_happiness_is_drumming(self):
+        song_id='happiness-is-drumming'
+        self.assertEqual({s['date'] for s in self.catalog['shows'] if song_id in s['song_ids']},{'1976-06-28'})
+        album=next(a for a in self.catalog['albums'] if a['id']=='diga')
+        self.assertEqual(len(album['tracks']),5)
+        self.assertEqual(album['tracks'][1]['song_ids'],[song_id])
+        self.assertEqual(album['tracks'][2]['song_ids'],[])
+        self.assertNotEqual(song_id,'fire-on-the-mountain')
+
+    def test_rubin_and_cherise_resolves_all_four_imported_dates(self):
+        song_id='rubin-and-cherise'
+        song=next(s for s in self.catalog['songs'] if s['id']==song_id)
+        self.assertEqual(song['date_count'],4)
+        self.assertEqual({s['date'] for s in self.catalog['shows'] if song_id in s['song_ids']},
+                         {'1991-03-17','1991-03-27','1991-04-07','1991-06-09'})
+        album=next(a for a in self.catalog['albums'] if a['id']=='cats-under-the-stars')
+        self.assertEqual(len(album['tracks']),8)
+        self.assertEqual(album['tracks'][0]['song_ids'],[song_id])
+        self.assertEqual(album['tracks'][5]['song_ids'],[])
+        curated=next(s for s in build.load(ROOT/'data/curated/songs.json')['songs'] if s['id']==song_id)
+        aliases={build.key(a):song_id for a in curated['aliases']}
+        for title in ['Rubin And Cherise','Reuben and Cherise','Reuben & Cerise']:
+            self.assertEqual(build.resolve_title(title,aliases,{}),(song_id,'matched'))
 
     def test_album_chronology_extends_through_in_the_dark(self):
         albums={a['id']:a for a in self.catalog['albums']}
@@ -208,7 +302,9 @@ class ArchiveIntegrationTests(unittest.TestCase):
         self.assertEqual(len(albums['dead-set']['tracks']),15)
 
     def test_chronology_ends_with_built_to_last_and_its_full_cd_tracklist(self):
-        album=self.catalog['albums'][-1]
+        album=next(a for a in self.catalog['albums'] if a['id']=='built-to-last')
+        band_studio=[a for a in self.catalog['albums'] if a['artist']=='Grateful Dead' and a['kind']=='studio']
+        self.assertEqual(band_studio[-1]['id'],'built-to-last')
         self.assertEqual((album['id'],album['year'],album['kind']),('built-to-last',1989,'studio'))
         self.assertIn('Original CD',album['edition'])
         self.assertEqual([t['song_ids'] for t in album['tracks']], [

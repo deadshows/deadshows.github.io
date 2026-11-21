@@ -39,7 +39,7 @@ function syncControls() {
   $('timeline-bins').value = state.granularity;
   $('timeline-metric').value = state.song ? state.metric : 'count';
   $('timeline-metric').disabled = !state.song;
-  $('timeline-metric').title = state.song ? 'Count observations or compare their share of imported dates' : 'Choose a song to compare its share of imported dates';
+  $('timeline-metric').title = state.song ? 'Count dates played or compare their share of imported dates' : 'Choose a song to compare its share of imported dates';
 }
 function change(update) {
   if (('from' in update || 'to' in update) && !('windowStart' in update)) {
@@ -73,10 +73,10 @@ function timelineReadout(key) {
   const song = data.songs.find(s=>s.id===state.song);
   if(row.showId){
     const show=data.shows.find(s=>s.id===row.showId), rating=ratedSource(show,state.minimum);
-    $('timeline-readout').textContent=`${shortDate(row.date)} · ${row.venue}${row.location?' · '+row.location:''}. ${!row.evidence?'No usable song evidence; song presence is unknown.':song?row.observed?`${song.title} observed.`:`${song.title} not observed in this tracklist.`:`${row.value} observed song titles.`}${rating?` Recording rating: ${rating.average.toFixed(2)} / 5 (${rating.count} reviews).`:''} Open for tracklist, personnel context and recording sources.`;
+    $('timeline-readout').textContent=`${shortDate(row.date)} · ${row.venue}${row.location?' · '+row.location:''}. ${!row.evidence?'No usable song evidence; song presence is unknown.':song?row.observed?`${song.title} played.`:`${song.title} not listed in this tracklist.`:`${row.value} listed song titles.`}${rating?` Recording rating: ${rating.average.toFixed(2)} / 5 (${rating.count} reviews).`:''} Open for tracklist, personnel context and recording sources.`;
     return;
   }
-  $('timeline-readout').textContent = `${binLabel(key)} · ${song ? `${row.count} observed date${row.count===1?'':'s'} with ${song.title}. ` : `${row.total} reported date groups. `}${row.evidence} of ${row.total} date groups have imported track evidence.${song ? row.frequency===null ? ' No track evidence here; performance frequency is unknown.' : ` Present on ${Math.round(row.frequency*100)}% of imported dates. This is sample evidence.` : ''}`;
+  $('timeline-readout').textContent = `${binLabel(key)} · ${song ? `${row.count} date${row.count===1?'':'s'} with ${song.title}. ` : `${row.total} reported date groups. `}${row.evidence} of ${row.total} date groups have imported track evidence.${song ? row.frequency===null ? ' No track evidence here; performance frequency is unknown.' : ` Present on ${Math.round(row.frequency*100)}% of imported dates. This is sample evidence.` : ''}`;
 }
 function renderActivity() {
   const song = data.songs.find(s=>s.id===state.song), member = chosenMembers().length ? {name:chosenMembers().map(m=>m.name).join(', ')} : null;
@@ -106,7 +106,7 @@ function renderActivity() {
   $('activity-chart').innerHTML = rows.map((r,index) => {
     const selected = state.month ? r.key===(monthly?state.month:state.month.slice(0,4)) : r.year>=state.from&&r.year<=state.to;
     const value = frequency ? r.frequency || 0 : r.count;
-    const description = song ? `${r.count} observations; ${r.evidence} imported of ${r.total} reported dates${r.frequency===null?'; frequency unknown':`; ${Math.round(r.frequency*100)} percent of imported dates`}` : `${r.total} reported dates; ${r.evidence} imported tracklists`;
+    const description = song ? `${r.count} dates played; ${r.evidence} imported of ${r.total} reported dates${r.frequency===null?'; frequency unknown':`; ${Math.round(r.frequency*100)} percent of imported dates`}` : `${r.total} reported dates; ${r.evidence} imported tracklists`;
     const label = monthly ? (r.key.endsWith('-01') && rows.length>12 ? binLabel(r.key) : rows.length<=24 ? binLabel(r.key).split(' ')[0] : '') : (index%5===0 || index===rows.length-1 ? r.key : '');
     if(!monthly) {
       const months=density[r.year]||[];
@@ -125,7 +125,7 @@ function renderActivity() {
     $('timeline-max').textContent=maxValue;
     $('activity-chart').style.setProperty('--show-width',groups.reduce((total,group)=>total+Math.max(54,group.shows.length*16),0)+'px');
     $('activity-chart').innerHTML=groups.map(group=>`<div class="show-month" style="--dates:${Math.max(1,group.shows.length)}" role="group" aria-label="${binLabel(group.key)}: ${group.shows.length} reported show dates"><span class="show-month-label">${escape(binLabel(group.key))}</span>${group.shows.length?group.shows.map(row=>{
-      const title=`${shortDate(row.date)} · ${row.venue} · ${!row.evidence?'song evidence unknown':song?row.observed?`${song.title} observed`:`${song.title} not observed`:`${row.value} observed song titles`}`;
+      const title=`${shortDate(row.date)} · ${row.venue} · ${!row.evidence?'song evidence unknown':song?row.observed?`${song.title} played`:`${song.title} not listed`:`${row.value} listed song titles`}`;
       return `<button type="button" class="year-bar show-bin ${!row.evidence?'no-evidence':''} ${row.value===0?'not-observed':''}" data-show-bin="${escape(row.key)}" data-show="${escape(row.showId)}" tabindex="${row===dates[0]?0:-1}" style="--height:${(row.value||0)/maxValue*100}%" title="${escape(title)}" aria-label="Open ${escape(title)}"><span class="bar-fill"${!row.value?' hidden':''}></span><span class="show-baseline"></span><span class="show-day">${escape(row.date.slice(8))}</span></button>`;
     }).join(''):'<span class="no-show-dates">—<span class="sr-only">No reported dates</span></span>'}</div>`).join('');
   }
@@ -135,14 +135,14 @@ function renderActivity() {
   $('timeline-metric').options[0].textContent=monthly?song?'Song presence':'Song titles':'Date count';
   $('timeline-metric').title=monthly?'Each bar is one reported show date; use the yearly overview to compare frequency.':song?'Count dates or compare frequency':'Choose a song to compare frequency';
   $('chart-title').textContent = song ? `When was ${song.title} played?` : member ? `Dates during ${member.name}’s membership` : 'Recording timeline';
-  $('chart-caption').textContent = song ? `Observed song evidence in imported recordings${member?` during ${member.name}’s membership windows`:''}. ${frequency?'Bar height is the share of imported dates containing this song. Hatched periods have no track evidence; their frequency is unknown.':'Pale bars show how many dates have track evidence; unfilled periods can be unknown.'}` : member ? 'Reported recording dates inside documented membership windows. These are not confirmed appearances.' : 'Reported recording dates across the live years. Choose a song to reveal its observation history, or a member to explore their time with the band.';
+  $('chart-caption').textContent = song ? `Songs played in indexed recordings${member?` during ${member.name}’s membership windows`:''}. ${frequency?'Bar height is the share of imported dates containing this song. Hatched periods have no track evidence; their frequency is unknown.':'Pale bars show how many dates have track evidence; unfilled periods can be unknown.'}` : member ? 'Reported recording dates inside documented membership windows. These are not confirmed appearances.' : 'Reported recording dates across the live years. Choose a song to reveal its performance history, or a member to explore their time with the band.';
   if(!monthly) $('chart-caption').textContent+=' Each year contains January–December bars. Heights compare monthly counts (or monthly shares when selected); click anywhere in a year to zoom.';
-  if(monthly) $('chart-caption').textContent=`Each bar opens one reported show date.${song?' Full bars mark this song as observed; baseline marks mean it was not observed.':' Height shows the number of observed song titles.'} Hatched marks indicate unknown song evidence. Months expand to fit their dates; empty months stay visible. Scroll sideways for individual dates.`;
+  if(monthly) $('chart-caption').textContent=`Each bar opens one reported show date.${song?' Full bars mark this song as played; baseline marks mean it is not listed in that tracklist.':' Height shows the number of listed song titles.'} Hatched marks indicate unknown song evidence. Months expand to fit their dates; empty months stay visible. Scroll sideways for individual dates.`;
   const selectedBase = selectShows(data.shows, state, data.history, {ignoreSong:true,ignoreSort:true});
   const matches = selectShows(data.shows, state, data.history, {ignoreSort:true});
   const eligible = selectedBase.filter(s=>s.song_ids.length).length;
-  $('timeline-summary').innerHTML = [[number(matches.length),song?'Observed dates':'Reported dates'],[matches[0]?.date||'—',song?'First observed in range':'First reported in range'],[matches.at(-1)?.date||'—',song?'Last observed in range':'Last reported in range'],[`${number(eligible)} / ${number(selectedBase.length)}`,'Dates with track evidence']].map(([value,label])=>`<div><strong>${escape(value)}</strong><span>${label}</span></div>`).join('');
-  $('match-key').textContent = song ? 'Song observed' : monthly ? 'Observed song titles' : 'Reported dates';
+  $('timeline-summary').innerHTML = [[number(matches.length),song?'Dates played':'Reported dates'],[matches[0]?.date||'—',song?'First listed in range':'First reported in range'],[matches.at(-1)?.date||'—',song?'Last listed in range':'Last reported in range'],[`${number(eligible)} / ${number(selectedBase.length)}`,'Dates with track evidence']].map(([value,label])=>`<div><strong>${escape(value)}</strong><span>${label}</span></div>`).join('');
+  $('match-key').textContent = song ? 'Song played' : monthly ? 'Listed song titles' : 'Reported dates';
   $('coverage-key').hidden = frequency || monthly;
   $('coverage-key').lastChild.textContent = song ? 'Imported dates available' : 'Imported tracklists';
   $('timeline-range').textContent = `Selected: ${state.month?binLabel(state.month):window?`${binLabel(window.start)} – ${binLabel(window.end)}`:state.from===state.to?state.from:`${state.from}–${state.to}`}${state.era?' · era filter active':''}${state.search?' · search active':''}`;
@@ -171,6 +171,11 @@ function renderNotes() {
   $('selection-note').hidden = !notes.length;
   $('selection-note').innerHTML = notes.join('');
 }
+function releaseCell(show,category) {
+  const releases=(show.official_releases||[]).filter(release=>release.category===category);
+  const labels={complete:'Complete show',selections:'Selections',bonus:'Bonus tracks',featured:'Featured'};
+  return releases.length?releases.map(release=>`<div class="release-reference"><a href="${escape(release.source_url)}" target="_blank" rel="noopener" aria-label="${escape(release.title)}: ${labels[release.coverage]} from ${escape(show.date)}">${escape(category==='dicks_picks'?`Vol. ${release.volume}`:release.title)}</a><small>${labels[release.coverage]}</small></div>`).join(''):'<span class="release-unknown" aria-label="Release status not documented here" title="Release status not documented here">—</span>';
+}
 function renderTable() {
   const pages = Math.max(1, Math.ceil(filtered.length/pageSize));
   page = Math.min(page, pages-1);
@@ -182,8 +187,8 @@ function renderTable() {
   $('result-count').textContent = `${number(filtered.length)} date groups · ${number(filtered.reduce((n,s)=>n+s.recording_count,0))} recordings`;
   $('shows').innerHTML = filtered.slice(first, first+pageSize).map(s => {
     const rated = ratedSource(s, state.minimum);
-    return `<tr><td><button class="show-button" data-show="${escape(s.id)}">${shortDate(s.date)}</button></td><td><button class="show-button" data-show="${escape(s.id)}">${escape(s.venue)}</button><small>${escape(s.location||'Location not documented')} · ${s.recording_count} sources${s.warnings.length?' · needs review':''}</small></td><td><span class="evidence-tag ${s.song_ids.length?'':'empty'}">${s.completeness==='complete'?'Verified setlist':s.song_ids.length?'Tracklist imported':s.metadata_imported?'Metadata imported':'Index only'}</span></td><td>${rated?`<a class="rating-source" href="https://archive.org/details/${encodeURIComponent(rated.id)}" aria-label="Listen to rated recording for ${escape(s.date)}">★ ${rated.average.toFixed(2)} ↗</a><small>${rated.count} reviews · adj. ${rated.adjusted.toFixed(2)}</small>`:'<span class="small-note">No eligible rating</span>'}</td><td><button class="open-arrow" data-show="${escape(s.id)}" aria-label="Open ${escape(s.date)} recording sources">↗</button></td></tr>`;
-  }).join('') || '<tr><td colspan="5" class="empty-state">No matching date groups. Try widening the years or removing a filter. Song filters only match imported tracklists.</td></tr>';
+    return `<tr><td><button class="show-button" data-show="${escape(s.id)}">${shortDate(s.date)}</button></td><td><button class="show-button" data-show="${escape(s.id)}">${escape(s.venue)}</button><small>${escape(s.location||'Location not documented')} · ${s.recording_count} sources${s.warnings.length?' · needs review':''}</small></td><td><a class="relisten-button" href="${escape(relistenUrl(s.date))}" aria-label="Open ${escape(s.date)} in Relisten">Relisten</a></td><td class="concert-release-cell">${releaseCell(s,'standalone')}</td><td class="dicks-picks-cell">${releaseCell(s,'dicks_picks')}</td><td>${rated?`<a class="rating-source" href="https://archive.org/details/${encodeURIComponent(rated.id)}" aria-label="Listen to rated recording for ${escape(s.date)}">★ ${rated.average.toFixed(2)} ↗</a><small>${rated.count} reviews · adj. ${rated.adjusted.toFixed(2)}</small>`:'<span class="small-note">No eligible rating</span>'}</td><td><button class="open-arrow" data-show="${escape(s.id)}" aria-label="Open ${escape(s.date)} recording sources">↗</button></td></tr>`;
+  }).join('') || '<tr><td colspan="7" class="empty-state">No matching date groups. Try widening the years or removing a filter. Song filters only match imported tracklists.</td></tr>';
   $('page-label').textContent = filtered.length ? `${first+1}–${Math.min(first+pageSize,filtered.length)} / ${number(filtered.length)}` : '0 results';
   $('previous').disabled = page===0;
   $('next').disabled = page>=pages-1;
@@ -196,8 +201,8 @@ function renderSongs() {
     const song = data.songs.find(s=>s.id===state.song), stats = songStatistics(base, state.song);
     $('song-status').textContent = song.status==='curated'?'CURATED TITLE / RECORDING EVIDENCE':'UNREVIEWED SOURCE TITLE';
     $('song-title').textContent = song.title;
-    $('song-description').textContent = 'An observation history from imported tracklists. First observed here is not a verified debut. Duplicate sources and reprises count once per date group.';
-    $('song-facts').innerHTML = `<div><strong>${stats.count}</strong><span>OBSERVED DATES</span></div><div><strong>${stats.frequency===null?'—':Math.round(stats.frequency*100)+'%'}</strong><span>OF ${denominator} IMPORTED DATES</span></div>`;
+    $('song-description').textContent = 'A performance history from imported tracklists. The first date listed here is not a verified debut. Duplicate sources and reprises count once per date group.';
+    $('song-facts').innerHTML = `<div><strong>${stats.count}</strong><span>DATES PLAYED</span></div><div><strong>${stats.frequency===null?'—':Math.round(stats.frequency*100)+'%'}</strong><span>OF ${denominator} IMPORTED DATES</span></div>`;
     $('song-permalink').hidden = false;
     $('song-permalink').href = `songs/${song.id}/`;
     $('frequency-title').textContent = 'Share of imported dates, by year';
@@ -207,23 +212,23 @@ function renderSongs() {
       const pct = stat.frequency===null?null:stat.frequency*100;
       return `<div class="song-row"><button type="button" data-year="${r.year}">${r.year}</button><span class="track"><span class="fill" style="width:${pct||0}%"></span></span><span class="song-count">${pct===null?'no data':`${stat.count}/${stat.denominator}`}</span></div>`;
     }).join('');
-    $('frequency-note').textContent = `${stats.first?`First observed in this selection: ${stats.first}; last: ${stats.last}. `:''}Numerator: imported date groups containing this title. Denominator: date groups with track evidence. Partial tapes, missing imports and title mismatches can omit songs. Missing data is not zero plays.`;
+    $('frequency-note').textContent = `${stats.first?`First listed in this selection: ${stats.first}; last: ${stats.last}. `:''}Numerator: imported date groups containing this title. Denominator: date groups with track evidence. Partial tapes, missing imports and title mismatches can omit songs. Missing data is not zero plays.`;
   } else {
-    $('song-status').textContent = 'OBSERVED REPERTOIRE';
+    $('song-status').textContent = 'SONGS PLAYED';
     $('song-title').textContent = 'Songs in this selection';
     $('song-description').textContent = 'Choose a song to see its dates and frequency in the imported recordings. Reviewed title aliases connect the repertoire. Unreviewed labels remain in track evidence and are excluded from these charts.';
     $('song-facts').innerHTML = `<div><strong>${number(denominator)}</strong><span>DATES WITH TRACK EVIDENCE</span></div><div><strong>${number(base.length-denominator)}</strong><span>DATES WITHOUT SONG EVIDENCE</span></div>`;
     $('song-permalink').hidden=true;
-    $('frequency-title').textContent='Most observed in this selection';
+    $('frequency-title').textContent='Most played in this selection';
     const counts = new Map();
     for(const show of base) for(const id of show.song_ids) counts.set(id,(counts.get(id)||0)+1);
     const top = data.songs.filter(s=>counts.has(s.id)&&s.kind!=='improvisation').sort((a,b)=>counts.get(b.id)-counts.get(a.id)||a.title.localeCompare(b.title)).slice(0,9);
     $('song-chart').innerHTML=top.map(s=>`<div class="song-row"><button type="button" data-song="${escape(s.id)}">${escape(s.title)}${s.status==='candidate'?' *':''}</button><span class="track"><span class="fill" style="width:${counts.get(s.id)/Math.max(denominator,1)*100}%"></span></span><span class="song-count">${counts.get(s.id)} / ${denominator}</span></div>`).join('')||'<p class="small-note">No tracklists imported for this selection yet.</p>';
-    $('frequency-note').textContent='Counts describe the imported sample, not all concerts. Each date counts once per title. Unreviewed titles are excluded. Improvisation labels remain searchable but are omitted from this song ranking.';
+    $('frequency-note').textContent='Counts reflect indexed recordings; incomplete setlists may omit performances. Each date counts once per title. Unreviewed titles are excluded. Improvisation labels remain searchable but are omitted from this song ranking.';
   }
 }
 function renderHistory() {
-  $('personnel').innerHTML=data.history.members.map(m=>`<button class="personnel-row ${state.members.includes(m.id)?'active':''}" type="button" data-member="${escape(m.id)}" aria-pressed="${state.members.includes(m.id)}" title="${escape(m.note)}"><span>${escape(m.name)}</span><span class="personnel-track">${m.intervals.map(i=>{
+  $('personnel').innerHTML=data.history.members.map(m=>`<button class="personnel-row ${state.members.includes(m.id)?'active':''}" type="button" data-member="${escape(m.id)}" aria-pressed="${state.members.includes(m.id)}" title="${escape(m.note)}"><span class="personnel-name">${escape(m.name)}<small>${m.intervals.map(i=>`${i.start.slice(0,4)}–${i.end.slice(0,4)}`).join(' · ')}</small></span><span class="personnel-track" aria-hidden="true">${m.intervals.map(i=>{
     const start = Math.max(0,(new Date(i.start+'T00:00Z')-new Date('1965-01-01T00:00Z'))/(new Date('1996-01-01T00:00Z')-new Date('1965-01-01T00:00Z'))*100);
     const end = Math.min(100,(new Date(i.end+'T00:00Z')-new Date('1965-01-01T00:00Z'))/(new Date('1996-01-01T00:00Z')-new Date('1965-01-01T00:00Z'))*100);
     return `<span class="personnel-span" style="left:${start}%;width:${end-start}%" title="${escape(i.start)}–${escape(i.end)} (${escape(i.precision)} precision)"></span>`;

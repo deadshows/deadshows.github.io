@@ -25,7 +25,8 @@
   --solid-display: 'Archivo Black', 'Arial Black', sans-serif;
   --serif: Georgia, 'Times New Roman', serif;
 }
-body { position: relative; isolation: isolate; background: var(--paper); }
+html { overflow-x: clip; }
+body { overflow-x: clip; position: relative; isolation: isolate; background: var(--paper); }
 body::before {
   content: ''; position: fixed; inset: 0; z-index: -2; pointer-events: none;
   background: url('assets/wall-of-sound-schematic.svg') center 70px / max(100vw, 1180px) auto no-repeat;
@@ -107,7 +108,7 @@ nav a:hover, .text-button:hover { color: var(--blue); }
 .song-row:nth-child(3n+1) .fill { background: #b59b3e; }
 .personnel-track { background: #e6e7d8; }
 .personnel-span { background: #466b4a; }
-.personnel-row:nth-child(3n) .personnel-span { background: #4c63ac; }
+.personnel-name small { display: block; font-size: 9px; color: var(--muted); font-weight: 400; }
 .personnel-row.active .personnel-span { background: var(--red); }
 .events { scrollbar-color: #8a997e transparent; }
 .coverage-section { margin-top: 42px; padding: 32px; border: 2px solid var(--ink); background: #e8e8bde8; }

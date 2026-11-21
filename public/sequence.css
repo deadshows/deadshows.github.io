@@ -1,0 +1,62 @@
+.sequence-panel{border:2px solid #49684d;padding:30px;margin:32px 0;background:#f8f5eccc}
+.sequence-panel h2{margin:5px 0 12px}
+.sequence-filters,.sequence-slots{display:flex;flex-wrap:wrap;gap:16px;margin:16px 0}
+.sequence-filters label,.sequence-slot{display:grid;gap:6px;flex:1 1 190px;font-size:12px;font-weight:700}
+.sequence-panel select{width:100%;min-height:42px;padding:8px;background:#fffdf6;border:1px solid #acb39e;color:#263d2d;font:inherit}
+.sequence-panel fieldset{border:1px solid #b8bca9;padding:16px;margin:20px 0}
+.sequence-panel legend{font-weight:700}
+.sequence-check{display:block;font-size:13px}
+.sequence-actions,.sequence-presets{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin:20px 0}
+.sequence-panel button{cursor:pointer}
+.sequence-panel button:focus-visible,.sequence-panel select:focus-visible{outline:3px solid #9b492f;outline-offset:3px}
+.sequence-presets button{border:1px solid #819477;border-radius:2px;background:#e6eadb;padding:8px 12px;color:#263d2d}
+.sequence-result{border-top:2px solid #b6bdab;padding:22px 0}
+.sequence-result header{display:flex;justify-content:space-between;gap:15px}
+.sequence-result h3{margin:0;font-size:23px}
+.sequence-result header p{margin:5px 0}
+.sequence-result small{display:block;color:#59654f;font-size:12px}
+.sequence-passage{padding:12px;background:#e7ebdc}
+.sequence-passage mark{background:#d6deba;color:#233928;padding:2px 4px;line-height:2}
+.sequence-result nav{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+.sequence-result details{font-size:12px;margin-top:16px}
+.sequence-result summary{cursor:pointer;color:#38563e}
+.sequence-result details p{max-width:85ch}
+@media(max-width:600px){.sequence-panel{padding:18px 12px}
+.sequence-result header{display:block}
+.sequence-filters label,.sequence-slot{flex-basis:100%}
+}
+.seq-timeline{margin:28px 0;padding:20px 12px;background:#faf8ec;border:1px solid #a5b198}
+.seq-chart-heading{display:flex;justify-content:space-between;gap:15px;align-items:center}
+.seq-chart-heading h3{font-size:24px;margin:2px 0}
+.seq-chart-heading button,.seq-window button{padding:8px;background:#e4e8d6;border:1px solid #718768;color:#283d2c}
+.seq-density-scroll{overflow-x:auto;padding-bottom:14px;margin-top:20px}
+.seq-density{height:180px;min-width:1050px;display:flex;align-items:flex-end;gap:4px;border-bottom:1px solid #718366;margin-bottom:28px;padding:0 4px}
+.seq-year{position:relative;flex:1;height:160px;padding:0;border:0;background:transparent;min-width:27px}
+.seq-year small{position:absolute;bottom:-21px;left:50%;transform:translateX(-50%);font:9px monospace}
+.seq-months{display:flex;gap:1px;align-items:flex-end;height:100%}
+.seq-months i{height:100%;flex:1;position:relative}
+.seq-months b,.seq-months em{position:absolute;bottom:0;left:0;width:100%;height:var(--coverage);background:#c4ceb2}
+.seq-months em{height:var(--match);background:#4963aa}
+.seq-unavailable{background:repeating-linear-gradient(135deg,#81916c33 0,#81916c33 1px,transparent 1px,transparent 5px)}
+.seq-year.seq-unavailable{height:14px}
+.seq-year:hover,.seq-year:focus-visible{outline:2px solid #9b492f;outline-offset:2px}
+.seq-chart-key{display:flex;gap:14px;flex-wrap:wrap;font-size:11px}
+.seq-chart-key span{display:flex;align-items:center;gap:6px}
+.seq-chart-key i{width:13px;height:9px;display:inline-block}
+.seq-key-match{background:#4963aa}
+.seq-key-context{background:#c4ceb2}
+.seq-key-unavailable{background:repeating-linear-gradient(135deg,#81916c 0,#81916c 1px,transparent 1px,transparent 4px)}
+.seq-chart-readout{font-size:12px;padding:12px;background:#eef0df}
+.seq-window{display:flex;gap:15px;align-items:center;margin:18px 0}
+.seq-window label{flex:1;font-size:12px}
+.seq-window input{display:block;width:100%;accent-color:#4963aa;margin-top:8px}
+.seq-shows{position:relative;display:block;min-width:1000px;padding:0}
+.seq-month-window{position:absolute;bottom:0;height:160px}
+.seq-month-window small{position:absolute;bottom:-24px;left:2px;font:10px monospace}
+.seq-show{position:absolute;bottom:0;width:7px;height:45px;transform:translateX(-50%);padding:0;border:0;background:#bdc9a8;z-index:2}
+.seq-show-match{height:150px;background:#4963aa}
+.seq-show:hover,.seq-show:focus-visible{background:#9b492f;outline:2px solid #253e2c;z-index:3}
+
+
+.sequence-panel,.seq-timeline,.seq-density-scroll,.sequence-filters label,.sequence-slot,.sequence-panel fieldset{min-width:0;max-width:100%}
+.sequence-result{overflow-wrap:anywhere}
